@@ -3,7 +3,7 @@
 ```markdown
 ## Overblik:
 ### 
-[Bouncing Ball](https://github.com/Christorob/Programmering-Christorob/tree/main/Bouncing_ball)
+[https://github.com/Christorob/Programmering-Christorob/tree/main/Bouncing_ball](Bouncing Ball)
 
 **Bold** and _Italic_ and `Code` text
 
