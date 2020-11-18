@@ -1,6 +1,6 @@
 // Variable set up
-float x0 = 200;
-float y0 = 600; 
+float x0 = 300;
+float y0 = 650; 
 float xBird = x0; 
 float yBird = y0;
 float g = -9.82;
@@ -8,12 +8,12 @@ float v0;
 float u0;
 float A;
 float t;
-float k = 10;
-float m = 1;
+float k = 100;
+float m = 10;
 float v;
+float L;
 boolean launched = false;
 boolean hit = false;
-float L;
 
 // Setup
 void setup(){
@@ -25,8 +25,16 @@ void setup(){
 void draw(){
   clear();        // Så der ikke er efterladt linjer osv.
   lines();
+  
+  
+  
+  // Tegner fuglen:
   fill(255, 0, 0);
-  circle(xBird, yBird, 20);        // fuglens cirkel
+  circle(xBird, yBird, 40);       
+  fill(255,255,0);
+  triangle((xBird + 12), (yBird + 15), (xBird + 12), (yBird -15), (xBird + 35), (yBird));
+  
+  
   text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100); // text som viser koordinater og hjælp
    text("Press R to reset!", 50, 150);
    //funktioner som er kaldt i draw
@@ -64,16 +72,17 @@ void lines(){
 
 //reset funktionen
 void keyPressed(){       // reset funktion
+ if(key=='r'||key=='R'){
  reset();
+  }
 }
 
 void reset(){
-   if(key=='r'||key=='R'){
+  text("The game has been reset!", 50, 200);
   launched = false;
   xBird = x0;
   yBird = y0;
   t = 0;
-  }
 }
 
 //Beregner vinklen
@@ -90,7 +99,7 @@ void angle(){
 //Beregner længden som slangebøssen er trukket tilbage med
 void pull(){
 if(launched == false){
-    L = dist(mouseX,mouseY,x0,y0)/4;
+    L = dist(mouseX,mouseY,x0,y0)/2;
   }
 }
 
@@ -98,24 +107,23 @@ if(launched == false){
 void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt, men ikke har ramt gulvet endnu
    if(launched == true){
      if(hit == false){
-     if(yBird < 801){
+     if(yBird < 760){
      t = t + 0.075;
      }else{ reset();
    }
   }
- 
-
-
+  
 //fjeder energien beregnes
   float E = 0.5 * k * L * L;
 //u0 og v0 beregnes, baseret på E, m og A.
-  u0 = sqrt( (2*E) / (m*(1+A*A)) );       //Affyringshastighed (x)
-  v0 = A * (sqrt( (2*E) / (m*(1+A*A)) )); //Affyringshastighed (y)
+  u0 = sqrt( (2 * E) / (m * (1 + A * A)));       //Affyringshastighed (x)
+  v0 = A * (sqrt( (2 * E) / (m * (1 + A * A)))); //Affyringshastighed (y)
 //x og y koordinater beregnes
   xBird = u0 * t + x0;
   yBird = -0.5 * g * t * t + v0 * t + y0;
   }
 }
+
 //ikke færdig funktion:
 //Vil skabe en bane som så kan rammes af fuglen, og måske have ting som kan ødelægges.
 void world(){
@@ -129,12 +137,12 @@ void visPrikker(){
   prikEnergy = 0.5 * 100 * L * L;
   prikAngle = tan(v);
   
-  float u0P = sqrt( (2*prikEnergy) / (1*(1+prikAngle*prikAngle)) );       // x speed
-  float v0P = prikAngle * (sqrt( (2*prikEnergy) / (1*(1+prikAngle*prikAngle)) )); // y speed
-  float prikGravity = -9.82;
-  circle(u0P * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0P * 4 + y0,1);
-  circle(u0P * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0P * 3 + y0,3);
-  circle(u0P * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0P * 2 + y0,4);
-  circle(u0P * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0P * 1 + y0,5);
+  float u0Prik = sqrt( (2 * prikEnergy) / (1 * (1 + prikAngle * prikAngle)) );       // x speed
+  float v0Prik = prikAngle * (sqrt( (2 * prikEnergy) / ( 1* (1 + prikAngle * prikAngle)) )); // y speed
+  float prikGravity = 10*-9.82;
+  circle(u0Prik * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0Prik * 4 + y0,1);
+  circle(u0Prik * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0Prik * 3 + y0,3);
+  circle(u0Prik * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0Prik * 2 + y0,4);
+  circle(u0Prik * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0Prik * 1 + y0,5);
 
 }
