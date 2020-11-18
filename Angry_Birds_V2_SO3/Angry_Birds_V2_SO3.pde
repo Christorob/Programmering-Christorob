@@ -26,7 +26,7 @@ void mousePressed(){
 void lines(){
  stroke(255);
   line(mouseX,mouseY,x0,y0);
-  line(x0, y0 
+  line(x0, y0, x0, mouseX);
 }
 
 void launchBird(){
