@@ -164,9 +164,21 @@ void visPrikker(){
   float u0Prik = sqrt( (2 * prikEnergy) / (1 * (1 + prikAngle * prikAngle)) );       // x speed
   float v0Prik = prikAngle * (sqrt( (2 * prikEnergy) / ( 1* (1 + prikAngle * prikAngle)) )); // y speed
   float prikGravity = 10*-9.82;
-  circle(u0Prik * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0Prik * 4 + y0,1);
-  circle(u0Prik * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0Prik * 3 + y0,3);
-  circle(u0Prik * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0Prik * 2 + y0,4);
-  circle(u0Prik * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0Prik * 1 + y0,5);
+  circle(u0Prik * 8 + x0,-0.5 * prikGravity * 8 * 8 + v0Prik * 8 + y0,1);
+  circle(u0Prik * 7.5 + x0,-0.5 * prikGravity * 7.5 * 7.5 + v0Prik * 7.5 + y0,1.5);
+  circle(u0Prik * 7 + x0,-0.5 * prikGravity * 7 * 7 + v0Prik * 7 + y0,2);
+  circle(u0Prik * 6.5 + x0,-0.5 * prikGravity * 6.5 * 6.5 + v0Prik * 6.5 + y0,2.5);
+  circle(u0Prik * 6 + x0,-0.5 * prikGravity * 6 * 6 + v0Prik * 6 + y0,3);
+  circle(u0Prik * 5.5 + x0,-0.5 * prikGravity * 5.5 * 5.5 + v0Prik * 5.5 + y0,3.5);
+  circle(u0Prik * 5 + x0,-0.5 * prikGravity * 5 * 5 + v0Prik * 5 + y0,4);
+  circle(u0Prik * 4.5 + x0,-0.5 * prikGravity * 4.5 * 4.5 + v0Prik * 4.5 + y0,4.5);
+  circle(u0Prik * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0Prik * 4 + y0,5);
+  circle(u0Prik * 3.5 + x0,-0.5 * prikGravity * 3.5 * 3.5 + v0Prik * 3.5 + y0,5.5);
+  circle(u0Prik * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0Prik * 3 + y0,6);
+  circle(u0Prik * 2.5 + x0,-0.5 * prikGravity * 2.5 * 2.5 + v0Prik * 2.5 + y0,6.5);
+  circle(u0Prik * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0Prik * 2 + y0,7);
+  circle(u0Prik * 1.5 + x0,-0.5 * prikGravity * 1.5 * 1.5 + v0Prik * 1.5 + y0,7.5);
+  circle(u0Prik * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0Prik * 1 + y0,8);
+  circle(u0Prik * 0.5 + x0,-0.5 * prikGravity * 0.5 * 0.5 + v0Prik * 0.5 + y0,8.5);
 
 }
