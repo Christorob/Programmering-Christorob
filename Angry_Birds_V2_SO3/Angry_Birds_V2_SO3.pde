@@ -146,6 +146,7 @@ if(launched == false){
   }
 }
 
+
 //Skyder fuglen
 void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt, men ikke har ramt gulvet endnu
 if(gameStart == true){
