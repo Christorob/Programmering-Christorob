@@ -14,7 +14,7 @@ void draw(){
   clear();
   lines();
   circle(xBird, yBird, 10);
-  
+  text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100);
   if(launched == false){
   angle();
     
@@ -32,8 +32,10 @@ void lines(){
   line(mouseX,mouseY,x0,y0);
   line(x0, y0, x0, mouseY);
     ly =  dist(x0, y0, x0, mouseY);
+    
   line(mouseX, mouseY, x0, mouseY);
     lx = dist(mouseX, mouseY, x0, mouseY);
+    
  textSize(15);
    text(ly, x0, mouseY - 30); 
    text(lx, mouseX + 20, mouseY +20);
@@ -41,17 +43,33 @@ void lines(){
 }
 
 void angle(){
-  A = atan(ly/lx);
-  text("Launch angle = " + degrees(A) + "°", 50, 50);
+  line(x0, y0, x0, mouseY);
+    ly =  dist(x0, y0, x0, mouseY);
+    
+  line(mouseX, mouseY, x0, mouseY);
+    lx = dist(mouseX, mouseY, x0, mouseY);
+    
+ textSize(15);
+   text(ly, x0, mouseY - 30); 
+   text(lx, mouseX + 20, mouseY +20);
+  A = degrees(atan(ly/lx));
+  text("Launch angle = " + A + "°", 50, 50);
 }
 
 void launchBird(){
-t = t + 0.00333333333333333333333333333333;
-  xBird = (u0 * t);
-  yBird = ((-0.5 * g * t * t) + (v0 * t + y0));
+
+  u0 = sqrt((2 * E) / (m * (1 + A * A )));
+  v0 = A * sqrt((2 * E) / (m * (1 + A * A)));
+  
+   
+  //xBird = (u0 * t);
+  //yBird = ((-0.5 * g * t * t) + (v0 * t + y0));
   
   
-  u0 = sqrt((2 * E) / m * (1 + A * A ));
-  v0 = A * sqrt((2 * E) / m * (1 + A * A));
+   xBird = v0 * cos(A) * t + x0;
+   yBird = -0.5 * g * t * t +v0 * sin(A) * t + y0;
+   t = t + 0.0333333333333333333333333333333;
+  
+
   
 }
