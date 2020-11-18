@@ -64,7 +64,11 @@ void lines(){
 
 //reset funktionen
 void keyPressed(){       // reset funktion
-  if(key=='r'||key=='R'){
+ reset();
+}
+
+void reset(){
+   if(key=='r'||key=='R'){
   launched = false;
   xBird = x0;
   yBird = y0;
@@ -78,7 +82,7 @@ void angle(){
    float a = mouseY - y0;
    float b = mouseX - x0;
    v = atan(a/b);
-    A = tan(v);
+   A = tan(v);
    text("Launch angle = " + degrees(-v) + "°", 50, 50);
   }
 }
@@ -94,8 +98,13 @@ if(launched == false){
 void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt, men ikke har ramt gulvet endnu
    if(launched == true){
      if(hit == false){
-    t = t + 0.075;
-}
+     if(yBird < 801){
+     t = t + 0.075;
+     }else{ reset();
+   }
+  }
+ 
+
 
 //fjeder energien beregnes
   float E = 0.5 * k * L * L;
@@ -107,12 +116,13 @@ void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt
   yBird = -0.5 * g * t * t + v0 * t + y0;
   }
 }
-
+//ikke færdig funktion:
+//Vil skabe en bane som så kan rammes af fuglen, og måske have ting som kan ødelægges.
 void world(){
-  curve(0, 760, 300, 700, 500, 600, 700, 250);
+ // curve(0, 760, 300, 700, 500, 600, 700, 250);
   stroke(255);
 }
-
+//Prikker funktion, med stort tak til Daniel for hjælpen
 void visPrikker(){
   float prikEnergy;  
   float prikAngle;  //Skuddets affyringshældning
