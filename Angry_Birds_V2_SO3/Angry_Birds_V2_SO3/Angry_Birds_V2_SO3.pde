@@ -1,6 +1,7 @@
 float x0 = 200, y0 = 600, xBird, yBird, g = 9.82, v0, u0, A, t, ly, lx, k = 100, m = 1;
 float L = dist(mouseX,mouseY,x0,y0);
 float E = 0.5 * k * L * L;
+float x = 10, y = 10;
 
 boolean launched = false;
 void setup(){
@@ -17,6 +18,7 @@ void draw(){
   text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100);
   if(launched == false){
   angle();
+  world();
     
   }
 }
@@ -70,6 +72,9 @@ void launchBird(){
    yBird = -0.5 * g * t * t +v0 * sin(A) * t + y0;
    t = t + 0.0333333333333333333333333333333;
   
+}
 
-  
+void world(){
+  stroke(255);
+hejievnoin
 }
