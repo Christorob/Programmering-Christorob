@@ -1,8 +1,8 @@
 // Variable set up
 float x0 = 200;
 float y0 = 600; 
-float xBird; 
-float yBird;
+float xBird = x0; 
+float yBird = y0;
 float g = -9.82;
 float v0;
 float u0;
@@ -19,8 +19,6 @@ float L;
 void setup(){
   size(2000, 800);
   textSize(25);
-  xBird = x0;
-  yBird = y0;
 }
 
 // Draw function, 30 times per second
@@ -28,40 +26,35 @@ void draw(){
   clear();        // Så der ikke er efterladt linjer osv.
   lines();
   fill(255, 0, 0);
-  circle(xBird, yBird, 20);
-  text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100);
+  circle(xBird, yBird, 20);        // fuglens cirkel
+  text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100); // text som viser koordinater og hjælp
    text("Press R to reset!", 50, 150);
+   //funktioner som er kaldt i draw
+   
   world();
   angle();
   launchBird();
   pull();
-  
    if(launched==false){
-  visPrikker();
+    visPrikker();
   }
 }
 
-
+//Tjekker om musen er trykket, og starter kastet hvis den er
 void mousePressed(){
   launched = true;
   launchBird();
-
 }
-
-
+// tegner linjerne i slangebøssen
 void lines(){
-  if(launched == false){
-    
-    float ly;
-    float lx;
-    
+  if(launched == false){  
  stroke(255);
   line(mouseX,mouseY,x0,y0);
   line(x0, y0, x0, mouseY);
-    ly =  dist(x0, y0, x0, mouseY);
+   float ly =  dist(x0, y0, x0, mouseY);
     
   line(mouseX, mouseY, x0, mouseY);
-    lx = dist(mouseX, mouseY, x0, mouseY);
+   float lx = dist(mouseX, mouseY, x0, mouseY);
     
  textSize(15);
    text(ly, x0, mouseY - 30); 
@@ -69,50 +62,54 @@ void lines(){
   }
 }
 
+//reset funktionen
 void keyPressed(){       // reset funktion
   if(key=='r'||key=='R'){
   launched = false;
-  xBird = 0;
-  yBird = 0;
+  xBird = x0;
+  yBird = y0;
   t = 0;
   }
 }
 
+//Beregner vinklen
 void angle(){        
   if(launched == false){        // Så der ikke hele tiden ændres på vinklen
    float a = mouseY - y0;
    float b = mouseX - x0;
    v = atan(a/b);
-   
-   text("Launch angle = " + v + "°", 50, 50);
+    A = tan(v);
+   text("Launch angle = " + degrees(-v) + "°", 50, 50);
   }
 }
 
-
+//Beregner længden som slangebøssen er trukket tilbage med
 void pull(){
 if(launched == false){
-    L = dist(mouseX,mouseY,x0,y0)/2;
-     }
+    L = dist(mouseX,mouseY,x0,y0)/4;
+  }
 }
-void launchBird(){
+
+//Skyder fuglen
+void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt, men ikke har ramt gulvet endnu
    if(launched == true){
      if(hit == false){
-    t = t + 0.1;
-     }
+    t = t + 0.075;
+}
 
-    float E = 0.5 * k * L * L;
-      A = tan(v);
-      
+//fjeder energien beregnes
+  float E = 0.5 * k * L * L;
+//u0 og v0 beregnes, baseret på E, m og A.
   u0 = sqrt( (2*E) / (m*(1+A*A)) );       //Affyringshastighed (x)
   v0 = A * (sqrt( (2*E) / (m*(1+A*A)) )); //Affyringshastighed (y)
+//x og y koordinater beregnes
   xBird = u0 * t + x0;
   yBird = -0.5 * g * t * t + v0 * t + y0;
-     
-   }
+  }
 }
 
 void world(){
-  
+  curve(0, 760, 300, 700, 500, 600, 700, 250);
   stroke(255);
 }
 
