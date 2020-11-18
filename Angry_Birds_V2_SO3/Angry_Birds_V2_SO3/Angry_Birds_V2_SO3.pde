@@ -30,10 +30,15 @@ void draw(){
   fill(255, 0, 0);
   circle(xBird, yBird, 20);
   text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100);
+   text("Press R to reset!", 50, 150);
   world();
   angle();
   launchBird();
   pull();
+  
+   if(launched==false){
+  visPrikker();
+  }
 }
 
 
@@ -64,6 +69,15 @@ void lines(){
   }
 }
 
+void keyPressed(){       // reset funktion
+  if(key=='r'||key=='R'){
+  launched = false;
+  xBird = 0;
+  yBird = 0;
+  t = 0;
+  }
+}
+
 void angle(){        
   if(launched == false){        // Så der ikke hele tiden ændres på vinklen
    float a = mouseY - y0;
@@ -77,7 +91,7 @@ void angle(){
 
 void pull(){
 if(launched == false){
-    L = dist(mouseX,mouseY,x0,y0)/7;
+    L = dist(mouseX,mouseY,x0,y0)/2;
      }
 }
 void launchBird(){
@@ -85,15 +99,10 @@ void launchBird(){
      if(hit == false){
     t = t + 0.1;
      }
-     
-     
+
     float E = 0.5 * k * L * L;
-    
-     
       A = tan(v);
       
-     
-  
   u0 = sqrt( (2*E) / (m*(1+A*A)) );       //Affyringshastighed (x)
   v0 = A * (sqrt( (2*E) / (m*(1+A*A)) )); //Affyringshastighed (y)
   xBird = u0 * t + x0;
@@ -105,6 +114,20 @@ void launchBird(){
 void world(){
   
   stroke(255);
+}
+
+void visPrikker(){
+  float prikEnergy;  
+  float prikAngle;  //Skuddets affyringshældning
+  prikEnergy = 0.5 * 100 * L * L;
+  prikAngle = tan(v);
   
+  float u0P = sqrt( (2*prikEnergy) / (1*(1+prikAngle*prikAngle)) );       // x speed
+  float v0P = prikAngle * (sqrt( (2*prikEnergy) / (1*(1+prikAngle*prikAngle)) )); // y speed
+  float prikGravity = -9.82;
+  ellipse(u0P * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0P * 4 + y0,1,1);
+  ellipse(u0P * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0P * 3 + y0,3,3);
+  ellipse(u0P * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0P * 2 + y0,4,4);
+  ellipse(u0P * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0P * 1 + y0,5,5);
 
 }
