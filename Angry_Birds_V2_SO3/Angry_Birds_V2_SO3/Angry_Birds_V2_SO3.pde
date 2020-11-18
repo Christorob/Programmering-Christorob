@@ -1,8 +1,20 @@
 // Variable set up
-float x0 = 200, y0 = 600, xBird, yBird, g = -9.82, v0, u0, A, t = 0, ly, lx, k = 100, m = 1, v;
-float L = dist(mouseX,mouseY,x0,y0)/15;
-float E = 0.5 * k * L * L;
-float x = 10, y = 10;
+float x0 = 200;
+float y0 = 600; 
+float xBird; 
+float yBird;
+float g = -9.82;
+float v0;
+float u0;
+float A;
+float t;
+float ly;
+float lx;
+float k = 10;
+float m = 1;
+float v;
+
+
 
 boolean launched = false;
 
@@ -16,7 +28,7 @@ void setup(){
 
 // Draw function, 30 times per second
 void draw(){
-  //clear();        // Så der ikke er efterladt linjer osv.
+  clear();        // Så der ikke er efterladt linjer osv.
   lines();
   circle(xBird, yBird, 20);
   text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100);
@@ -55,15 +67,16 @@ void angle(){
    float b = mouseX - x0;
    v = atan(a/b);
    
-   text("Launch angle = " + A + "°", 50, 50);
+   text("Launch angle = " + v + "°", 50, 50);
   }
 }
 
 void launchBird(){
    if(launched == true){
-    t = t + 0.0333333333333333333333333333333333;
-   
-  A = tan(v);
+    t = t + 1;
+    float L = dist(mouseX,mouseY,x0,y0)/15;
+    float E = 0.5 * k * L * L;
+      A = tan(v);
   
   u0 = sqrt( (2*E) / (m*(1+A*A)) );       //Affyringshastighed (x)
   v0 = A * (sqrt( (2*E) / (m*(1+A*A)) )); //Affyringshastighed (y)
