@@ -132,9 +132,9 @@ void visPrikker(){
   float u0P = sqrt( (2*prikEnergy) / (1*(1+prikAngle*prikAngle)) );       // x speed
   float v0P = prikAngle * (sqrt( (2*prikEnergy) / (1*(1+prikAngle*prikAngle)) )); // y speed
   float prikGravity = -9.82;
-  ellipse(u0P * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0P * 4 + y0,1,1);
-  ellipse(u0P * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0P * 3 + y0,3,3);
-  ellipse(u0P * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0P * 2 + y0,4,4);
-  ellipse(u0P * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0P * 1 + y0,5,5);
+  circle(u0P * 4 + x0,-0.5 * prikGravity * 4 * 4 + v0P * 4 + y0,1);
+  circle(u0P * 3 + x0,-0.5 * prikGravity * 3 * 3 + v0P * 3 + y0,3);
+  circle(u0P * 2 + x0,-0.5 * prikGravity * 2 * 2 + v0P * 2 + y0,4);
+  circle(u0P * 1 + x0,-0.5 * prikGravity * 1 * 1 + v0P * 1 + y0,5);
 
 }
