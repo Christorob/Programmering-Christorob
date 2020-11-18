@@ -14,19 +14,25 @@ float v;
 float L;
 boolean launched = false;
 boolean hit = false;
+boolean gameStart = false;
 
 // Setup
 void setup(){
   size(2000, 800);
-  textSize(25);
+  background(255,50,50);
+  textSize(100);
+  text("WELCOME TO ANGRY BIRDS!", 200, 500);
+  text("Press Space to begin!", 200, 600);
 }
 
 // Draw function, 30 times per second
 void draw(){
+  
+  if(gameStart == true){
+  textSize(20);
   clear();        // Så der ikke er efterladt linjer osv.
+  
   lines();
-  
-  
   
   // Tegner fuglen:
   fill(255, 0, 0);
@@ -46,15 +52,19 @@ void draw(){
    if(launched==false){
     visPrikker();
   }
+ }
 }
 
 //Tjekker om musen er trykket, og starter kastet hvis den er
 void mousePressed(){
+  if(gameStart == true){
   launched = true;
   launchBird();
+  }
 }
 // tegner linjerne i slangebøssen
 void lines(){
+  if(gameStart == true){
   if(launched == false){  
  stroke(255);
   line(mouseX,mouseY,x0,y0);
@@ -68,25 +78,34 @@ void lines(){
    text(ly, x0, mouseY - 30); 
    text(lx, mouseX + 20, mouseY +20);
   }
+ }
 }
 
 //reset funktionen
-void keyPressed(){       // reset funktion
+void keyPressed(){       
+  //Start funktion
+  if(key==' '){
+    gameStart = true;
+  }
+  // Reset funktion
  if(key=='r'||key=='R'){
  reset();
   }
 }
 
 void reset(){
+  if(gameStart == true){
   text("The game has been reset!", 50, 200);
   launched = false;
   xBird = x0;
   yBird = y0;
   t = 0;
+  }
 }
 
 //Beregner vinklen
-void angle(){        
+void angle(){     
+  if(gameStart == true){
   if(launched == false){        // Så der ikke hele tiden ændres på vinklen
    float a = mouseY - y0;
    float b = mouseX - x0;
@@ -94,17 +113,21 @@ void angle(){
    A = tan(v);
    text("Launch angle = " + degrees(-v) + "°", 50, 50);
   }
+ }
 }
 
 //Beregner længden som slangebøssen er trukket tilbage med
 void pull(){
+if(gameStart == true){
 if(launched == false){
     L = dist(mouseX,mouseY,x0,y0)/2;
+    }
   }
 }
 
 //Skyder fuglen
 void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt, men ikke har ramt gulvet endnu
+if(gameStart == true){
    if(launched == true){
      if(hit == false){
      if(yBird < 760){
@@ -121,7 +144,8 @@ void launchBird(){     // får tid til kun at gå op hvis fuglen er blevet skudt
 //x og y koordinater beregnes
   xBird = u0 * t + x0;
   yBird = -0.5 * g * t * t + v0 * t + y0;
-  }
+  }  
+ }
 }
 
 //ikke færdig funktion:
