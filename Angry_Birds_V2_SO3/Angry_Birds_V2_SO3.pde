@@ -27,24 +27,45 @@ void setup(){
 
 // Draw function, 30 times per second
 void draw(){
-  
   if(gameStart == true){
   textSize(20);
   clear();        // Så der ikke er efterladt linjer osv.
-  
+  background(50,150,255);
+    text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100); // text som viser koordinater og hjælp
+    text("Press R to reset!", 50, 150);
   lines();
   
-  // Tegner fuglen:
+  //Draws Bird:
+  //Body:
   fill(255, 0, 0);
-  circle(xBird, yBird, 40);       
+  stroke(100);
+  ellipse(xBird -22, yBird - 5, 25, 8);
+  ellipse(xBird -20, yBird + 3, 20, 12);
+  circle(xBird, yBird, 40);
+  
+  //Beak:
   fill(255,255,0);
+  stroke(100);
   triangle((xBird + 12), (yBird + 15), (xBird + 12), (yBird -15), (xBird + 35), (yBird));
+  line(xBird + 12, yBird+4, xBird +35, yBird);
   
+  //Eye:
+  fill(255);
+  stroke(100);
+  circle(xBird + 10, yBird - 10, 10);
+  fill(0);
+  circle(xBird + 12, yBird - 10, 3);
   
-  text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100); // text som viser koordinater og hjælp
-   text("Press R to reset!", 50, 150);
-   //funktioner som er kaldt i draw
-   
+  //Eyebrows:
+  fill(0);
+  stroke(50);
+  triangle((xBird + 10), (yBird - 20), (xBird - 10), (yBird - 15), (xBird+17 ), (yBird-10));
+
+  
+  //returnerer settings for farver til normalt:
+  fill(255);
+  stroke(255);
+//funktioner som er kaldt i draw
   world();
   angle();
   launchBird();
