@@ -8,19 +8,16 @@ float v0;
 float u0;
 float A;
 float t;
-float ly;
-float lx;
 float k = 10;
 float m = 1;
 float v;
-
-
-
 boolean launched = false;
+boolean hit = false;
+float L;
 
 // Setup
 void setup(){
-  size(1200, 800);
+  size(2000, 800);
   textSize(25);
   xBird = x0;
   yBird = y0;
@@ -30,13 +27,15 @@ void setup(){
 void draw(){
   clear();        // Så der ikke er efterladt linjer osv.
   lines();
+  fill(255, 0, 0);
   circle(xBird, yBird, 20);
   text("X position of bird: " + xBird + "   Y position of bird: " + yBird, 50, 100);
   world();
   angle();
-    if(launched == true){ 
-    }
-  }
+  launchBird();
+  pull();
+}
+
 
 void mousePressed(){
   launched = true;
@@ -47,6 +46,10 @@ void mousePressed(){
 
 void lines(){
   if(launched == false){
+    
+    float ly;
+    float lx;
+    
  stroke(255);
   line(mouseX,mouseY,x0,y0);
   line(x0, y0, x0, mouseY);
@@ -71,22 +74,37 @@ void angle(){
   }
 }
 
+
+void pull(){
+if(launched == false){
+    L = dist(mouseX,mouseY,x0,y0)/7;
+     }
+}
 void launchBird(){
    if(launched == true){
-    t = t + 1;
-    float L = dist(mouseX,mouseY,x0,y0)/15;
+     if(hit == false){
+    t = t + 0.1;
+     }
+     
+     
     float E = 0.5 * k * L * L;
+    
+     
       A = tan(v);
+      
+     
   
   u0 = sqrt( (2*E) / (m*(1+A*A)) );       //Affyringshastighed (x)
   v0 = A * (sqrt( (2*E) / (m*(1+A*A)) )); //Affyringshastighed (y)
   xBird = u0 * t + x0;
   yBird = -0.5 * g * t * t + v0 * t + y0;
-  
+     
    }
 }
 
 void world(){
+  
   stroke(255);
+  
 
 }
