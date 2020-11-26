@@ -1,7 +1,7 @@
 # Christopher Robin's Programmer
 
-### Alle mine færdige programmer:
-```markdown
+## Alle mine færdige programmer:
+
 [**- Bouncing Ball**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bouncing_ball)
 
 [**- Firkant Kunst**](https://github.com/Christorob/Programmering-Christorob/tree/main/FirkantKunst)
@@ -11,7 +11,7 @@
 [**- The Creature 2**](https://github.com/Christorob/Programmering-Christorob/tree/main/TheCreature_2_2020)
 
 [**- Angry Birds Projekt (SO3)**](https://github.com/Christorob/Programmering-Christorob/tree/main/Angry_Birds_V2_SO3)
-``` 
+
 ### To Do:
 ```markdown
 - Bilopgaven [**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
