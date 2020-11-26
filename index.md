@@ -2,26 +2,30 @@
 
 ## Alle mine færdige programmer:
 
-[**- Bouncing Ball**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bouncing_ball)
+- [**Bouncing Ball**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bouncing_ball)
 
-[**- Firkant Kunst**](https://github.com/Christorob/Programmering-Christorob/tree/main/FirkantKunst)
+- [**Firkant Kunst**](https://github.com/Christorob/Programmering-Christorob/tree/main/FirkantKunst)
 
-[**- Terninge Generator**](https://github.com/Christorob/Programmering-Christorob/tree/main/TerningeGenerator_Opgave)
+- [**Terninge Generator**](https://github.com/Christorob/Programmering-Christorob/tree/main/TerningeGenerator_Opgave)
 
-[**- The Creature 2**](https://github.com/Christorob/Programmering-Christorob/tree/main/TheCreature_2_2020)
+- [**The Creature 2**](https://github.com/Christorob/Programmering-Christorob/tree/main/TheCreature_2_2020)
 
-[**- Angry Birds Projekt (SO3)**](https://github.com/Christorob/Programmering-Christorob/tree/main/Angry_Birds_V2_SO3)
+- [**Angry Birds Projekt (SO3)**](https://github.com/Christorob/Programmering-Christorob/tree/main/Angry_Birds_V2_SO3)
 
-### To Do:
 
-- Bilopgaven [**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
+
+## To Do:
+
+- [**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
   - [x] Lav Klassen til bilen
-  - [ ] Lav Bilens design
+  - [ ] Lav bilens design
+    - [ ] Lav flere bil designs
   - [ ] Skab vejsystem
-  - [ ] Lav bil path-finding system
+    - [ ] Lav bil path-finding system
+  - [ ] Lav Vej generation system
 
-## Noter til Programmering
+### Noter til Programmering
 ```markdown
-- OOP (_Objekt Orienteret Programmering_)
+> OOP (_Objekt Orienteret Programmering_)
 
 ```
