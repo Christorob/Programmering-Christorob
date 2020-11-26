@@ -78,7 +78,7 @@ void draw(){
 
 //Tjekker om musen er trykket, og starter kastet hvis den er
 void mousePressed(){
-  if(gameStart == true){
+  if(gameStart == true && launched == false){
   launched = true;
   launchBird();
   }
