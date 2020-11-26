@@ -5,7 +5,7 @@ class Car{
   color carColorR, carColorG, carColorB;
   float xCarSize, yCarSize;
   
-  //Constructor
+//Constructor
   Car(float tempXCarSpeed, float tempYCarSpeed, float tempXCar, float tempYCar, float tempXCarSize, float tempYCarSize, color tempCarColorR, color tempCarColorG, color tempCarColorB){
   xCarSpeed = tempXCarSpeed;
   yCarSpeed = tempYCarSpeed;
@@ -22,12 +22,12 @@ class Car{
       xCar = xCar + xCarSpeed;
       if(xCar > width){
         xCar = 0;
-        
+      }
+      
       yCar = yCar + yCarSpeed;
         if(yCar > height){
           yCar = 0;
         }
-      }
   }
   
   void display(){

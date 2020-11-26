@@ -8,13 +8,13 @@ void setup(){
   rectMode(CENTER);
 
 //Cars
-car1 = new Car(/* x & yCarSpeed*/ 25, 25, /*x & yCar (start)*/ 10, 10, /*x & y CarSize*/ 30, 20, /*RGB*/10, 20, 30);
-car2 = new Car(20, 32, 100, 20, 40, 20, 10, 100, 50);
+car1 = new Car(/* x & yCarSpeed*/ 25, 10, /*x & yCar (start)*/ 0, 500, /*x & y CarSize*/ 60, 30, /*RGB*/200, 20, 30);
+car2 = new Car(20, 3, 0, 100, 80, 35, 10, 100, 50);
 }
 
 void draw(){
   clear();
-  background(255);
+  background(150);
   driveCars();
   drawCars();
 }
