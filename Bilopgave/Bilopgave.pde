@@ -1,3 +1,5 @@
+Car car1;
+
 //Var setup
 float xCar;
 float yCar;
@@ -9,20 +11,22 @@ void setup(){
 size(1800, 900);
 frameRate(60);
 background(0);
-
+rectMode(CENTER);
 
 //Cars
-Car car1 = new Car(100, 100, 100);
-
+  car1 = new Car(100, 800, 100); // xspeed, yspeed, color
 }
-
 
 void draw(){
-  drive();
+ clear();
+  driveCars();
+  drawCars();
 }
 
-void drive(){
+void driveCars(){
+ car1.drive();
+}
 
-float xCar = xCar + xCarSpeed;
-float yCar = yCar + yCarSpeed;
+void drawCars(){
+ car1.display();  
 }
