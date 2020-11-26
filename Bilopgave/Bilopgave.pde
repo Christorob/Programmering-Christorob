@@ -1,32 +1,30 @@
 Car car1;
-
-//Var setup
-float xCar;
-float yCar;
-float xCarSpeed;
-float yCarSpeed;
+Car car2;
 
 //Bilopgave
 void setup(){
-size(1800, 900);
-frameRate(60);
-background(0);
-rectMode(CENTER);
+  size(1800, 900);
+  frameRate(20);
+  rectMode(CENTER);
 
 //Cars
-  car1 = new Car(100, 800, 100); // xspeed, yspeed, color
+car1 = new Car(/* x & yCarSpeed*/ 25, 25, /*x & yCar (start)*/ 10, 10, /*x & y CarSize*/ 30, 20, /*RGB*/10, 20, 30);
+car2 = new Car(20, 32, 100, 20, 40, 20, 10, 100, 50);
 }
 
 void draw(){
- clear();
+  clear();
+  background(255);
   driveCars();
   drawCars();
 }
 
 void driveCars(){
  car1.drive();
+ car2.drive();
 }
 
 void drawCars(){
  car1.display();  
+ car2.display();
 }
