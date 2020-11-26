@@ -12,13 +12,17 @@
 
 [**- Angry Birds Projekt (SO3)**](https://github.com/Christorob/Programmering-Christorob/tree/main/Angry_Birds_V2_SO3)
 ``` 
-### WIP Projekter:
+### To Do:
 ```markdown
-[**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
+- Bilopgaven [**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
+  - [x] Lav Klassen til bilen
+  - [ ] Lav Bilens design
+  - [ ] Skab vejsystem
+  - [ ] Lav bil path-finding system
 ```
 
 ## Noter til Programmering
 ```markdown
-
+- OOP (_Objekt Orienteret Programmering_)
 
 ```
