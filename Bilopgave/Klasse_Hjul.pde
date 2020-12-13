@@ -9,9 +9,9 @@ class Wheel{
   Wheel(float tempXWheelSpeed, float tempYWheelSpeed, float tempXWheel, float tempYWheel, float tempXWheelSize, float tempYWheelSize, color tempWheelColorR, color tempWheelColorG, color tempWheelColorB){
   xWheelSpeed = tempXWheelSpeed;
   yWheelSpeed = tempYWheelSpeed;
-   wheelColorR = tempWheelColorR;
-   wheelColorG = tempWheelColorG;
-   wheelColorB = tempWheelColorB;
+  wheelColorR = tempWheelColorR;
+  wheelColorG = tempWheelColorG;
+  wheelColorB = tempWheelColorB;
   xWheel = tempXWheel;
   yWheel = tempYWheel;
   xWheelSize = tempXWheelSize;
@@ -31,7 +31,7 @@ class Wheel{
   }
   
   void display(){
-    fill(wheelColorR, wheelColorG, wheelColorB);
+   fill(wheelColorR, wheelColorG, wheelColorB);
     ellipse(xWheel + (2 * xWheelSize), yWheel + (1.6 * yWheelSize), xWheelSize, yWheelSize);
     ellipse(xWheel + (2 * xWheelSize), yWheel - (1.6 * yWheelSize), xWheelSize, yWheelSize);
     ellipse(xWheel - (2 * xWheelSize), yWheel + (1.6 * yWheelSize), xWheelSize, yWheelSize);

@@ -9,9 +9,9 @@ class Car{
   Car(float tempXCarSpeed, float tempYCarSpeed, float tempXCar, float tempYCar, float tempXCarSize, float tempYCarSize, color tempCarColorR, color tempCarColorG, color tempCarColorB){
   xCarSpeed = tempXCarSpeed;
   yCarSpeed = tempYCarSpeed;
-   carColorR = tempCarColorR;
-   carColorG = tempCarColorG;
-   carColorB = tempCarColorB;
+  carColorR = tempCarColorR;
+  carColorG = tempCarColorG;
+  carColorB = tempCarColorB;
   xCar = tempXCar;
   yCar = tempYCar;
   xCarSize = tempXCarSize;

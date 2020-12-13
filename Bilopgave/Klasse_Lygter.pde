@@ -9,9 +9,9 @@ class Light{
   Light(float tempXLightSpeed, float tempYLightSpeed, float tempXLight, float tempYLight, float tempXLightSize, float tempYLightSize, color tempLightColorR, color tempLightColorG, color tempLightColorB){
   xLightSpeed = tempXLightSpeed;
   yLightSpeed = tempYLightSpeed;
-   lightColorR = tempLightColorR;
-   lightColorG = tempLightColorG;
-   lightColorB = tempLightColorB;
+  lightColorR = tempLightColorR;
+  lightColorG = tempLightColorG;
+  lightColorB = tempLightColorB;
   xLight = tempXLight;
   yLight = tempYLight;
   xLightSize = tempXLightSize;
@@ -31,11 +31,13 @@ class Light{
   }
   
   void display(){
-    fill(lightColorR, lightColorG, lightColorB);
-    ellipse(xLight + (2 * xLightSize), yLight + (1.6 * yLightSize), xLightSize, yLightSize);
-    ellipse(xLight + (2 * xLightSize), yLight - (1.6 * yLightSize), xLightSize, yLightSize);
-    ellipse(xLight - (2 * xLightSize), yLight + (1.6 * yLightSize), xLightSize, yLightSize);
-    ellipse(xLight - (2 * xLightSize), yLight - (1.6 * yLightSize), xLightSize, yLightSize);
+   fill(lightColorR, lightColorG, lightColorB);
+    ellipse(xLight + 30, yLight + (2 * yLightSize), xLightSize, yLightSize);
+    ellipse(xLight + 30, yLight - (2 * yLightSize), xLightSize, yLightSize);
+    
+   fill(lightColorR, lightColorG, lightColorB);
+    ellipse(xLight - (2 * xLightSize), yLight + (2 * yLightSize), xLightSize, yLightSize);
+    ellipse(xLight - (2 * xLightSize), yLight - (2 * yLightSize), xLightSize, yLightSize);
   }
   
 
