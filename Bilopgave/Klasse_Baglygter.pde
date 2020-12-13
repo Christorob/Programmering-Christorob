@@ -36,8 +36,7 @@ class backLight{
     ellipse(xLight - (5 * yLightSize), yLight + (2 * yLightSize), xLightSize, yLightSize);
     ellipse(xLight - (5 * yLightSize), yLight - (2 * yLightSize), xLightSize, yLightSize);
     //back light beams
-    noStroke();
-    triangle(xLight - (5 * yLightSize), yLight + (2 * yLightSize), xLight - 90, yLight - 15 , xLight - 90, yLight + 15); 
-    triangle(xLight - (5 * yLightSize), yLight - (2 * yLightSize), xLight - 90, yLight - 15 , xLight - 90, yLight + 15);
+    triangle(xLight - (5 * yLightSize), yLight + (2 * yLightSize), xLight - 100, yLight - 15 , xLight - 100, yLight + 25); 
+    triangle(xLight - (5 * yLightSize), yLight - (2 * yLightSize), xLight - 100, yLight - 25 , xLight - 100, yLight + 15);
   }
 }
