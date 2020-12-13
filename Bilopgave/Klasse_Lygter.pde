@@ -31,14 +31,13 @@ class Light{
   }
   
   void display(){
-   fill(lightColorR, lightColorG, lightColorB);
-    ellipse(xLight + 30, yLight + (2 * yLightSize), xLightSize, yLightSize);
-    ellipse(xLight + 30, yLight - (2 * yLightSize), xLightSize, yLightSize);
-    
-   fill(lightColorR, lightColorG, lightColorB);
-    ellipse(xLight - (2 * xLightSize), yLight + (2 * yLightSize), xLightSize, yLightSize);
-    ellipse(xLight - (2 * xLightSize), yLight - (2 * yLightSize), xLightSize, yLightSize);
+ //lights
+    fill(lightColorR, lightColorG, lightColorB);
+    ellipse(xLight + (5 * yLightSize), yLight + (2 * yLightSize), xLightSize, yLightSize);
+    ellipse(xLight + (5 * yLightSize), yLight - (2 * yLightSize), xLightSize, yLightSize);
+    //front light beams
+    noStroke();
+    triangle(xLight + (5 * yLightSize), yLight + (2 * yLightSize), 1.25 * xLight + 30, yLight - 10 , 1.25 * xLight + 30, yLight +30); 
+    triangle(xLight + (5 * yLightSize), yLight - (2 * yLightSize), 1.25 * xLight + 30, yLight - 30 , 1.25 * xLight + 30, yLight +10);
   }
-  
-
 }
