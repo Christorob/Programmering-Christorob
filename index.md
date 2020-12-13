@@ -18,11 +18,9 @@
 
 - [**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
   - [x] Lav Klassen til bilen
-  - [ ] Lav bilens design
-    - [ ] Lav flere bil designs
-  - [ ] Skab vejsystem
-    - [ ] Lav bil path-finding system
-  - [ ] Lav Vej generation system
+  - [x] Lav bilens design
+    - [x] Lav flere bil designs
+ 
 
 ### Noter til Programmering
 ```markdown
