@@ -31,6 +31,7 @@
 ### Noter til Programmering
 ```markdown
 > OOP (_Objekt Orienteret Programmering_)
+:bug:
 
 ```
 
