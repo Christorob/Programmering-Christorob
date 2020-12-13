@@ -16,7 +16,7 @@
 
 ## To Do:
 
-- [**- Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
+- [**Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
   - [x] Lav Klassen til bilen
   - [x] Lav bilens design
     - [x] Lav flere bil designs
