@@ -58,7 +58,7 @@ void setup() {
   wheel4 = new Wheel(/* x & yWheelSpeed*/ 6 - (2 * sin(t)), 0, /*x & yWheel (start)*/ 0, 700, /*x & y WheelSize*/ 20, 18, /*RGB*/150, 200, 200);
 
   light4 = new Light(/* x & yLightSpeed*/ 6 - (2 * sin(t)), 0, /*x & yLight (start)*/ 0, 700, /*x & y LightSize*/ 15, 9, /*RGB*/200, 255, 200);
-
+  
   backLight4 = new backLight(/* x & yLightSpeed*/ 6 - (2 * sin(t)), 0, /*x & yLight (start)*/ 0, 700, /*x & y LightSize*/ 10, 8, /*RGB*/205, 60, 20);
 
 
