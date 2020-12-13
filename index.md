@@ -19,10 +19,10 @@
 
 - [**Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
   - [x] Lav Klassen til bilen
-   - [x] Lav Klassen til bil kassen
-   - [x] Lav Klassen til hjul
-   - [x] Lav Klassen til lygter
-    - [x] Lav Klassen til baglygter
+    - [x] Lav Klassen til bil kassen
+    - [x] Lav Klassen til hjul
+    - [x] Lav Klassen til lygter
+      - [x] Lav Klassen til baglygter
   - [x] Sammensæt bilens design dele
     - [x] Lav flere bil designs
   - [x] Aflever Opgave
