@@ -31,10 +31,11 @@
 ### Noter til Programmering
 ```markdown
 > OOP (_Objekt Orienteret Programmering_)
-:bug:
+
 
 ```
 
 #### Seneste Opdatering:
-> 13-12-2020 12:11
+> 13-12-2020 12:25
 
+## Lavet af 𝕮𝖍𝖗𝖎𝖘𝖙𝖔𝖕𝖍𝖊𝖗 𝕽𝖔𝖇𝖎𝖓 𝕳𝖊𝖑𝖉𝖌𝖆𝖆𝖗𝖉
