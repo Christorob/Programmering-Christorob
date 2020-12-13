@@ -12,14 +12,20 @@
 
 - [**Angry Birds Projekt (SO3)**](https://github.com/Christorob/Programmering-Christorob/tree/main/Angry_Birds_V2_SO3)
 
+- [**Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
 
 
 ## To Do:
 
 - [**Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
   - [x] Lav Klassen til bilen
-  - [x] Lav bilens design
+   - [x] Lav Klassen til bil kassen
+   - [x] Lav Klassen til hjul
+   - [x] Lav Klassen til lygter
+    - [x] Lav Klassen til baglygter
+  - [x] Sammensæt bilens design dele
     - [x] Lav flere bil designs
+  - [x] Aflever Opgave
  
 
 ### Noter til Programmering
