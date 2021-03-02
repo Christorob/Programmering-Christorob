@@ -7,8 +7,8 @@ void setup() {
   size(1000,1000);
 
   // Parametre inde i constructor
-  myDog1 = new Dog(color(200,100,0),10,100,2, 100, 20); 
-  myDog2 = new Dog(color(250,250,255),0,500,1, 80, 25);
+  myDog1 = new Dog(color(200,100,0),10,100,5, 100, 25); 
+  myDog2 = new Dog(color(250,250,255),0,500,3, 80, 35);
 }
 
 void draw() {
@@ -49,7 +49,7 @@ class Dog {
 
   void drive() {
     xpos = xpos + xspeed;
-    if (xpos > width) {
+    if (xpos - (xSize/2) > width) {
       xpos = 0;
     }
   }
