@@ -24,13 +24,13 @@
 
 - [**Teknologi Eksamensopgave**](https://github.com/niko579a/Teknologi-eksamen)
   - [x] Lav Visual Studio Code fil
-    - [] Lav Klassediagram
-    - [] Lav simpel layout
-    - [] Lav funktionelle elementer
-      - [] Lav flere funktioner
-  - [] Sammensæt sidens design dele
-    - [] Lav flere designs af hjemmesiden
-  - [] Aflever Opgave
+    - [ ] Lav Klassediagram
+    - [ ] Lav simpel layout
+    - [ ] Lav funktionelle elementer
+      - [ ] Lav flere funktioner
+  - [ ] Sammensæt sidens design dele
+    - [ ] Lav flere designs af hjemmesiden
+  - [ ] Aflever Opgave
  
 
 ### Noter til Programmering
