@@ -14,18 +14,23 @@
 
 - [**Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
 
+- [**Bank App**](https://github.com/orc13a/bank-app)
+
+- [**Load og Visualiser Data**](https://github.com/orc13a/load_og_visualiser_data)
+
+- [**Teknologi Eksamensopgave**](https://github.com/niko579a/Teknologi-eksamen)
 
 ## To Do:
 
-- [**Bilopgave**](https://github.com/Christorob/Programmering-Christorob/tree/main/Bilopgave)
-  - [x] Lav Klassen til bilen
-    - [x] Lav Klassen til bil kassen
-    - [x] Lav Klassen til hjul
-    - [x] Lav Klassen til lygter
-      - [x] Lav Klassen til baglygter
-  - [x] Sammensæt bilens design dele
-    - [x] Lav flere bil designs
-  - [x] Aflever Opgave
+- [**Teknologi Eksamensopgave**](https://github.com/niko579a/Teknologi-eksamen)
+  - [x] Lav Visual Studio Code fil
+    - [] Lav Klassediagram
+    - [] Lav simpel layout
+    - [] Lav funktionelle elementer
+      - [] Lav flere funktioner
+  - [] Sammensæt sidens design dele
+    - [] Lav flere designs af hjemmesiden
+  - [] Aflever Opgave
  
 
 ### Noter til Programmering
@@ -36,6 +41,6 @@
 ```
 
 #### Seneste Opdatering:
-> 02-03-2021 08:39
+> 27-04-2021 08:49
 
 ## Lavet af 𝕮𝖍𝖗𝖎𝖘𝖙𝖔𝖕𝖍𝖊𝖗 𝕽𝖔𝖇𝖎𝖓 𝕳𝖊𝖑𝖉𝖌𝖆𝖆𝖗𝖉
