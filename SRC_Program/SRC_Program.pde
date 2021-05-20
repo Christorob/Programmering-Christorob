@@ -17,11 +17,12 @@ void draw(){
   fill(0);
   text(totalCases, 100, 100);
   
+  
 }
 
 void run(){
   getData();
-  
+  customValue();
 }
 
 
@@ -40,6 +41,7 @@ void getStateNames(){
     stateNames[stateID] = name;
     println(name);
     stateID++;
+    println(stateID);
   }
 }
 
@@ -50,5 +52,8 @@ void getStateData(){
     totalCases += caseAmount;
     println(caseAmount);
     println(totalCases);
+    
+    
+    
   }
 }
