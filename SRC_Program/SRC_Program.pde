@@ -6,7 +6,7 @@ float totalCases = 0;
 
 void setup(){
 size(1600,800);
-
+ run();
 }
 
 void draw(){
@@ -15,8 +15,15 @@ void draw(){
   
 }
 
+void run(){
+  getData();
+  getStateNames();
+  getStateData();
+}
+
+
 void getData(){
-stateCases = loadTable("https://github.com/nytimes/covid-19-data/blob/master/live/us-states.csv");
+stateCases = loadTable("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-states.csv");
 dataLoaded = true;
 }
 
@@ -26,5 +33,13 @@ void getStateNames(){
     String name = state.getString("state");
     stateNames[stateNR] = name;
     stateNR++;
+  }
+}
+
+void getStateData(){
+  int totalCases = 0;
+  for(TableRow state : stateCases.rows()) {
+    float cases = state.getFloat("cases");
+    totalCases += cases;
   }
 }
