@@ -1,4 +1,4 @@
-String userInput;
+/*String userInput;
 
 void customValue() {
     if (key == BACKSPACE && key != ENTER && userInput.length() > 0) {
@@ -10,3 +10,5 @@ void customValue() {
       }
     }
 }
+
+*/

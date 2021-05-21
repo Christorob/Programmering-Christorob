@@ -1,5 +1,5 @@
 Table stateCases; 
-String[] stateNames = new String[55];
+String[] stateNames = new String[56];
 boolean dataLoaded = false;
 int totalCases = 0;
 
@@ -19,6 +19,8 @@ void setup(){
    h1 = createFont("Arial", 12, false);
    //Use system font 'Arial' as the label font with 9 point type
    l1 = createFont("Arial", 9, false);
+   
+   run();
   
 }
 
@@ -28,18 +30,19 @@ void draw(){
   background(255);
   fill(0);
   text(totalCases, 100, 100);
+  lines();
  
  
 }
 
 void run(){
   getData();
-  customValue();
+  //customValue();
 }
 
 
 void getData(){
-stateCases = loadTable("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-states.csv", "header");
+  stateCases = loadTable("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-states.csv", "header");
 // date,state,fips,cases,deaths,confirmed_cases,confirmed_deaths,probable_cases,probable_deaths
   getStateNames();
   getStateData();
@@ -64,8 +67,6 @@ void getStateData(){
     totalCases += caseAmount;
     println(caseAmount);
     println(totalCases);
-    
-    
     
   }
 }
