@@ -10,10 +10,3 @@ void customValue() {
       }
     }
 }
-/*
-void stateDetection(){
-    if(userInput == stateName){
-    }
-
-}
-*/
