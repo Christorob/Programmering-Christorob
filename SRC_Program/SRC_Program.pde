@@ -2,6 +2,7 @@ Table stateCases;
 String[] stateNames = new String[56];
 boolean dataLoaded = false;
 int totalCases = 0;
+bar bar1;
 
 // Declare Header Font
 PFont h1;
@@ -68,5 +69,12 @@ void getStateData(){
     println(caseAmount);
     println(totalCases);
     
+  }
+}
+
+void drawBars(){
+  for(TableRow cases : stateCases.rows()) {
+    int caseAmount = cases.getInt("cases");
+    bar1 = new bar(150, 150, 10, caseAmount);
   }
 }

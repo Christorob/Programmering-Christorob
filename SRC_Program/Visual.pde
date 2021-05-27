@@ -19,4 +19,4 @@ void dataManagement(){
 void lines(){
    line(100, 700, 100, 100);
    line(100, 700, 1500, 700);
-}
+  }
