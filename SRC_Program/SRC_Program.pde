@@ -1,5 +1,5 @@
 Table stateCases; 
-String[] stateNames = new String[56];
+String[] stateNames = new String[55];
 boolean dataLoaded = false;
 int totalCases = 0;
 bar bar1;
@@ -22,6 +22,7 @@ void setup(){
    l1 = createFont("Arial", 9, false);
    
    run();
+   drawBars();
   
 }
 
@@ -30,14 +31,17 @@ void draw(){
   //Set Background to white.
   background(255);
   fill(0);
-  text(totalCases, 100, 100);
+  
+  if(dataLoaded = true){
   lines();
- 
+  text("Total Cases in the US: " + totalCases, 200, 80);
+  }
  
 }
 
 void run(){
   getData();
+  
   //customValue();
 }
 
@@ -53,22 +57,24 @@ void getData(){
 void getStateNames(){
   int stateID = 0;
   for(TableRow state : stateCases.rows()) {
-    String name = state.getString("state");
+    String name = "";
+    if(state.getString("state") != null)
+      name = state.getString("state");
     stateNames[stateID] = name;
-    println(name);
+    //println(name);
     stateID++;
-    println(stateID);
+    //println(stateID);
   }
 }
 
 void getStateData(){
   totalCases = 0;
   for(TableRow cases : stateCases.rows()) {
-    int caseAmount = cases.getInt("cases");
+    println("Cases: " + cases.getInt("cases"));
+    int caseAmount = Integer.parseInt(cases.getString("cases"));
     totalCases += caseAmount;
     println(caseAmount);
     println(totalCases);
-    
   }
 }
 

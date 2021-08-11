@@ -7,6 +7,7 @@ class bar{
     y = y_;
     w = w_;
     dataInput = dataInput_;
+    dataManagement();
   }
 }
 
@@ -19,4 +20,5 @@ void dataManagement(){
 void lines(){
    line(100, 700, 100, 100);
    line(100, 700, 1500, 700);
+   line(100,700, 1500, 100);
   }
