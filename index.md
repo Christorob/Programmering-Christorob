@@ -26,13 +26,13 @@
 
 - [**Teknologi Eksamensopgave**](https://github.com/niko579a/Teknologi-eksamen)
   - [x] Lav Visual Studio Code fil
-    - [ ] Lav Klassediagram
-    - [ ] Lav simpel layout
-    - [ ] Lav funktionelle elementer
-      - [ ] Lav flere funktioner
-  - [ ] Sammensæt sidens design dele
-    - [ ] Lav flere designs af hjemmesiden
-  - [ ] Aflever Opgave
+    - [x] Lav Klassediagram
+    - [x] Lav simpel layout
+    - [x] Lav funktionelle elementer
+      - [x] Lav flere funktioner
+  - [x] Sammensæt sidens design dele
+    - [x] Lav flere designs af hjemmesiden
+  - [x] Aflever Opgave
  
 
 ### Noter til Programmering
@@ -43,6 +43,6 @@
 ```
 
 #### Seneste Opdatering:
-> 27-04-2021 08:49
+> 30/08/21 13:37
 
 ## Lavet af 𝕮𝖍𝖗𝖎𝖘𝖙𝖔𝖕𝖍𝖊𝖗 𝕽𝖔𝖇𝖎𝖓 𝕳𝖊𝖑𝖉𝖌𝖆𝖆𝖗𝖉
