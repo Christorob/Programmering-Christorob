@@ -1,5 +1,7 @@
 void branch(float h) {
-
+  r++;
+  g++;
+  b++;
 
 
 
@@ -28,5 +30,7 @@ void branch(float h) {
     translate(0, -h);
     branch(h);
     popMatrix();
+   
+
   }
 }
