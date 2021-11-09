@@ -8,4 +8,7 @@ String[] cityList = new String[] {"Paris", "Budapest", "Skopje", "Rotterdam", "V
 
 
 void setup() {
+  test1();
+  test2();
+
 }
