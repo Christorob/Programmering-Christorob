@@ -12,6 +12,8 @@ boolean logged = false; // DEMO
 void setup() {
   size(400, 250);
 
+  test1();
+  test2();
 
   //Konfiguration fra globale variabler
   TEXTBOX userTB = new TEXTBOX();
@@ -50,6 +52,7 @@ void Submit() {
 void keyPressed() {
   for (TEXTBOX t : textboxes) {
     if (t.KEYPRESSED(key, (int)keyCode)) {
+      t.search();
       Submit();
     }
   }

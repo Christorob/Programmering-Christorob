@@ -15,6 +15,7 @@ class TEXTBOX {
 
   String Text = "";
   String searchText;
+
   int TextLength = 0;
 
   boolean selected = false;
@@ -114,12 +115,21 @@ class TEXTBOX {
   }
 
 
+
+
   // NOT FUNCTIONAL YET
   void search() {
-    for (int i = 0; i > 0; i++) {
-      for (int j = 0; j > 0; j++) {
-        if (searchText.charAt(j) == cityList[i].charAt(j) && searchText.charAt(j) == cityList[i].charAt(j)) {
-          println("Test");
+
+
+
+    while (TextLength > 2) {
+      for (int i = 0; i > 0; i++) {
+        for (int j = 0; j > 0; j++) {
+          String temp = cityList[i];
+          println(temp);
+          if (searchText.charAt(j) == cityList[i].charAt(j) && searchText.charAt(j + 1) == cityList[i].charAt(j + 1)) {
+            println("Test");
+          }
         }
       }
     }
