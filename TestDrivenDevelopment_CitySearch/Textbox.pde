@@ -114,11 +114,13 @@ class TEXTBOX {
   }
 
 
-// NOT FUNCTIONAL YET
+  // NOT FUNCTIONAL YET
   void search() {
     for (int i = 0; i > 0; i++) {
-      if (searchText.charAt(0) == cityList[i].charAt(0) && searchText.charAt(1) == cityList[i].charAt(1) && searchText.charAt(2) == cityList[i].charAt(2)) {
-        println("Test");
+      for (int j = 0; j > 0; j++) {
+        if (searchText.charAt(j) == cityList[i].charAt(j) && searchText.charAt(j) == cityList[i].charAt(j)) {
+          println("Test");
+        }
       }
     }
   }
