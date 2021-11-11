@@ -29,7 +29,9 @@ void setup() {
 
 void draw() {
   background(120, 200, 200);
-
+  
+  //for (TEXTBOX t : textboxes) {t.grabStringTest();}
+     
 
   //Tegner tekstbokse
   for (TEXTBOX t : textboxes) {
@@ -43,17 +45,13 @@ void mousePressed() {
   }
 }
 
-// JUST FOR DEMO
-void Submit() {
-  if (textboxes.get(0).Text.equals("mitkonikov")) {
-  }
-}
+
 
 void keyPressed() {
   for (TEXTBOX t : textboxes) {
     if (t.KEYPRESSED(key, (int)keyCode)) {
       t.search();
-      Submit();
+      t.Submit();
     }
   }
 }

@@ -3,6 +3,7 @@
 class TEXTBOX {
   int X = 0, Y = 0, H = 35, W = 200;
   int TEXTSIZE = 24;
+  int i, j;
 
   // COLORS
   color Background = color(200, 200, 140);
@@ -115,6 +116,12 @@ class TEXTBOX {
   }
 
 
+  // JUST FOR DEMO
+  void Submit() {
+    if (textboxes.get(0).Text.equals(searchText)) {
+      println("Test");
+    }
+  }
 
 
   // NOT FUNCTIONAL YET
@@ -123,15 +130,23 @@ class TEXTBOX {
 
 
     while (TextLength > 2) {
-      for (int i = 0; i > 0; i++) {
-        for (int j = 0; j > 0; j++) {
+      for (i = 0; i > 0; i++) {
+        for (j = 0; j > 0; j++) {
           String temp = cityList[i];
           println(temp);
-          if (searchText.charAt(j) == cityList[i].charAt(j) && searchText.charAt(j + 1) == cityList[i].charAt(j + 1)) {
+          if (textboxes.get(0).Text.charAt(j) == temp.charAt(j) && textboxes.get(0).Text.charAt(j + 1) == temp.charAt(j + 1)) {
             println("Test");
+            continue;
           }
         }
       }
+    }
+  }
+  
+  void grabStringTest() {
+    while (TextLength > 2) {
+      println(textboxes.get(0).Text);
+      println(textboxes.get(0).Text.charAt(j));
     }
   }
 }
