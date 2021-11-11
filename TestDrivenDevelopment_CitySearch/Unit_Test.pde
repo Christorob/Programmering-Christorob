@@ -4,6 +4,8 @@ void test1() {
 }
 
 void test2() {
-  char test2 = cityList[1].charAt(1);
+  int cityPos = 0;
+  int charPos = 0;
+  char test2 = cityList[cityPos].charAt(charPos);
     println(test2);
 }

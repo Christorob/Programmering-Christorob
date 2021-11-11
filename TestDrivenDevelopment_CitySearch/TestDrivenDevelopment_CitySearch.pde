@@ -50,7 +50,8 @@ void mousePressed() {
 void keyPressed() {
   for (TEXTBOX t : textboxes) {
     if (t.KEYPRESSED(key, (int)keyCode)) {
-      t.search();
+     // Search funktion kaldes
+      t.search(textboxes.get(0).Text);
       t.Submit();
     }
   }

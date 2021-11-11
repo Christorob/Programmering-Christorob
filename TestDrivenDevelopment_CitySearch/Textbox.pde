@@ -86,7 +86,7 @@ class TEXTBOX {
     if (textWidth(Text + text) < W) {
       Text += text;
       TextLength++;
-      searchText = Text;
+
     }
   }
 
@@ -124,25 +124,17 @@ class TEXTBOX {
   }
 
 
-  // NOT FUNCTIONAL YET
-  void search() {
+  //Search function
+  void search(String input) {
+    if (TextLength > 1) {
 
-
-
-    while (TextLength > 2) {
-      for (i = 0; i > 0; i++) {
-        for (j = 0; j > 0; j++) {
-          String temp = cityList[i];
-          println(temp);
-          if (textboxes.get(0).Text.charAt(j) == temp.charAt(j) && textboxes.get(0).Text.charAt(j + 1) == temp.charAt(j + 1)) {
-            println("Test");
-            continue;
-          }
-        }
-      }
+      for (String city : cityList)
+        if (city.contains(input))
+          println("Found: " + city);
     }
   }
-  
+
+
   void grabStringTest() {
     while (TextLength > 2) {
       println(textboxes.get(0).Text);
