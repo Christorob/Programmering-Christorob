@@ -126,17 +126,17 @@ class TEXTBOX {
 
   //Search function
   void search(String input) {
-    if (TextLength > 1) {
+    if (TextLength >= 2) {
 
       for (String city : cityList)
-        if (city.contains(input))
+        if (city.toLowerCase().contains(input.toLowerCase()))
           println("Found: " + city);
     }
   }
 
 
   void grabStringTest() {
-    while (TextLength > 2) {
+    while (TextLength >= 2) {
       println(textboxes.get(0).Text);
       println(textboxes.get(0).Text.charAt(j));
     }
