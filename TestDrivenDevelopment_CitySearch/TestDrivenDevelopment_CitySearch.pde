@@ -1,13 +1,6 @@
-String[] searchCity(String[] list, String text) {
-  return null;
-}
-
 String[] cityList = new String[] {"Paris", "Budapest", "Skopje", "Rotterdam", "Valencia", "Vancouver", "Amsterdam", "Vienna", "Sydney", "New York City", "London", "Bangkok", "Hong Kong", "Dubai", "Rome", "Istanbul"};
 
-
-
 ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX>();
-boolean logged = false; // DEMO
 
 void setup() {
   size(1000, 800);
@@ -18,21 +11,21 @@ void setup() {
   //test2();
 
   //Konfiguration fra globale variabler
-  TEXTBOX userTB = new TEXTBOX();
-  userTB.X = (width/2) - userTB.W/2;
-  userTB.Y = height*1/3;
+  TEXTBOX inputTB = new TEXTBOX();
+  inputTB.X = (width/2) - inputTB.W/2;
+  inputTB.Y = height*1/3;
 
-  userTB.BorderWeight = 3;
-  userTB.BorderEnable = true;
-  textboxes.add(userTB);
+  inputTB.BorderWeight = 3;
+  inputTB.BorderEnable = true;
+  textboxes.add(inputTB);
 }
 
 
 void draw() {
-  
+
 
   //for (TEXTBOX t : textboxes) {t.grabStringTest();}
-  
+
   //Tester om søge teksten er mere eller mindre end 2 bogstaver
   test3(textboxes.get(0).Text);
 
@@ -57,9 +50,6 @@ void keyPressed() {
       // Search funktion kaldes
       t.search(textboxes.get(0).Text);
       t.Submit();
-      
-      
-      
     }
   }
 }

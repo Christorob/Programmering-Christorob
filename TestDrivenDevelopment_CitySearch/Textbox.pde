@@ -105,6 +105,7 @@ class TEXTBOX {
     while (TextLength > 0) {
       Text = Text.substring(0, TextLength - 1);
       TextLength--;
+      selected = false;
     }
   }
 
@@ -137,9 +138,12 @@ class TEXTBOX {
     if (TextLength > 1) {
 
       for (String city : cityList) {
+        // toLowerCase() gør at både søgningen og listen er små bogstaver, så den er case insensetive
         if (city.toLowerCase().contains(input.toLowerCase())) {
-          text("Found: " + city, width/3, height/2);
-          println("Found: " + city);
+          //while (selected == true) {
+            text("Found: " + city, width/3, height/2);
+            println("Found: " + city);
+          //}
         }
       }
     }
