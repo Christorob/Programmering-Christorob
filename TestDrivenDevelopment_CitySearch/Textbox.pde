@@ -64,6 +64,9 @@ class TEXTBOX {
       } else if (KEYCODE == 32) {
         // SPACE
         addText(' ');
+      } else if (KEYCODE == TAB) {
+        // TAB
+        CLEAR();
       } else if (KEYCODE == (int)ENTER) {
         return true;
       } else {
@@ -82,6 +85,7 @@ class TEXTBOX {
     return false;
   }
 
+
   void addText(char text) {
     //Tjekker om teksten kan være inde i boksen
     if (textWidth(Text + text) < W) {
@@ -92,6 +96,13 @@ class TEXTBOX {
 
   void BACKSPACE() {
     if (TextLength - 1 >= 0) {
+      Text = Text.substring(0, TextLength - 1);
+      TextLength--;
+    }
+  }
+
+  void CLEAR() {
+    while (TextLength > 0) {
       Text = Text.substring(0, TextLength - 1);
       TextLength--;
     }

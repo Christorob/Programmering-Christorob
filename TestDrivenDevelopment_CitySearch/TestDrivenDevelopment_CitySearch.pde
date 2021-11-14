@@ -11,7 +11,9 @@ boolean logged = false; // DEMO
 
 void setup() {
   size(1000, 800);
-
+  background(120, 200, 200);
+  text("Click the textbox to search. ", 50, 50);
+  text("When done typing, press ENTER. Clear with TAB.", 50, 100);
   //test1();
   //test2();
 
@@ -27,7 +29,7 @@ void setup() {
 
 
 void draw() {
-  background(120, 200, 200);
+  
 
   //for (TEXTBOX t : textboxes) {t.grabStringTest();}
   
@@ -55,6 +57,9 @@ void keyPressed() {
       // Search funktion kaldes
       t.search(textboxes.get(0).Text);
       t.Submit();
+      
+      
+      
     }
   }
 }
