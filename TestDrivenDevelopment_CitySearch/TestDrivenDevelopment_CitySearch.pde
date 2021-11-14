@@ -10,17 +10,16 @@ ArrayList<TEXTBOX> textboxes = new ArrayList<TEXTBOX>();
 boolean logged = false; // DEMO
 
 void setup() {
-  size(400, 250);
+  size(1000, 800);
 
-  test1();
-  test2();
+  //test1();
+  //test2();
 
   //Konfiguration fra globale variabler
   TEXTBOX userTB = new TEXTBOX();
-  userTB.X = 100;
-  userTB.Y = height*2/3;
-  userTB.W = 200;
-  userTB.H = 40;
+  userTB.X = (width/2) - userTB.W/2;
+  userTB.Y = height*1/3;
+
   userTB.BorderWeight = 3;
   userTB.BorderEnable = true;
   textboxes.add(userTB);
@@ -29,9 +28,12 @@ void setup() {
 
 void draw() {
   background(120, 200, 200);
-  
+
   //for (TEXTBOX t : textboxes) {t.grabStringTest();}
-     
+  
+  //Tester om søge teksten er mere eller mindre end 2 bogstaver
+  test3(textboxes.get(0).Text);
+
 
   //Tegner tekstbokse
   for (TEXTBOX t : textboxes) {
@@ -50,7 +52,7 @@ void mousePressed() {
 void keyPressed() {
   for (TEXTBOX t : textboxes) {
     if (t.KEYPRESSED(key, (int)keyCode)) {
-     // Search funktion kaldes
+      // Search funktion kaldes
       t.search(textboxes.get(0).Text);
       t.Submit();
     }

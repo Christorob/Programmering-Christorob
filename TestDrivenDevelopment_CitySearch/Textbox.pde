@@ -1,8 +1,8 @@
 // code inspired by by Mitko Nikov
 
 class TEXTBOX {
-  int X = 0, Y = 0, H = 35, W = 200;
-  int TEXTSIZE = 24;
+  int X = 0, Y = 0, H = 70, W = 400;
+  int TEXTSIZE = 48;
   int i, j;
 
   // COLORS
@@ -16,6 +16,7 @@ class TEXTBOX {
 
   String Text = "";
   String searchText;
+
 
   int TextLength = 0;
 
@@ -86,7 +87,6 @@ class TEXTBOX {
     if (textWidth(Text + text) < W) {
       Text += text;
       TextLength++;
-
     }
   }
 
@@ -118,25 +118,28 @@ class TEXTBOX {
 
   // JUST FOR DEMO
   void Submit() {
-    if (textboxes.get(0).Text.equals(searchText)) {
-      println("Test");
-    }
   }
 
 
   //Search function
   void search(String input) {
-    if (TextLength >= 2) {
+    if (TextLength > 1) {
 
-      for (String city : cityList)
-        if (city.toLowerCase().contains(input.toLowerCase()))
+      for (String city : cityList) {
+        if (city.toLowerCase().contains(input.toLowerCase())) {
+          text("Found: " + city, width/3, height/2);
           println("Found: " + city);
+        }
+      }
     }
   }
 
 
+
+
+
   void grabStringTest() {
-    while (TextLength >= 2) {
+    while (TextLength > 2) {
       println(textboxes.get(0).Text);
       println(textboxes.get(0).Text.charAt(j));
     }
