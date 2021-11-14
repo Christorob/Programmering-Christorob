@@ -8,6 +8,7 @@ void setup() {
   text("Click the textbox to search. ", 50, 50);
   text("When done typing, press ENTER. ", 50, 100);
   text("Clear with TAB.", 50, 150);
+  text("Delete with BACKSPACE.", 50, 200);
   //test1();
   //test2();
 

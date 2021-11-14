@@ -2,7 +2,8 @@
 class TEXTBOX {
   int X = 0, Y = 0, H = 70, W = 400;
   int TEXTSIZE = 48;
-  int i, j;
+  int TextLength = 0;
+  int BorderWeight = 1;
 
   // COLORS
   color Background = color(200, 200, 140);
@@ -11,16 +12,19 @@ class TEXTBOX {
   color Border = color(30, 30, 30);
 
   boolean BorderEnable = false;
-  int BorderWeight = 1;
+  boolean selected = false;
+
+
 
   String Text = "";
   String searchText;
   String city = "";
-
-  int TextLength = 0;
-
-  boolean selected = false;
   String displayText;
+
+
+
+
+
 
   TEXTBOX() {
   }
@@ -68,6 +72,7 @@ class TEXTBOX {
         // TAB
         CLEAR();
       } else if (KEYCODE == (int)ENTER) {
+        startUp();
         return true;
       } else {
 
@@ -84,7 +89,6 @@ class TEXTBOX {
     return false;
   }
 
-
   void addText(char text) {
     //Tjekker om teksten kan være inde i boksen
     if (textWidth(Text + text) < W) {
@@ -94,6 +98,7 @@ class TEXTBOX {
   }
 
   void BACKSPACE() {
+    startUp();
     if (TextLength - 1 >= 0) {
       Text = Text.substring(0, TextLength - 1);
       TextLength--;
@@ -102,15 +107,10 @@ class TEXTBOX {
 
   void CLEAR() {
     if (TextLength > 0) {
-      Text = Text.substring(0, TextLength - TextLength );
+      Text = Text.substring(0, TextLength = 0 );
       TextLength--;
       selected = false;
-      clear();
-      background(120, 200, 200);
-      text("Click the textbox to search. ", 50, 50);
-      text("When done typing, press ENTER. ", 50, 100);
-      text("Clear with TAB.", 50, 150);
-      displayText = "No cities found.";
+      startUp();
     }
   }
 
@@ -132,10 +132,6 @@ class TEXTBOX {
     }
   }
 
-
-
-
-
   //Search function
   void search(String input) {
     if (TextLength > 1) {
@@ -148,22 +144,30 @@ class TEXTBOX {
           text(displayText, width/3, height/2);
           println("Found: " + city);
         }
+
+        if (input == "*") {
+          displayText = "Found: " + cityList;
+        }
       }
     }
   }
 
-
-
-
-
   void grabStringTest() {
     while (TextLength > 2) {
       println(textboxes.get(0).Text);
-      println(textboxes.get(0).Text.charAt(j));
+      println(textboxes.get(0).Text.charAt(0));
     }
   }
 }
 
+void startUp() {
+  clear();
+  background(120, 200, 200);
+  text("Click the textbox to search. ", 50, 50);
+  text("When done typing, press ENTER. ", 50, 100);
+  text("Clear with TAB.", 50, 150);
+  text("Delete with BACKSPACE.", 50, 200);
+}
 
 
 // code inspired by Mitko Nikov
