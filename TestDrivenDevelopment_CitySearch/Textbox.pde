@@ -105,9 +105,12 @@ class TEXTBOX {
       Text = Text.substring(0, TextLength - 1);
       TextLength--;
       selected = false;
-      city = null;
+      clear();
+      background(120, 200, 200);
+      text("Click the textbox to search. ", 50, 50);
+      text("When done typing, press ENTER. ", 50, 100);
+      text("Clear with TAB.", 50, 150);
       displayText = "No cities found.";
-      
     }
   }
 
@@ -130,9 +133,7 @@ class TEXTBOX {
   }
 
 
-  // JUST FOR DEMO
-  void Submit() {
-  }
+
 
 
   //Search function
@@ -142,11 +143,10 @@ class TEXTBOX {
       for (String city : cityList) {
         // toLowerCase() gør at både søgningen og listen er små bogstaver, så den er case insensetive
         if (city.toLowerCase().contains(input.toLowerCase())) {
-            if (true) {
-              displayText = "Found: " + city;
-            text(displayText, width/3, height/2);
-            println("Found: " + city);
-          }  
+
+          displayText = "Found: " + city;
+          text(displayText, width/3, height/2);
+          println("Found: " + city);
         }
       }
     }
