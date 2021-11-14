@@ -23,11 +23,11 @@ void setup() {
 
 void draw() {
 
-
+  //Test for getting the string
   //for (TEXTBOX t : textboxes) {t.grabStringTest();}
 
   //Tester om søge teksten er mere eller mindre end 2 bogstaver
-  test3(textboxes.get(0).Text);
+  //test3(textboxes.get(0).Text);
 
 
   //Tegner tekstbokse
@@ -46,7 +46,9 @@ void mousePressed() {
 
 void keyPressed() {
   for (TEXTBOX t : textboxes) {
+    // Keycode detektion
     if (t.KEYPRESSED(key, (int)keyCode)) {
+      
       // Search funktion kaldes
       t.search(textboxes.get(0).Text);
       t.Submit();

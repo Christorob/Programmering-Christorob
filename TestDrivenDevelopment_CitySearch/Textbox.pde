@@ -1,5 +1,4 @@
-// code inspired by by Mitko Nikov
-
+//Textbox klasse
 class TEXTBOX {
   int X = 0, Y = 0, H = 70, W = 400;
   int TEXTSIZE = 48;
@@ -16,11 +15,12 @@ class TEXTBOX {
 
   String Text = "";
   String searchText;
-
+  String city = "";
 
   int TextLength = 0;
 
   boolean selected = false;
+  String displayText;
 
   TEXTBOX() {
   }
@@ -81,7 +81,6 @@ class TEXTBOX {
         }
       }
     }
-
     return false;
   }
 
@@ -106,6 +105,9 @@ class TEXTBOX {
       Text = Text.substring(0, TextLength - 1);
       TextLength--;
       selected = false;
+      city = null;
+      displayText = "No cities found.";
+      
     }
   }
 
@@ -140,10 +142,11 @@ class TEXTBOX {
       for (String city : cityList) {
         // toLowerCase() gør at både søgningen og listen er små bogstaver, så den er case insensetive
         if (city.toLowerCase().contains(input.toLowerCase())) {
-          //while (selected == true) {
-            text("Found: " + city, width/3, height/2);
+            if (true) {
+              displayText = "Found: " + city;
+            text(displayText, width/3, height/2);
             println("Found: " + city);
-          //}
+          }  
         }
       }
     }
@@ -160,3 +163,7 @@ class TEXTBOX {
     }
   }
 }
+
+
+
+// code inspired by Mitko Nikov
