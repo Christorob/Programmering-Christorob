@@ -101,8 +101,8 @@ class TEXTBOX {
   }
 
   void CLEAR() {
-    while (TextLength > 0) {
-      Text = Text.substring(0, TextLength - 1);
+    if (TextLength > 0) {
+      Text = Text.substring(0, TextLength - TextLength );
       TextLength--;
       selected = false;
       clear();
