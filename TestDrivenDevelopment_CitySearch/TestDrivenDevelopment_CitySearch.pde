@@ -50,10 +50,9 @@ void keyPressed() {
   for (TEXTBOX t : textboxes) {
     // Keycode detektion
     if (t.KEYPRESSED(key, (int)keyCode)) {
-      
+
       // Search funktion kaldes
       t.search(textboxes.get(0).Text);
-
     }
   }
 }

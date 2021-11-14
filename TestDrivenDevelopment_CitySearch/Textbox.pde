@@ -80,8 +80,9 @@ class TEXTBOX {
         boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
         boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
         boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
+        boolean isAsterisk = (KEY >= '*' && KEY <= '*');
 
-        if (isKeyCapitalLetter || isKeySmallLetter || isKeyNumber) {
+        if (isKeyCapitalLetter || isKeySmallLetter || isKeyNumber || isAsterisk) {
           addText(KEY);
         }
       }
@@ -144,9 +145,10 @@ class TEXTBOX {
           text(displayText, width/3, height/2);
           println("Found: " + city);
         }
-
         if (input == "*") {
           displayText = "Found: " + cityList;
+          text(displayText, width/3, height/2);
+          println("Found: " + cityList[1]);
         }
       }
     }
