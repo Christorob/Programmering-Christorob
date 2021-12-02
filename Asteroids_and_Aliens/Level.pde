@@ -9,4 +9,5 @@ class Level extends Object {
   alienNumber = alienNumber_;
   scoreMultiplyer = scoreMultiplyer_;
   }
+  
 }

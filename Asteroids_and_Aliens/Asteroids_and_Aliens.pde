@@ -27,12 +27,11 @@ void draw() {
 }
 
 
-void keyed() {
+void keyPressed() {
   for (Spaceship s : shipList) {
     if (keyCode == UP) {
       s.moveUp();      
     }
-
 
     if (keyCode == DOWN) {
       s.moveDown();

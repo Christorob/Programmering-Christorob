@@ -14,10 +14,11 @@ class Spaceship extends Object {
   }
 
   void moveUp() {
-    yPos.add(speed);
+    yPos.sub(speed);
+    
   }
 
   void moveDown() {
-    yPos.sub(speed);
+    yPos.add(speed);
   }
 }
