@@ -1,9 +1,7 @@
-class Obstacle extends Object{
-
+class Object {
 
   void display() {
   }
-
   void move() {
-  }
+  };
 }

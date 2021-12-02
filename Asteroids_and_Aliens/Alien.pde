@@ -1,0 +1,3 @@
+class Alien extends Obstacle{
+
+}
