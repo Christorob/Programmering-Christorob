@@ -15,7 +15,10 @@ class Asteroid extends Obstacle {
   }
 
   void move() {
+    speed.y += 10 + sin(speed.y)*0.01;
     xPos.sub(speed);
-    yPos.add(speed);
+    yPos.sub(speed);
+    println(xPos, yPos);
+
   }
 }

@@ -13,12 +13,12 @@ class Level extends Object {
 
 
   void spawnAsteroids() {
-    w = random(10, 20);
-    h = random(10, 20);
+    w = random(20, 40);
+    h = random(20, 40);
     for (int i = 0; i < asteroidNumber; i++) {
-      println(asteroidNumber);
+     // println(asteroidNumber);
       println(i);
-      obstacleList.add(new Asteroid(w, h, new PVector(100, 0), new PVector(0, 100), new PVector(10, 10)));
+      obstacleList.add(new Asteroid(w, h, new PVector(random(1600, 2400), 0), new PVector(0, random(0,800)), new PVector(10, 10)));
     }
   }
 }
