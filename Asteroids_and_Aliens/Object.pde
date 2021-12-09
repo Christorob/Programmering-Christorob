@@ -1,6 +1,6 @@
 class Object {
 
-  int w, h;
+  float w, h;
   PVector xPos, yPos, speed;
   
   
