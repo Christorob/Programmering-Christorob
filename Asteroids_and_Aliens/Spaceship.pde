@@ -9,7 +9,7 @@ class Spaceship extends Object {
   }
 
   void display() {
-
+    fill(255,100,100);
     rect(xPos.x, yPos.y, w, h);
   }
 
