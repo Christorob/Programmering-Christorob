@@ -1,14 +1,14 @@
 class Asteroid extends Obstacle {
 
-  float c = random(50,200);
-  
+  color c = color(random(100, 200));
+
   Asteroid(float w_, float h_, PVector xPos_, PVector yPos_, PVector speed_) {
     w = w_;
     h = h_;
     xPos = xPos_;
     yPos = yPos_;
     speed = speed_;
-  
+
     w *= random(0.5, 2);
     h *= random(0.5, 2);
   }
@@ -20,7 +20,7 @@ class Asteroid extends Obstacle {
   }
 
   void move() {
-    yPos.add(new PVector(0, sin(100)*random(1, 5))) ;
+    yPos.add(new PVector(0, sin(100)*random(1, 2))) ;
     xPos.sub(speed);
     yPos.sub(speed);
 
