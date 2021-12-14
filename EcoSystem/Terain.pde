@@ -1,0 +1,3 @@
+class Terain extends WorldObject{
+ 
+}
