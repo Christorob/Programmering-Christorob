@@ -39,21 +39,20 @@ class Skater {
       offset = 0;
       loopFrames = 0;
     }
-    
-    
-    if (delay == 0){ 
+
+
+    if (delay == 0) { 
       currentFrame = (currentFrame + 1) % loopFrames;
-  }
-    
+    }
+
     delay = (delay + 1) % 2;
-   
-    if(x < width + 100){
+
+    if (x < width + 100) {
       x += 10;
     } else {
-    x = -100;
-    idle = false;
-    trick = true;
+      x = -100;
+      idle = false;
+      trick = true;
     }
-    
   }
 }
