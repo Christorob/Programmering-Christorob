@@ -45,7 +45,7 @@ class Skater {
       currentFrame = (currentFrame + 1) % loopFrames;
     }
 
-    delay = (delay + 1) % 2;
+    delay = (delay + 1) % 1;
 
     if (x < width + 100) {
       x += 10;
