@@ -2,7 +2,7 @@ ArrayList<Skater> skaterList = new ArrayList<Skater>();
 PImage skaterImages [];
 PImage sewer;
 PImage light;
-int skaterFrames, trickFrames, failFrames;
+int skaterFrames;
 void setup() {
   imageMode(CENTER);
   frameRate(60);
@@ -11,7 +11,7 @@ void setup() {
   sewer = loadImage("data/Sewer.png");
   light = loadImage("data/Light.png");
 
-  skaterFrames = 25;
+  skaterFrames = 33;
   skaterList.add( new Skater());
 
   skaterImages = new PImage[skaterFrames];

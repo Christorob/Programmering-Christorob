@@ -5,16 +5,16 @@ class Skater {
   boolean idle, trick, fail;
 
   Skater() {
-    x = -100;
+    x = width/2;
     y = height - 150;
     w = 640;
     h = 320;
     currentFrame = 0;
     loopFrames = 7;
     offset = 0;
-    idle = true;
+    idle = false;
     trick = false;
-    fail = false;
+    fail = true;
     delay = 0;
   }
 
@@ -36,8 +36,8 @@ class Skater {
     }
 
     if (idle == false && trick == false && fail == true) {
-      offset = 0;
-      loopFrames = 0;
+      offset = 25;
+      loopFrames = 8;
     }
     
     
@@ -45,15 +45,17 @@ class Skater {
       currentFrame = (currentFrame + 1) % loopFrames;
   }
     
-    delay = (delay + 1) % 2;
-   
+    delay = (delay + 1) % 1;
+ 
+   /*
     if(x < width + 100){
-      x += 10;
+      x += 20;
     } else {
     x = -100;
     idle = false;
-    trick = true;
+    trick = false;
+    fail = true;
     }
-    
+    */
   }
 }
