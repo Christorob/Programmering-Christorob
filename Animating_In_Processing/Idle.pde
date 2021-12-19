@@ -39,14 +39,14 @@ class Skater {
       offset = 25;
       loopFrames = 8;
     }
-    
-    
-    if (delay == 0){ 
+
+
+    if (delay == 0) {
       currentFrame = (currentFrame + 1) % loopFrames;
   }
-    
+
     delay = (delay + 1) % 1;
- 
+
    /*
     if(x < width + 100){
       x += 20;
