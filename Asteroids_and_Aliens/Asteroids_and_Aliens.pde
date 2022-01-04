@@ -1,3 +1,17 @@
+// TO DO!!!!!!!!!!!!!!:
+// CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos
+// Rotate asteroids
+// Collision detection for objects + lasers later
+// Laser class
+// Alien movement
+// Multiple Levels
+// Unlocks using upgrades
+// Score calculator and display
+// Highscore saver
+
+
+
+
 ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
@@ -6,8 +20,7 @@ ArrayList<Level> levelList = new ArrayList<Level>();
 
 void setup() {
   size(1600, 800);
-  fill(0, 0, 0);
-  rect(0, 0, width, height);
+  background(0);
   imageMode(CENTER);
   frameRate(60);
   fill(255);
@@ -26,11 +39,7 @@ void setup() {
 
 void draw() {
   //clear();
-  push();
-  
-  fill(0, 0, 0, 75);
-  rect(0, 0, width, height);
-  pop();
+
 
   if (keyPressed) {
     controls();
@@ -40,6 +49,9 @@ void draw() {
     s.display();
     s.move();
   }
+  
+  fill(0, 0, 0, 75);
+  rect(0, 0, width, height);
 
   for (Spaceship s : shipList) {
     s.display();
@@ -49,6 +61,10 @@ void draw() {
     o2.display();
     o2.move();
   }
+    
+
+ 
+  
 }
 
 void controls() {

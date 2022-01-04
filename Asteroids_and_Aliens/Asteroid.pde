@@ -25,7 +25,7 @@ class Asteroid extends Obstacle {
     yPos.sub(new PVector(0, 10*(random(-0.25,0.25))));
 
 
-    if (yPos.y <= -w || yPos.y >= height + h || xPos.x <= 0 + w) {
+    if (yPos.y <= -w || yPos.y >= height + h || xPos.x <= 0 - w) {
       yPos.y = random(-200, 1000);
       xPos.x = random(1650, 4000);
     }
