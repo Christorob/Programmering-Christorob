@@ -6,6 +6,8 @@ ArrayList<Level> levelList = new ArrayList<Level>();
 
 void setup() {
   size(1600, 800);
+  fill(0, 0, 0);
+  rect(0, 0, width, height);
   imageMode(CENTER);
   frameRate(60);
   fill(255);
@@ -23,8 +25,12 @@ void setup() {
 
 
 void draw() {
-  clear();
-
+  //clear();
+  push();
+  
+  fill(0, 0, 0, 75);
+  rect(0, 0, width, height);
+  pop();
 
   if (keyPressed) {
     controls();

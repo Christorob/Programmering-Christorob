@@ -28,10 +28,6 @@ class Star extends Object {
     if (yPos.y > height || yPos.y < 0 || xPos.x < 0) {
       yPos.y = random(0, 800);
       xPos.x = random(width, width + 100);
-      println("teststar MOVE1");
     }
-
-
-    println("teststar MOVE2");
   }
 }
