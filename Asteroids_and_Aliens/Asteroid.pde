@@ -20,11 +20,12 @@ class Asteroid extends Obstacle {
   }
 
   void move() {
-    yPos.add(new PVector(0, sin(100)*random(1, 2))) ;
+    yPos.add(new PVector(0, sin(100)*random(-3, 3))) ;
     xPos.sub(speed);
-    yPos.sub(speed);
+    yPos.sub(new PVector(0, 10*(random(-0.25,0.25))));
 
-    if (yPos.y <= 0 || yPos.y >= 800 || xPos.x <= 0) {
+
+    if (yPos.y <= -w || yPos.y >= height + h || xPos.x <= 0 + w) {
       yPos.y = random(-200, 1000);
       xPos.x = random(1650, 4000);
     }

@@ -12,6 +12,7 @@ class Level extends Object {
 
 
   void spawnAsteroids() {
+
     w = random(20, 40);
     h = random(20, 40);
     for (int i = 0; i < asteroidNumber; i++) {

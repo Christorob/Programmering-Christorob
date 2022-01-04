@@ -10,8 +10,11 @@ void setup() {
   frameRate(60);
   fill(255);
   shipList.add(new Spaceship(100, 60, new PVector(100, 0), new PVector(0, 100), new PVector(25, 25)));
-  levelList.add(new Level(10, 0, 1));
-
+  levelList.add(new Level(30, 0, 1));
+  for (int i = 0; i < 100; i++) {
+    starList.add(new Star(10, 10, new PVector(random(0, 2000), 0), new PVector(0, random(0, 800)), new PVector(random(1, 15), random(-1, 10))));
+    println("Test for stars: starGen " + i + " successful.");
+  }
 
   for (Level l : levelList) {
     l.spawnAsteroids();
