@@ -21,13 +21,15 @@ void setup() {
 
 void draw() {
   clear();
+
+
   if (keyPressed) {
     controls();
   }
+
   for (Star s : starList) {
     s.display();
     s.move();
-    
   }
 
   for (Spaceship s : shipList) {
@@ -38,26 +40,23 @@ void draw() {
     o2.display();
     o2.move();
   }
-
-
-
 }
-  void controls() {
 
-    for (Spaceship s : shipList) {
-      if (s.yPos.y >= (s.h)/4) {
-        if (keyCode == UP) {
-          s.moveUp();
-        }
+void controls() {
+  for (Spaceship s : shipList) {
+    if (s.yPos.y >= (s.h)/4) {
+      if (keyCode == UP) {
+        s.moveUp();
       }
-      if (s.yPos.y <= 800-(s.h)) {
-        if (keyCode == DOWN) {
-          s.moveDown();
-        }
+    }
+    if (s.yPos.y <= 800-(s.h)) {
+      if (keyCode == DOWN) {
+        s.moveDown();
       }
     }
   }
+}
 
-  void debug() {
-    println("test");
-  }
+void debug() {
+  println("test");
+}
