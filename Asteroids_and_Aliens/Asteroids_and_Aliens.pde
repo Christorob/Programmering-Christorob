@@ -1,6 +1,6 @@
 // TO DO!!!!!!!!!!!!!!:
 // CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos DONE
-// Rotate asteroids
+// Rotate asteroids DONE
 // Collision detection for objects + lasers later
 // Laser class
 // Alien movement
@@ -17,9 +17,7 @@ ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
-
-boolean up;
-boolean down;
+boolean up, down;
 
 void setup() {
   size(1600, 800);
