@@ -18,7 +18,7 @@ class Level extends Object {
     for (int i = 0; i < asteroidNumber; i++) {
      // println(asteroidNumber);
       println(i);
-      obstacleList.add(new Asteroid(w, h, new PVector(random(1600, 2400), random(0,800)), new PVector(random(5,15), random(6,10))));
+      obstacleList.add(new Asteroid(w, h, new PVector(random(1600, 3200), random(0,800)), new PVector(random(5,15), random(6,10)), random (-0.1, 0.1)));
     }
   }
 }

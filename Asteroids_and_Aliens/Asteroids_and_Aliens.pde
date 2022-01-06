@@ -1,5 +1,5 @@
 // TO DO!!!!!!!!!!!!!!:
-// CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos
+// CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos DONE
 // Rotate asteroids
 // Collision detection for objects + lasers later
 // Laser class
@@ -27,11 +27,15 @@ void setup() {
   imageMode(CENTER);
   frameRate(60);
   fill(255);
-  shipList.add(new Spaceship(100, 60, new PVector(100, 100), new PVector(25, 25)));
+  
+  shipList.add(new Spaceship(100, 60, new PVector(100, 100), new PVector(18, 18)));
+  
   levelList.add(new Level(30, 0, 1));
+  
   for (int i = 0; i < 100; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
     println("Test for stars: starGen " + i + " successful.");
+    
   }
 
   for (Level l : levelList) {
@@ -51,7 +55,7 @@ void draw() {
     s.move();
   }
 
-  fill(0, 0, 0, 75);
+  fill(0, 0, 0, 100);
   rect(0, 0, width, height);
 
   for (Spaceship s : shipList) {
