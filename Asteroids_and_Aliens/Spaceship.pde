@@ -1,24 +1,23 @@
 class Spaceship extends Object {
 
-  Spaceship(int w_, int h_, PVector xPos_, PVector yPos_, PVector speed_) {
+  Spaceship(int w_, int h_, PVector pos_, PVector speed_) {
     w = w_;
     h = h_;
-    xPos = xPos_;
-    yPos = yPos_;
+    pos = pos_;
     speed = speed_;
   }
 
   void display() {
     fill(255,100,100);
-    rect(xPos.x, yPos.y, w, h);
+    rect(pos.x, pos.y, w, h);
   }
 
   void moveUp() {
-    yPos.sub(speed);
+    pos.y -= speed.y;
     
   }
 
   void moveDown() {
-    yPos.add(speed);
+    pos.y += speed.y;
   }
 }

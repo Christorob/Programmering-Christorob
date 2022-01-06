@@ -1,11 +1,12 @@
 class Object {
 
   float w, h;
-  PVector xPos, yPos, speed;
+  PVector pos, speed;
 
 
   void display() {
   }
+  
   void move() {
   };
 }

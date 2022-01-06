@@ -18,16 +18,19 @@ ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
 
+boolean up;
+boolean down;
+
 void setup() {
   size(1600, 800);
   background(0);
   imageMode(CENTER);
   frameRate(60);
   fill(255);
-  shipList.add(new Spaceship(100, 60, new PVector(100, 0), new PVector(0, 100), new PVector(25, 25)));
+  shipList.add(new Spaceship(100, 60, new PVector(100, 100), new PVector(25, 25)));
   levelList.add(new Level(30, 0, 1));
   for (int i = 0; i < 100; i++) {
-    starList.add(new Star(10, 10, new PVector(random(0, 2000), 0), new PVector(0, random(0, 800)), new PVector(random(1, 15), random(-1, 10))));
+    starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
     println("Test for stars: starGen " + i + " successful.");
   }
 
@@ -40,16 +43,14 @@ void setup() {
 void draw() {
   //clear();
 
-
-  if (keyPressed) {
     controls();
-  }
+  
 
   for (Star s : starList) {
     s.display();
     s.move();
   }
-  
+
   fill(0, 0, 0, 75);
   rect(0, 0, width, height);
 
@@ -61,27 +62,41 @@ void draw() {
     o2.display();
     o2.move();
   }
-    
-
- 
-  
 }
 
 void controls() {
   for (Spaceship s : shipList) {
-    if (s.yPos.y >= (s.h)/4) {
-      if (keyCode == UP) {
+    if (s.pos.y >= (s.h)/4) {
+      if (up) {
         s.moveUp();
       }
     }
-    if (s.yPos.y <= 800-(s.h)) {
-      if (keyCode == DOWN) {
+    if (s.pos.y <= 800-(s.h)) {
+      if (down) {
         s.moveDown();
       }
     }
   }
 }
+void keyPressed() {
+  if (keyCode == UP) {
+    up = true;
+  }
 
+  if (keyCode == DOWN) {
+    down = true;
+  }
+}
+
+void keyReleased() {
+  if (keyCode == UP) {
+    up = false;
+  }
+
+  if (keyCode == DOWN) {
+    down = false;
+  }
+}
 void debug() {
   println("test");
 }

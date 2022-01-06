@@ -2,11 +2,10 @@ class Asteroid extends Obstacle {
 
   color c = color(random(100, 200));
 
-  Asteroid(float w_, float h_, PVector xPos_, PVector yPos_, PVector speed_) {
+  Asteroid(float w_, float h_, PVector pos_, PVector speed_) {
     w = w_;
     h = h_;
-    xPos = xPos_;
-    yPos = yPos_;
+    pos = pos_;
     speed = speed_;
 
     w *= random(0.5, 2);
@@ -16,18 +15,18 @@ class Asteroid extends Obstacle {
   void display() {
     fill(c);
 
-    ellipse(xPos.x, yPos.y, w, h);
+    ellipse(pos.x, pos.y, w, h);
   }
 
   void move() {
-    yPos.add(new PVector(0, sin(100)*random(-3, 3))) ;
-    xPos.sub(speed);
-    yPos.sub(new PVector(0, 10*(random(-0.25,0.25))));
+    pos.add(new PVector(0, sin(100)*random(-3, 3))) ;
+    pos.x -= speed.x;
+    pos.sub(new PVector(0, 10*(random(-0.25,0.25))));
 
 
-    if (yPos.y <= -w || yPos.y >= height + h || xPos.x <= 0 - w) {
-      yPos.y = random(-200, 1000);
-      xPos.x = random(1650, 4000);
+    if (pos.y <= -w || pos.y >= height + h || pos.x <= 0 - w) {
+      pos.y = random(-200, 1000);
+      pos.x = random(1650, 4000);
     }
   }
 }

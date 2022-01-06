@@ -2,11 +2,10 @@ class Star extends Object {
 
   color c = color(random(220, 255), random(220, 255), random(220, 255));
 
-  Star(float w_, float h_, PVector xPos_, PVector yPos_, PVector speed_) {
+  Star(float w_, float h_, PVector pos_, PVector speed_) {
     w = w_;
     h = h_;
-    xPos = xPos_;
-    yPos = yPos_;
+    pos = pos_;
     speed = speed_;
 
     w *= random(0.1, 0.3);
@@ -16,18 +15,18 @@ class Star extends Object {
   void display() {
     noStroke();
     fill(c);
-    ellipse(xPos.x, yPos.y, w, h);
+    ellipse(pos.x, pos.y, w, h);
   }
 
   void move() {
 
-    xPos.sub(speed);
-    println("teststar pos: " + xPos.x + "  " + yPos.y);
-    //yPos.sub(speed);
+    pos.x -= speed.x;
+    println("teststar pos: " + pos.x + "  " + pos.y);
+    pos.y -= speed.y;
 
-    if (yPos.y > height || yPos.y < 0 || xPos.x < 0) {
-      yPos.y = random(0, 800);
-      xPos.x = random(width, width + 100);
+    if (pos.y > height || pos.y < 0 || pos.x < 0) {
+      pos.y = random(0, 800);
+      pos.x = random(width, width + 100);
     }
   }
 }
