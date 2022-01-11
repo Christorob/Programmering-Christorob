@@ -5,7 +5,7 @@ class DNA {
   int[] valueIndex = new int[25];
 
   float fitness;
-  float score = 0, totalWeight = 0, totalValue = 0, mutationRate = 0.01;
+  float score = 0, totalWeight = 0, totalValue = 0, mutationRate = 0.05;
 
   //DNA Constructor; generates a random binary string of 24 1's or 0's. 
   //1 means that the item assocaited with it, in the index lists below is in the backpack, and 0 means it is not. 
@@ -50,7 +50,7 @@ class DNA {
   DNA crossover(DNA parent) {
 
     //Child is "born" with random genes, but these will be replaced by mixing genes from parentA and parentB
-    DNA child = new DNA(genes.length);
+    DNA child = new DNA();
 
     //Random midpoint allows more variety in reproduction.
     int midpoint = int(random(genes.length));
@@ -71,7 +71,7 @@ class DNA {
     for (int i = 0; i < genes.length; i++) {
       if (random(1) < mutationRate) {
         genes[i] = (int) random(0, 2);
-        println("Mutation succesful! --------------------------------------------");
+        println("-------------------------------------------- Mutation succesful!");
       }
     }
   }

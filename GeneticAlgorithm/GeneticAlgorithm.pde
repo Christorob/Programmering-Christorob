@@ -33,6 +33,7 @@ void draw() {
       println("Total population: " + population.length);
     }
   }
+  
   for (int i = 0; i < population.length; i++) {
     int a = int(random(matingPool.size()));
     int b = int(random(matingPool.size()));
