@@ -10,8 +10,10 @@ void setup() {
 
 
 void draw() {
-  indexSetup();
+
   for (int i = 0; i < population.length; i++) {
+    
+    population[i].indexSetup();
     population[i].fitness();
   }
 }
