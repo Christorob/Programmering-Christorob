@@ -1,4 +1,4 @@
-DNA[] population = new DNA[5];
+DNA[] population = new DNA[10];
 
 
 
