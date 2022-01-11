@@ -5,7 +5,7 @@ class DNA {
   int[] valueIndex = new int[25];
 
   float fitness;
-  int totalWeight, totalValue;
+  int score, totalWeight, totalValue;
 
   DNA() {
     for (int i = 0; i < genes.length; i++) {
@@ -13,11 +13,11 @@ class DNA {
     }
   }
 
+
   void calWeight() {
     for (int i = 0; i < genes.length; i++) {
       if (genes[i] == 1) {
         totalWeight += weightIndex[i];
-        println("Total weight: " + totalWeight);
       }
     }
   }
@@ -26,20 +26,16 @@ class DNA {
     for (int i = 0; i < genes.length; i++) {
       if (genes[i] == 1) {
         totalValue += valueIndex[i];
-        println("Total value: " + totalValue);
       }
     }
   }
 
   void fitness() {
+    indexSetup();
     calValue();
     calWeight();
-    int score = totalValue / (totalWeight + 1);
-    println("Score: " + score);
+    score = totalValue / (1 + totalWeight);
   }
-
-
-
 
   //Manual weightIndex and valueIndex setup:
   void indexSetup() {
