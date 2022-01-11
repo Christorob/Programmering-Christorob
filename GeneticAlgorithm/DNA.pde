@@ -9,7 +9,8 @@ class DNA {
 
   DNA() {
     for (int i = 0; i < genes.length; i++) {
-      genes[i] = (int) random(0, 1);
+      genes[i] = (int) random(0, 2);
+
     }
   }
 
@@ -34,7 +35,8 @@ class DNA {
     indexSetup();
     calValue();
     calWeight();
-    score = totalValue / (1 + totalWeight);
+    score = totalValue / (totalWeight);
+    println("Gene pos 1-24: " + genes[0] + genes[1] + genes[2] + genes[3] + genes[4] + genes[5] + genes[6] + genes[7] + genes[8] + genes[9]+ genes[10] + genes[11] + genes[12] + genes[13] + genes[14] + genes[15] + genes[16] + genes[17] + genes[18]+ genes[19] + genes[20] + genes[21] + genes[22] + genes[23]);
   }
 
   //Manual weightIndex and valueIndex setup:
