@@ -73,6 +73,7 @@ class DNA {
 
   //Manual weightIndex and valueIndex setup:
   void indexSetup() {
+
     weightIndex[1] = 90;
     weightIndex[2] = 130;
     weightIndex[3] = 1530;

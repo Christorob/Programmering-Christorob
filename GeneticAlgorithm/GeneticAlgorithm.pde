@@ -11,7 +11,7 @@ void setup() {
 
 void draw() {
   for (int i = 0; i < population.length; i++) {
-    println("Current individual: " + i);
+    println("Current individual: " + (i + 1));
 
     //Calculate fitness:
     population[i].fitness();
@@ -43,5 +43,8 @@ void draw() {
     child.mutate();
 
     population[i] = child;
+    
+
+    
   }
 }
