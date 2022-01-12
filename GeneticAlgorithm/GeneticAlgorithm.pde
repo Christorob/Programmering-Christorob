@@ -1,39 +1,41 @@
-DNA[] population = new DNA[100];
+ArrayList <DNA> population = new ArrayList <DNA>();
+ArrayList<DNA> matingPool = new ArrayList<DNA>();
 
 void setup() {
-  for (int i = 0; i < population.length; i++) {
-    population[i] = new DNA();
-    population[i].indexSetup();
-    population[i].calValue();
+  for (int i = 0; i < 100; i++) {
+    population.get(i) = new DNA();
+    population.get(i).indexSetup();
+    population.get(i).calValue();
+    
   }
 }
 
 
 void draw() {
-  for (int i = 0; i < population.length; i++) {
+  for (int i = 0; i < population.size(); i++) {
     println("Current individual: " + (i + 1));
 
     //Calculate fitness:
-    population[i].fitness();
+    population.get(i).fitness();
 
     //For testing purposes:
-    println("Total weight: " + population[i].totalWeight);
-    println("Total value: " + population[i].totalValue);
-    println("Score: " + population[i].score);
+    println("Total weight: " + population.get(i).totalWeight);
+    println("Total value: " + population.get(i).totalValue);
+    println("Score: " + population.get(i).score);
   }
-  ArrayList<DNA> matingPool = new ArrayList<DNA>();
+  
 
   //Selection for best parents:
-  for (int i = 0; i < population.length; i++) {
-    int n = int(population[i].fitness / 100);
+  for (int i = 0; i < population.size(); i++) {
+    int n = int(population.get(i).fitness );
 
     for (int j = 0; j < n; j++) {
-      matingPool.add(population[i]);
-      println("Total population: " + population.length);
+      matingPool.add(population.get(i));
+      println("Total population: " + population.size());
     }
   }
   
-  for (int i = 0; i < population.length; i++) {
+  for (int i = 0; i < population.size(); i++) {
     int a = int(random(matingPool.size()));
     int b = int(random(matingPool.size()));
 
@@ -42,9 +44,7 @@ void draw() {
     DNA child = parentA.crossover(parentB);
     child.mutate();
 
-    population[i] = child;
-    
-
+    population.get(i) = child;
     
   }
 }
