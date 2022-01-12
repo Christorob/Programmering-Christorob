@@ -1,11 +1,10 @@
-DNA[] population = new DNA[1];
+DNA[] population = new DNA[100];
 
 void setup() {
   for (int i = 0; i < population.length; i++) {
     population[i] = new DNA();
     population[i].indexSetup();
     population[i].calValue();
-    population[i].calWeight();
   }
 }
 
@@ -26,7 +25,7 @@ void draw() {
 
   //Selection for best parents:
   for (int i = 0; i < population.length; i++) {
-    int n = int(population[i].fitness / 10);
+    int n = int(population[i].fitness / 100);
 
     for (int j = 0; j < n; j++) {
       matingPool.add(population[i]);

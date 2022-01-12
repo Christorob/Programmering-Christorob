@@ -17,22 +17,16 @@ class DNA {
   }
 
   //Calculates the total weight of each individual backpack in the population:
-  void calWeight() {
-    for (int i = 0; i < genes.length; i++) {
-      if (genes[i] == 1) {
-        totalWeight += weightIndex[i];
-      }
-    }
-  }
-
-  //Calculates the total value of each individual backpack in the population:
   void calValue() {
     for (int i = 0; i < genes.length; i++) {
       if (genes[i] == 1) {
+        totalWeight += weightIndex[i];
         totalValue += valueIndex[i];
       }
     }
   }
+
+
 
   //Detects if backpack is too heavy
   void fitness() {
