@@ -2,10 +2,11 @@ ArrayList <DNA> population = new ArrayList <DNA>();
 ArrayList<DNA> matingPool = new ArrayList<DNA>();
 
 void setup() {
-  for (int i = 0; i < 100; i++) {
-    population.get(i) = new DNA();
-    population.get(i).indexSetup();
-    population.get(i).calValue();
+  for (int i = 0; i < 10; i++) {
+    DNA temp = new DNA();
+    temp.indexSetup();
+    temp.calValue();
+    population.add(temp);
     
   }
 }
@@ -27,7 +28,8 @@ void draw() {
 
   //Selection for best parents:
   for (int i = 0; i < population.size(); i++) {
-    int n = int(population.get(i).fitness );
+
+    int n = int(population.get(i).score );
 
     for (int j = 0; j < n; j++) {
       matingPool.add(population.get(i));
@@ -44,7 +46,8 @@ void draw() {
     DNA child = parentA.crossover(parentB);
     child.mutate();
 
-    population.get(i) = child;
+    population.remove(i);
+    population.add(i, child);
     
   }
 }

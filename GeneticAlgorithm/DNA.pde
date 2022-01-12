@@ -5,7 +5,7 @@ class DNA {
   int[] valueIndex = new int[25];
 
   float fitness;
-  float score = 0, totalWeight = 0, totalValue = 0, mutationRate = 0.05;
+  float score = 0, totalWeight = 0, totalValue = 0, mutationRate = 0.0;
 
   //DNA Constructor; generates a random binary string of 24 1's or 0's. 
   //1 means that the item assocaited with it, in the index lists below is in the backpack, and 0 means it is not. 
@@ -35,7 +35,7 @@ class DNA {
     } else {
       score = 0;
     }
-    println("Gene pos 1-24: " + genes[0] + genes[1] + genes[2] + genes[3] + genes[4] + genes[5] + genes[6] + genes[7] + genes[8] + genes[9]+ genes[10] + genes[11] + genes[12] + genes[13] + genes[14] + genes[15] + genes[16] + genes[17] + genes[18]+ genes[19] + genes[20] + genes[21] + genes[22] + genes[23]);
+    println("Gene in individual: " + genes[0] + genes[1] + genes[2] + genes[3] + genes[4] + genes[5] + genes[6] + genes[7] + genes[8] + genes[9]+ genes[10] + genes[11] + genes[12] + genes[13] + genes[14] + genes[15] + genes[16] + genes[17] + genes[18]+ genes[19] + genes[20] + genes[21] + genes[22] + genes[23]);
   }
 
 
