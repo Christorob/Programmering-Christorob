@@ -1,7 +1,7 @@
 // TO DO!!!!!!!!!!!!!!:
 // CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos DONE
 // Rotate asteroids DONE
-// Collision detection for objects + lasers later
+// Collision detection for objects + lasers later SEMI DONE
 // Laser class
 // Alien movement
 // Multiple Levels
@@ -25,12 +25,13 @@ void setup() {
   size(1600, 800);
   background(0);
   imageMode(CENTER);
+  rectMode(CENTER);
   frameRate(60);
   fill(255);
 
-  shipList.add(new Spaceship(100, 60, new PVector(100, 100), new PVector(18, 18)));
-
-  levelList.add(new Level(5, 0, 1));
+ 
+//LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID
+  levelList.add(new Level(5, 0, 1, 10, 1));
 
   for (int i = 0; i < 100; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
@@ -56,7 +57,7 @@ void draw() {
     }
 
     fill(0, 0, 0, 100);
-    rect(0, 0, width, height);
+    rect(width/2, height/2, width, height);
 
     for (Spaceship s : shipList) {
       s.display();
@@ -88,6 +89,24 @@ void controls() {
   }
 }
 
+void collide() {
+  for (Spaceship s : shipList) {
+    for (Obstacle o2 : obstacleList) {
+      if ( o2.pos.x - s.pos.x <= 50 && o2.pos.y - s.pos.y <= 30 || o2.pos.x - s.pos.x <= -50 && o2.pos.y - s.pos.y <= -30 ) {
+
+        o2.pos.x = random(2000, 3000);
+
+        collisionCount++;
+        println("Collision! Number of collisions: " + collisionCount);
+        s.health--;
+      }
+    }
+  }
+}
+
+
+
+
 void keyPressed() {
   if (keyCode == UP) {
     up = true;
@@ -105,17 +124,5 @@ void keyReleased() {
 
   if (keyCode == DOWN) {
     down = false;
-  }
-}
-
-void collide() {
-  for (Spaceship s : shipList) {
-    for (Obstacle o2 : obstacleList) {
-      if ( o2.pos.x - s.pos.x <= 25 && o2.pos.y - s.pos.y <= 15 ) {
-
-        collisionCount++;
-        println("Collision! Number of collisions: " + collisionCount);
-      }
-    }
   }
 }
