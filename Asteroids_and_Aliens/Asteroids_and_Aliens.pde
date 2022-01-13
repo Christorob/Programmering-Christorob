@@ -33,9 +33,9 @@ void setup() {
 //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID
   levelList.add(new Level(5, 0, 1, 10, 1));
 
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 150; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
-    println("Test for stars: starGen " + i + " successful.");
+    println("StarGen " + i + " successful.");
   }
 
   for (Level l : levelList) {
