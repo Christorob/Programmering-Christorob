@@ -18,6 +18,7 @@ ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
 boolean up, down, alive = true;
+int collisionCount;
 
 void setup() {
   alive = true;
@@ -29,7 +30,7 @@ void setup() {
 
   shipList.add(new Spaceship(100, 60, new PVector(100, 100), new PVector(18, 18)));
 
-  levelList.add(new Level(30, 0, 1));
+  levelList.add(new Level(5, 0, 1));
 
   for (int i = 0; i < 100; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
@@ -46,6 +47,7 @@ void draw() {
   //clear();
   if (alive==true) {
     controls();
+    collide();
 
 
     for (Star s : starList) {
@@ -109,8 +111,10 @@ void keyReleased() {
 void collide() {
   for (Spaceship s : shipList) {
     for (Obstacle o2 : obstacleList) {
-      if ( s.pos.x - o2.pos.x <= 10) {
-        println("Collision!");
+      if ( o2.pos.x - s.pos.x <= 25 && o2.pos.y - s.pos.y <= 15 ) {
+
+        collisionCount++;
+        println("Collision! Number of collisions: " + collisionCount);
       }
     }
   }
