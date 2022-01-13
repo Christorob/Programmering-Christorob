@@ -1,3 +1,2 @@
-class Alien extends Obstacle{
-
+class Alien extends Obstacle {
 }

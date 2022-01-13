@@ -17,7 +17,7 @@ class Asteroid extends Obstacle {
 
   void display() {
     fill(c);
-    
+
     push();
 
     translate(pos.x, pos.y);
@@ -25,10 +25,8 @@ class Asteroid extends Obstacle {
     ellipse(0, 0, w, h);
 
     i += rotation;
-    
+
     pop();
-
-
   }
 
 

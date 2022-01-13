@@ -1,4 +1,4 @@
-class Obstacle extends Object{
+class Obstacle extends Object {
 
 
   void display() {

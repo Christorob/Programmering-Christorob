@@ -21,7 +21,7 @@ class Star extends Object {
   void move() {
 
     pos.x -= speed.x;
-    println("teststar pos: " + pos.x + "  " + pos.y);
+    //println("teststar pos: " + pos.x + "  " + pos.y);
     pos.y -= speed.y;
 
     if (pos.y > height || pos.y < 0 || pos.x < 0) {

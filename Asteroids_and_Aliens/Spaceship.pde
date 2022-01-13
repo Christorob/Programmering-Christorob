@@ -8,13 +8,12 @@ class Spaceship extends Object {
   }
 
   void display() {
-    fill(255,100,100);
+    fill(255, 100, 100);
     rect(pos.x, pos.y, w, h);
   }
 
   void moveUp() {
     pos.y -= speed.y;
-    
   }
 
   void moveDown() {
