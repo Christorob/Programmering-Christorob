@@ -10,14 +10,12 @@
 // Highscore saver
 
 
-
-
 ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
-boolean up, down, alive = true;
+boolean up, down, alive;
 int collisionCount;
 
 void setup() {
@@ -29,27 +27,31 @@ void setup() {
   frameRate(60);
   fill(255);
 
- 
-//LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID
+
+  //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID
   levelList.add(new Level(5, 0, 1, 10, 1));
 
-  for (int i = 0; i < 150; i++) {
+  for (int i = 0; i < 200; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
-    println("StarGen " + i + " successful.");
+    println("StarGen " + (i + 1) + " successful.");
   }
 
   for (Level l : levelList) {
     l.spawnAsteroids();
+    l.spawnSpaceship();
   }
 }
 
 
 void draw() {
   //clear();
-  if (alive==true) {
+  if (alive == false) {
+      println("test 123");
+      exit();
+      return;
+    }
+  
     controls();
-    collide();
-
 
     for (Star s : starList) {
       s.display();
@@ -61,17 +63,16 @@ void draw() {
 
     for (Spaceship s : shipList) {
       s.display();
+      s.collide();
+      s.death();
     }
 
     for (Obstacle o2 : obstacleList) {
       o2.display();
       o2.move();
-    }
-  } else
-  {
-    exit();
   }
 }
+
 
 
 void controls() {
@@ -89,20 +90,7 @@ void controls() {
   }
 }
 
-void collide() {
-  for (Spaceship s : shipList) {
-    for (Obstacle o2 : obstacleList) {
-      if ( o2.pos.x - s.pos.x <= 50 && o2.pos.y - s.pos.y <= 30 || o2.pos.x - s.pos.x <= -50 && o2.pos.y - s.pos.y <= -30 ) {
 
-        o2.pos.x = random(2000, 3000);
-
-        collisionCount++;
-        println("Collision! Number of collisions: " + collisionCount);
-        s.health--;
-      }
-    }
-  }
-}
 
 
 

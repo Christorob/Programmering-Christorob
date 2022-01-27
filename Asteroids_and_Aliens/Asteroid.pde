@@ -31,9 +31,11 @@ class Asteroid extends Obstacle {
 
 
   void move() {
-    pos.add(new PVector(0, sin(100)*random(-3, 3))) ;
+    //pos.add(new PVector(0, sin(100)*random(-3, 3))) ;
     pos.x -= speed.x;
+    pos.sub(new PVector(0, noise(millis()/100)*2-1));
     pos.sub(new PVector(0, 10*(random(-0.25, 0.25))));
+ 
 
 
     if (pos.y <= -w || pos.y >= height + h || pos.x <= 0 - w) {

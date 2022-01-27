@@ -12,10 +12,12 @@ class Spaceship extends Object {
   }
 
   void display() {
-    fill(255, 100, 100);
-    rect(pos.x, pos.y, w, h);
-    textSize(20);
-    text(int(health) + " health left", 50, 50);
+    if (alive== true) {
+      fill(255, 100, 100);
+      rect(pos.x, pos.y, w, h);
+      textSize(20);
+      text(int(health) + " health left", 50, 50);
+    }
   }
 
   void moveUp() {
@@ -25,4 +27,27 @@ class Spaceship extends Object {
   void moveDown() {
     pos.y += speed.y;
   }
+
+  void collide() {
+    for (Spaceship s : shipList) {
+      for (Obstacle o2 : obstacleList) {
+        if ( o2.pos.x - s.pos.x <= 50 && o2.pos.y - s.pos.y <= 30 || o2.pos.x - s.pos.x <= -50 && o2.pos.y - s.pos.y <= -30 ) {
+
+          o2.pos.x = random(2000, 3000);
+
+          collisionCount++;
+          println("Collision! Number of collisions: " + collisionCount);
+          s.health--;
+        }
+      }
+    }
+  }
+  void death() {
+    for (Spaceship s : shipList) {
+      if (s.health <= 0) {
+        alive = false;
+      }
+    }
+  }
+  
 }
