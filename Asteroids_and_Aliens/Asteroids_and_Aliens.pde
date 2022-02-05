@@ -1,16 +1,14 @@
 // TO DO!!!!!!!!!!!!!!:
-// CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos DONE
-// Rotate asteroids DONE
-// Collision detection for objects + lasers later DONE
-// Laser class 
-// Alien movement
-// Multiple Levels WIP
-// Unlocks using upgrades 
+
+// Laser class with collision, and ammo (refueling system)
+// Alien movement, laser aiming, collison
+// Multiple Levels 
+// Unlocks using upgrades (not sure if i can pull this off)
 // Score calculator and display WIP
 // Highscore saver
 
 
-//ArrayList<Object> objectList = new ArrayList<Object>();
+ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
@@ -18,7 +16,7 @@ ArrayList<Level> levelList = new ArrayList<Level>();
 ArrayList<Laser>laserList = new ArrayList<Laser>();
 
 boolean up, down, shoot, alive;
-int collisionCount;
+int collisionCount, currentLevel;
 
 void setup() {
   alive = true;
@@ -29,6 +27,7 @@ void setup() {
   frameRate(60);
   fill(255);
 
+  objectList.add(new Score()); //<>//
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
   levelList.add(new Level(5, 0, 1, 10, 1, false));
@@ -71,6 +70,12 @@ void draw() {
   rect(width/2, height/2, width, height);
 
   //Object classes functions being called
+  
+  for (Object o : objectList) {
+    o.display();
+    
+  }
+  
   for (Star s : starList) {
     s.display();
     s.move();
@@ -114,11 +119,9 @@ void controls() {
         s.moveDown();
       }
     }
+    
     if (shoot == true) { 
-      laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (10, 0)));
-      for (Laser l : laserList) {
-        
-      }
+      laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
     }
   }
 }

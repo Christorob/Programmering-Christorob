@@ -8,5 +8,5 @@ class Object {
   }
 
   void move() {
-  };
+  }
 }
