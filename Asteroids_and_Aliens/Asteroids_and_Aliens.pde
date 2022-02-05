@@ -1,16 +1,16 @@
 // TO DO!!!!!!!!!!!!!!:
 // CREATE NEW POS PVECTOR INSTEAD OF xPos and yPos DONE
 // Rotate asteroids DONE
-// Collision detection for objects + lasers later SEMI DONE
-// Laser class
+// Collision detection for objects + lasers later DONE
+// Laser class 
 // Alien movement
-// Multiple Levels
-// Unlocks using upgrades
-// Score calculator and display
+// Multiple Levels WIP
+// Unlocks using upgrades 
+// Score calculator and display WIP
 // Highscore saver
 
 
-ArrayList<Object> objectList = new ArrayList<Object>();
+//ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
@@ -35,11 +35,14 @@ void setup() {
   levelList.add(new Level(20, 0, 4, 16, 4, false));
   levelList.add(new Level(25, 0, 5, 18, 5, true));
 
-  for (int i = 0; i < 200; i++) {
+
+  //Star generation
+  for (int i = 0; i < 300; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
     println("StarGen " + (i + 1) + " successful.");
   }
 
+  // Level spawning spaceship and asteroids
   for (Level l : levelList) {
     l.spawnAsteroids();
     l.spawnSpaceship();
@@ -51,22 +54,25 @@ void draw() {
   //clear();
 
 
-
+//Death Detection (probably temporary)
   if (alive == false) {
     println("DEAD LOL");
     exit();
     return;
   }
 
+//Calling control function
   controls();
 
+//Streaking effect creation, used instead of clear()
+  fill(0, 0, 0, 100);
+  rect(width/2, height/2, width, height);
+
+//Object classes functions being called
   for (Star s : starList) {
     s.display();
     s.move();
   }
-
-  fill(0, 0, 0, 100);
-  rect(width/2, height/2, width, height);
 
   for (Spaceship s : shipList) {
     s.display();
@@ -88,6 +94,7 @@ void draw() {
 
 
 
+//Controls function
 void controls() {
   for (Spaceship s : shipList) {
     if (s.pos.y >= (s.h)/4) {
@@ -103,10 +110,7 @@ void controls() {
   }
 }
 
-
-
-
-
+//Keycodes for controls
 
 void keyPressed() {
   if (keyCode == UP) {

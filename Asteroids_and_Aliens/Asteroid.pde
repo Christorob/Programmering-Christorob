@@ -1,6 +1,7 @@
 class Asteroid extends Obstacle {
 
-  color c = color(random(100, 200));
+  color c1 = color(random(100, 200));
+  color c2 = color(random(50, 200), random(50, 200), random(50, 200));
   float i;
   float rotation;
 
@@ -16,16 +17,21 @@ class Asteroid extends Obstacle {
   }
 
   void display() {
-    fill(c);
-
+    //Reason for there being 2: second one adds tint of colour.
     push();
-
+    fill(c1);
     translate(pos.x, pos.y);
     rotate(i);
     ellipse(0, 0, w, h);
-
     i += rotation;
-
+    pop();
+    
+    push();
+    fill(c2, 10);
+    translate(pos.x, pos.y);
+    rotate(i);
+    ellipse(0, 0, w, h);
+    i += rotation;
     pop();
   }
 
@@ -35,7 +41,7 @@ class Asteroid extends Obstacle {
     pos.x -= speed.x;
     pos.sub(new PVector(0, noise(millis()/100)*2-1));
     pos.sub(new PVector(0, 10*(random(-0.25, 0.25))));
- 
+
 
 
     if (pos.y <= -w || pos.y >= height + h || pos.x <= 0 - w) {

@@ -1,6 +1,6 @@
 class Star extends Object {
 
-  color c = color(random(220, 255), random(220, 255), random(220, 255));
+  color c = color(random(200, 255), random(200, 255), random(200, 255));
 
   Star(float w_, float h_, PVector pos_, PVector speed_) {
     w = w_;
@@ -8,7 +8,7 @@ class Star extends Object {
     pos = pos_;
     speed = speed_;
 
-    w *= random(0.1, 0.3);
+    w *= random(0.05, 0.3);
     h = w;
   }
 
