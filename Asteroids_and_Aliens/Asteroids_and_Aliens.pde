@@ -15,7 +15,9 @@ ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
-boolean up, down, alive;
+ArrayList<Laser>laserList = new ArrayList<Laser>();
+
+boolean up, down, shoot, alive;
 int collisionCount;
 
 void setup() {
@@ -54,21 +56,21 @@ void draw() {
   //clear();
 
 
-//Death Detection (probably temporary)
+  //Death Detection (probably temporary)
   if (alive == false) {
     println("DEAD LOL");
     exit();
     return;
   }
 
-//Calling control function
+  //Calling control function
   controls();
 
-//Streaking effect creation, used instead of clear()
+  //Streaking effect creation, used instead of clear()
   fill(0, 0, 0, 100);
   rect(width/2, height/2, width, height);
 
-//Object classes functions being called
+  //Object classes functions being called
   for (Star s : starList) {
     s.display();
     s.move();
@@ -85,10 +87,15 @@ void draw() {
     o2.move();
   }
 
-  for (Level l : levelList) {
-    if (l.levelActive == true) {
-      l.display();
+  for (Level l1 : levelList) {
+    if (l1.levelActive == true) {
+      l1.display();
     }
+  }
+
+  for (Laser l2 : laserList) {
+    l2.move();
+    l2.display();
   }
 }
 
@@ -107,6 +114,12 @@ void controls() {
         s.moveDown();
       }
     }
+    if (shoot == true) { 
+      laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (10, 0)));
+      for (Laser l : laserList) {
+        
+      }
+    }
   }
 }
 
@@ -120,6 +133,11 @@ void keyPressed() {
   if (keyCode == DOWN) {
     down = true;
   }
+
+  if (key == ' ') {
+    shoot = true;
+    println("Shooting beginning...");
+  }
 }
 
 void keyReleased() {
@@ -129,5 +147,10 @@ void keyReleased() {
 
   if (keyCode == DOWN) {
     down = false;
+  }
+
+  if (key == ' ') {
+    shoot = false;
+    println("Shooting ending...");
   }
 }
