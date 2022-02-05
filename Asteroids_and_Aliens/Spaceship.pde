@@ -32,10 +32,8 @@ class Spaceship extends Object {
     for (Spaceship s : shipList) {
       for (Obstacle o2 : obstacleList) {
         if ( dist(o2.pos.x, o2.pos.y, s.pos.x, s.pos.y) <= 50) { 
-        //if ( o2.pos.x - s.pos.x <= 50 && o2.pos.y - s.pos.y <= 30 || o2.pos.x - s.pos.x <= -50 && o2.pos.y - s.pos.y <= -30 ) {
-          
-          fill(255);
-          rect(o2.pos.x - s.pos.x, o2.pos.y - s.pos.y, 50, 30);
+          //if ( o2.pos.x - s.pos.x <= 50 && o2.pos.y - s.pos.y <= 30 || o2.pos.x - s.pos.x <= -50 && o2.pos.y - s.pos.y <= -30 ) {
+
           o2.pos.x = random(2000, 3000);
 
           collisionCount++;
@@ -52,5 +50,4 @@ class Spaceship extends Object {
       }
     }
   }
-  
 }

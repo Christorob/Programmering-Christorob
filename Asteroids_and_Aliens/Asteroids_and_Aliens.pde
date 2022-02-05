@@ -28,8 +28,12 @@ void setup() {
   fill(255);
 
 
-  //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID
-  levelList.add(new Level(5, 0, 1, 10, 1));
+  //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
+  levelList.add(new Level(5, 0, 1, 10, 1, false));
+  levelList.add(new Level(10, 0, 2, 12, 2, false));
+  levelList.add(new Level(15, 0, 3, 14, 3, false));
+  levelList.add(new Level(20, 0, 4, 16, 4, false));
+  levelList.add(new Level(25, 0, 5, 18, 5, true));
 
   for (int i = 0; i < 200; i++) {
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
@@ -45,31 +49,40 @@ void setup() {
 
 void draw() {
   //clear();
+
+
+
   if (alive == false) {
-      println("test 123");
-      exit();
-      return;
+    println("DEAD LOL");
+    exit();
+    return;
+  }
+
+  controls();
+
+  for (Star s : starList) {
+    s.display();
+    s.move();
+  }
+
+  fill(0, 0, 0, 100);
+  rect(width/2, height/2, width, height);
+
+  for (Spaceship s : shipList) {
+    s.display();
+    s.collide();
+    s.death();
+  }
+
+  for (Obstacle o2 : obstacleList) {
+    o2.display();
+    o2.move();
+  }
+
+  for (Level l : levelList) {
+    if (l.levelActive == true) {
+      l.display();
     }
-  
-    controls();
-
-    for (Star s : starList) {
-      s.display();
-      s.move();
-    }
-
-    fill(0, 0, 0, 100);
-    rect(width/2, height/2, width, height);
-
-    for (Spaceship s : shipList) {
-      s.display();
-      s.collide();
-      s.death();
-    }
-
-    for (Obstacle o2 : obstacleList) {
-      o2.display();
-      o2.move();
   }
 }
 
