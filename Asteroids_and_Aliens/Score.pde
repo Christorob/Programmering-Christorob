@@ -1,19 +1,19 @@
 class Score extends Object {
 
-  int score = 0;
+  int score;
 
   Score(){
   
   }
 
   void display() {
-    text ("Score: " + score, 50, 75);
+    text ("Score: " + score, 50, 50);
   }
 
   void updateScore() {
     for (Level l : levelList) {
-      if ( l.levelID == currentLevel) {
-        score += score * l.scoreMultiplyer ;
+      while ( l.levelID == currentLevel) {
+        score = score + (1 * l.scoreMultiplyer) ;
       }
     }
   }

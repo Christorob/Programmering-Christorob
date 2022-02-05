@@ -1,5 +1,5 @@
-// TO DO!!!!!!!!!!!!!!:
-
+// TO DO!!!!!!!!!!!!!!: //<>//
+//LINE 21 LASER CLASS IS THE ISSUE RN!!!
 // Laser class with collision, and ammo (refueling system)
 // Alien movement, laser aiming, collison
 // Multiple Levels 
@@ -13,10 +13,11 @@ ArrayList<Star> starList = new ArrayList<Star>();
 ArrayList<Obstacle> obstacleList = new ArrayList<Obstacle>();
 ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
-ArrayList<Laser>laserList = new ArrayList<Laser>();
+ArrayList<Laser> laserList = new ArrayList<Laser>();
+ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive;
-int collisionCount, currentLevel;
+int collisionCount, currentLevel, laserCount;
 
 void setup() {
   alive = true;
@@ -27,7 +28,7 @@ void setup() {
   frameRate(60);
   fill(255);
 
-  objectList.add(new Score()); //<>//
+  scoreList.add(new Score());
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
   levelList.add(new Level(5, 0, 1, 10, 1, false));
@@ -70,21 +71,23 @@ void draw() {
   rect(width/2, height/2, width, height);
 
   //Object classes functions being called
-  
-  for (Object o : objectList) {
-    o.display();
-    
-  }
-  
-  for (Star s : starList) {
-    s.display();
-    s.move();
+
+
+
+  for (Star s1 : starList) {
+    s1.display();
+    s1.move();
   }
 
-  for (Spaceship s : shipList) {
-    s.display();
-    s.collide();
-    s.death();
+  for (Spaceship s2 : shipList) {
+    s2.display();
+    s2.collide();
+    s2.death();
+  }
+
+  for (Score s3 : scoreList) {
+    s3.display();
+    s3.updateScore();
   }
 
   for (Obstacle o2 : obstacleList) {
@@ -101,6 +104,7 @@ void draw() {
   for (Laser l2 : laserList) {
     l2.move();
     l2.display();
+    l2.collide();
   }
 }
 
@@ -119,9 +123,12 @@ void controls() {
         s.moveDown();
       }
     }
-    
+
     if (shoot == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
+      laserCount++;
+      println("Lasers Shot: " + (laserCount));
+      
     }
   }
 }
