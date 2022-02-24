@@ -46,14 +46,15 @@ class Laser extends Object {
       }
     }
   }
+/*
+  void deleteLaser() {
+    for (int i = (laserList.size()); i >= 0; i--) {
 
-  /*void deleteLaser() {
-    for (int i = (laserList.size() - 1); i >= 0; i--) {
-     // laserOnscreen = false;
+      laserOnscreen = false;
       laserList.remove(i); 
       println("Laser test: " + laserList.size());
       if ( i != laserList.size()) {
-        break;
+        break; 
       }
     }
   }*/

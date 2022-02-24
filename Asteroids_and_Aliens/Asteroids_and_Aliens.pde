@@ -16,7 +16,7 @@ ArrayList<Level> levelList = new ArrayList<Level>();
 ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
-boolean up, down, shoot, alive;
+boolean up, down, shoot, alive, hasAmmo = true;
 int collisionCount, currentLevel, laserCount, currentScore;
 
 void setup() {
@@ -139,7 +139,7 @@ void controls() {
       }
     }
 
-    if (shoot == true) { 
+    if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
       println("Lasers Shot: " + (laserCount));
