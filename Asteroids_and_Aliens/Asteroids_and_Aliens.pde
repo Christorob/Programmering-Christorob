@@ -1,4 +1,5 @@
 // TO DO!!!!!!!!!!!!!!: //<>//
+// WHY IS LEVELUP TESTER 3 FAILING?? also the levels are not being displayed or run? hmm
 // Alien movement, laser aiming, collison
 // Multiple Levels WIP
 // Unlocks using upgrades (not sure if i can pull this off)
@@ -13,7 +14,7 @@ ArrayList<Level> levelList = new ArrayList<Level>();
 ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
-boolean up, down, shoot, alive, hasAmmo = true, levelActive;
+boolean up, down, shoot, alive, hasAmmo = true;
 int collisionCount, currentLevel, laserCount, currentScore, ammoCount = 500;
 
 void setup() {
@@ -136,7 +137,7 @@ void controls() {
     if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
-      //println("Lasers Shot: " + (laserCount));
+      println("Lasers Shot: " + (laserCount));
       ammoCount--;
       if ( ammoCount == 0) {
         hasAmmo = false;
@@ -158,13 +159,6 @@ void clearBox() {
 void levelUp() {
   for (Score s : scoreList) {
     switch(s.score) {
-
-
-
-
-
-
-
 
     case 0:
       println("LEVELUP TESTER 0 (INIT)");
