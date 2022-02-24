@@ -17,7 +17,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive;
-int collisionCount, currentLevel, laserCount;
+int collisionCount, currentLevel, laserCount, currentScore;
 
 void setup() {
   alive = true;
@@ -28,15 +28,14 @@ void setup() {
   frameRate(60);
   fill(255);
 
-  scoreList.add(new Score(0));
+  scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
   levelList.add(new Level(5, 0, 1, 10, 1, false));
-  levelList.add(new Level(10, 0, 2, 12, 2, false)); 
+  levelList.add(new Level(10, 0, 2, 12, 2, true)); 
   levelList.add(new Level(15, 0, 3, 14, 3, false)); 
   levelList.add(new Level(20, 0, 4, 16, 4, false));
-  levelList.add(new Level(25, 0, 5, 18, 5, true));
-  
+  levelList.add(new Level(25, 0, 5, 18, 5, false));
   levelList.add(new Level(300, 0, 100, 10, 100, false));
 
 
@@ -100,6 +99,7 @@ void draw() {
   for (Level l1 : levelList) {
     if (l1.levelActive == true) {
       l1.display();
+      currentLevel = l1.levelID;
     }
   }
 

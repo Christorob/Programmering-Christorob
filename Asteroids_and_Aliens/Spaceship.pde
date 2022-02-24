@@ -16,7 +16,7 @@ class Spaceship extends Object {
       fill(255, 100, 100);
       rect(pos.x, pos.y, w, h);
       textSize(20);
-      text(int(health) + " health left", 50, 75);
+      text(int(health) + " health remaining", 50, 75);
     }
   }
 
