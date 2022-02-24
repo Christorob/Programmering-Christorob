@@ -54,7 +54,7 @@ void setup() {
 
 void draw() {
   //clear();
-
+  //println(laserList.size());
 
   //Death Detection (probably temporary)
   if (alive == false) {
