@@ -16,7 +16,7 @@ class Score extends Object {
     //println("TEST1");
     for (Level l : levelList) {
       if ( l.levelID == currentLevel) {
-        score = score + (5 * l.scoreMultiplyer) ;
+        score = score + (10 * l.scoreMultiplyer) ;
         //println("TEST2 " + l.scoreMultiplyer);
       }
     }

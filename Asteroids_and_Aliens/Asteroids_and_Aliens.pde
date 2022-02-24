@@ -14,7 +14,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true, levelActive;
-int collisionCount, currentLevel , laserCount, currentScore, ammoCount = 500;
+int collisionCount, currentLevel, laserCount, currentScore, ammoCount = 500;
 
 void setup() {
   alive = true;
@@ -28,7 +28,7 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(5, 0, 1, 10, 1, false));
+  levelList.add(new Level(5, 0, 1, 10, 1, true));
   levelList.add(new Level(10, 0, 2, 12, 2, false)); 
   levelList.add(new Level(15, 0, 3, 14, 3, false)); 
   levelList.add(new Level(20, 0, 4, 16, 4, false));
@@ -55,13 +55,6 @@ void draw() {
 
   levelUp();
 
-  push();
-  fill(255);
-  rectMode(CORNER);
-  //rect (160, 44, 90, 20);
-  rect (0, 0, 280, 120);
-  pop();
-
   //Death Detection (probably temporary)
   if (alive == false) {
     println("DEAD LOL");
@@ -75,6 +68,13 @@ void draw() {
   //Streaking effect creation, used instead of clear()
   fill(0, 0, 0, 100);
   rect(width/2, height/2, width, height);
+
+  push();
+  fill(255);
+  rectMode(CORNER);
+  //rect (160, 44, 90, 20);
+  rect (0, 0, 280, 120);
+  pop();
 
   //Object classes functions being called
 
@@ -151,10 +151,9 @@ void controls() {
 }
 
 void levelUp() {
-
   for (Score s : scoreList) {
     switch(s.score) {
-      
+
     case 0:
       println("LEVELUP TESTER 0 (INIT)");
       currentLevel = 1;
@@ -207,33 +206,9 @@ void levelUp() {
       break;
     }
   }
-
-  /*
-    if (s.score == 100) {
-   println("LEVELUP TESTER 1");
-   currentLevel++;
-   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
-   } else if (s.score == 200) {
-   println("LEVELUP TESTER 2");
-   currentLevel++;
-   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
-   } else if (s.score == 300) {
-   println("LEVELUP TESTER 3");
-   currentLevel++;
-   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
-   } else if (s.score == 400) {
-   println("LEVELUP TESTER 4");
-   currentLevel++;
-   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
-   } else if (s.score == 500) {
-   println("LEVELUP TESTER 5");
-   currentLevel++;
-   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
-   }*/
 }
 
 //Keycodes for controls
-
 void keyPressed() {
   if (keyCode == UP) {
     up = true;

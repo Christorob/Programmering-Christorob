@@ -16,7 +16,7 @@ class Level extends Object {
     push();
     fill(0);
     textSize(20);
-    text ( "Current level: " + levelID, 50, 25);
+    text ( "Current level: " + currentLevel, 50, 25);
     //println("Level + score test 1");
     pop();
   }
