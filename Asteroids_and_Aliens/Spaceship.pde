@@ -43,6 +43,7 @@ class Spaceship extends Object {
       }
     }
   }
+
   void death() {
     for (Spaceship s : shipList) {
       if (s.health <= 0) {

@@ -8,8 +8,7 @@ class Score extends Object {
 
   void display() {   
     fill(0);
-    text ("Score: " + score, 50, 50);
-    
+    text ("Score: " + score, 50, 50);  
   }
 
   void updateScore() {

@@ -29,11 +29,11 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  /* levelList.add(new Level(5, 0, 1, 10, 1, true));
+   levelList.add(new Level(5, 0, 1, 10, 1, true));
    levelList.add(new Level(10, 0, 2, 12, 2, false)); 
    levelList.add(new Level(15, 0, 3, 14, 3, false)); 
    levelList.add(new Level(20, 0, 4, 16, 4, false));
-   levelList.add(new Level(25, 0, 5, 18, 5, false));*/
+   levelList.add(new Level(25, 0, 5, 18, 5, false));
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -137,7 +137,7 @@ void controls() {
     if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
-      println("Lasers Shot: " + (laserCount));
+      //println("Lasers Shot: " + (laserCount));
       ammoCount--;
       if ( ammoCount == 0) {
         hasAmmo = false;
@@ -154,7 +154,6 @@ void clearBox() {
   rect (0, 0, 280, 120);
   pop();
 }
-
 
 void levelUp() {
   for (Score s : scoreList) {

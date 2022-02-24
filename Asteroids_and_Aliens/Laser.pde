@@ -21,7 +21,6 @@ class Laser extends Object {
     pos.add(speed);
   }
 
-
   void collide() {
     for (Laser l : laserList) { 
       for (Obstacle o2 : obstacleList) {
