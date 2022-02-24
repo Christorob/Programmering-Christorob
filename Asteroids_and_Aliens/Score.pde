@@ -2,8 +2,8 @@ class Score extends Object {
 
   int score;
 
-  Score(){
-  
+  Score(int score_){
+    score = score_;
   }
 
   void display() {
@@ -14,6 +14,7 @@ class Score extends Object {
     for (Level l : levelList) {
       while ( l.levelID == currentLevel) {
         score = score + (1 * l.scoreMultiplyer) ;
+        println("TESTETSTETSTETSTET");
       }
     }
   }

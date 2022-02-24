@@ -47,7 +47,7 @@ class Laser extends Object {
     }
   }
 
-  void deleteLaser() {
+  /*void deleteLaser() {
     for (int i = (laserList.size() - 1); i >= 0; i--) {
      // laserOnscreen = false;
       laserList.remove(i); 
@@ -56,5 +56,5 @@ class Laser extends Object {
         break;
       }
     }
-  }
+  }*/
 }
