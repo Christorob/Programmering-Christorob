@@ -1,12 +1,9 @@
 // TO DO!!!!!!!!!!!!!!: //<>//
-//LINE 21 LASER CLASS IS THE ISSUE RN!!!
-// Laser class with collision, and ammo (refueling system)
 // Alien movement, laser aiming, collison
-// Multiple Levels 
+// Multiple Levels WIP
 // Unlocks using upgrades (not sure if i can pull this off)
 // Score calculator and display WIP
 // Highscore saver
-
 
 ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
@@ -17,7 +14,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true, levelActive;
-int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500;
+int collisionCount, currentLevel , laserCount, currentScore, ammoCount = 500;
 
 void setup() {
   alive = true;
@@ -31,12 +28,11 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(5, 0, 1, 10, 1, true));
-  levelList.add(new Level(10, 0, 2, 12, 2, levelActive)); 
-  levelList.add(new Level(15, 0, 3, 14, 3, levelActive)); 
-  levelList.add(new Level(20, 0, 4, 16, 4, levelActive));
-  levelList.add(new Level(25, 0, 5, 18, 5, levelActive));
-
+  levelList.add(new Level(5, 0, 1, 10, 1, false));
+  levelList.add(new Level(10, 0, 2, 12, 2, false)); 
+  levelList.add(new Level(15, 0, 3, 14, 3, false)); 
+  levelList.add(new Level(20, 0, 4, 16, 4, false));
+  levelList.add(new Level(25, 0, 5, 18, 5, false));
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -50,7 +46,6 @@ void setup() {
     l.spawnSpaceship();
   }
 }
-
 
 void draw() {
   //clear();
@@ -66,9 +61,6 @@ void draw() {
   //rect (160, 44, 90, 20);
   rect (0, 0, 280, 120);
   pop();
-
-
-
 
   //Death Detection (probably temporary)
   if (alive == false) {
@@ -92,17 +84,10 @@ void draw() {
   }
 
   for (Level l1 : levelList) {
-    if (l1.levelActive == true) {
-      l1.display();
-      currentLevel = l1.levelID;
-      //l1.nextLevel();
-      // for (Score s : scoreList) {
-      // if (s.score == 200) {
-      // currentLevel++;
-      //l1.levelActive = true;
-      //}
-      //}
-    }
+    //if (l1.levelActive == true) {
+    l1.display();
+    currentLevel = l1.levelID;
+    //}
   }
 
   for (Star s1 : starList) {
@@ -116,13 +101,10 @@ void draw() {
     s2.death();
   }
 
-
-
   for (Obstacle o2 : obstacleList) {
     o2.display();
     o2.move();
   }
-
 
   for (Laser l2 : laserList) {
     if (l2.pos.x > width + 100) {
@@ -133,9 +115,6 @@ void draw() {
       l2.display();
       l2.collide();
     }
-    /*else if (l2.laserOnscreen == false) {
-     l2.deleteLaser();
-     }*/
   }
   for (int i = (laserList.size() - 1); i >= 0; i--) {
     Laser l = laserList.get(i);
@@ -143,8 +122,6 @@ void draw() {
     //println("Lasers onscreen: " +  laserList.size());
   }
 }
-
-
 
 //Controls function
 void controls() {
@@ -159,10 +136,8 @@ void controls() {
         s.moveDown();
       }
     }
-
     fill(0);
     text (" Ammo remaining: " + ammoCount, 45, 100);
-
     if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
@@ -174,40 +149,88 @@ void controls() {
     }
   }
 }
-/*
-void nextLevel() {
- for (Score s : scoreList) {
- //for (Level l : levelList) {
- // if (currentLevel == l.levelID) {
- //currentLevel = l.levelID + 1;
- //l.levelActive = false;
- if (s.score == 100) {
- 
- //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active
- levelList.add(new Level(currentLevel * 5, (currentLevel - 1), currentLevel *  1, currentLevel * 4, currentLevel, true));
- s.score = 0;
- currentScore = 0;
- println("AAA");
- }
- }
- }*/
 
 void levelUp() {
+
   for (Score s : scoreList) {
-    if (s.score == 100) {
+    switch(s.score) {
+      
+    case 0:
+      println("LEVELUP TESTER 0 (INIT)");
+      currentLevel = 1;
+      levelList.add(new Level(5, 0, 1, 1, 0, false));
+      levelList.get(0).levelActive = true;
+      //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+      break;
+
+    case 1000:
       println("LEVELUP TESTER 1");
       currentLevel++;
-      levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
-    } else if (s.score == 200) {
+      levelList.get(1).levelActive = true;
+      //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+      break;
+
+    case 2000:
       println("LEVELUP TESTER 2");
       currentLevel++;
-      levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+      levelList.get(2).levelActive = true;     
+      break;
+
+    case 4000:
+      println("LEVELUP TESTER 3");
+      currentLevel++;
+      levelList.get(3).levelActive = true;      
+      break;
+
+    case 8000:
+      println("LEVELUP TESTER 4");
+      currentLevel++;
+      levelList.get(4).levelActive = true;       
+      break;
+
+    case 16000:
+      println("LEVELUP TESTER 5");
+      currentLevel++;
+      levelList.get(5).levelActive = true;
+      break;
+
+    case 32000:
+      println("LEVELUP TESTER 6");
+      currentLevel++;
+      levelList.get(6).levelActive = true;
+      break;
+
+    case 64000:
+      println("LEVELUP TESTER 7");
+      currentLevel++;
+      levelList.get(7).levelActive = true;
+      break;
     }
   }
+
+  /*
+    if (s.score == 100) {
+   println("LEVELUP TESTER 1");
+   currentLevel++;
+   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+   } else if (s.score == 200) {
+   println("LEVELUP TESTER 2");
+   currentLevel++;
+   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+   } else if (s.score == 300) {
+   println("LEVELUP TESTER 3");
+   currentLevel++;
+   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+   } else if (s.score == 400) {
+   println("LEVELUP TESTER 4");
+   currentLevel++;
+   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+   } else if (s.score == 500) {
+   println("LEVELUP TESTER 5");
+   currentLevel++;
+   levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+   }*/
 }
-
-
-
 
 //Keycodes for controls
 
@@ -215,11 +238,9 @@ void keyPressed() {
   if (keyCode == UP) {
     up = true;
   }
-
   if (keyCode == DOWN) {
     down = true;
   }
-
   if (key == ' ') {
     shoot = true;
     println("Shooting beginning...");
@@ -230,11 +251,9 @@ void keyReleased() {
   if (keyCode == UP) {
     up = false;
   }
-
   if (keyCode == DOWN) {
     down = false;
   }
-
   if (key == ' ') {
     shoot = false;
     println("Shooting ending...");
