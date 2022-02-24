@@ -14,7 +14,7 @@ class Level extends Object {
 
   void display() {
     push();
-    fill(255);
+    fill(0);
     textSize(20);
     text ( "Current level: " + levelID, 50, 25);
     //println("Level + score test 1");
@@ -36,7 +36,7 @@ class Level extends Object {
 
   void spawnSpaceship() {
     if (levelActive == true) {
-      shipList.add(new Spaceship(100, 60, new PVector(150, height/2), new PVector(18, 18), health));
+      shipList.add(new Spaceship(100, 60, new PVector(300, height/2), new PVector(18, 18), health));
     }
   }
 

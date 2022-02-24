@@ -16,7 +16,7 @@ ArrayList<Level> levelList = new ArrayList<Level>();
 ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
-boolean up, down, shoot, alive, hasAmmo = true;
+boolean up, down, shoot, alive, hasAmmo = true, levelActive;
 int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500;
 
 void setup() {
@@ -31,11 +31,11 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(5, 0, 1, 10, 1, false));
-  levelList.add(new Level(10, 0, 2, 12, 2, false)); 
-  levelList.add(new Level(15, 0, 3, 14, 3, false)); 
-  levelList.add(new Level(20, 0, 4, 16, 4, false));
-  levelList.add(new Level(25, 0, 5, 18, 5, false));
+  levelList.add(new Level(5, 0, 1, 10, 1, true));
+  levelList.add(new Level(10, 0, 2, 12, 2, levelActive)); 
+  levelList.add(new Level(15, 0, 3, 14, 3, levelActive)); 
+  levelList.add(new Level(20, 0, 4, 16, 4, levelActive));
+  levelList.add(new Level(25, 0, 5, 18, 5, levelActive));
 
 
   //Star generation
@@ -56,10 +56,19 @@ void draw() {
   //clear();
   //println(laserList.size());
 
+  //nextLevel();
+
+  levelUp();
+
   push();
   fill(255);
-  text (" Ammo remaining: " + ammoCount, 45, 100);
+  rectMode(CORNER);
+  //rect (160, 44, 90, 20);
+  rect (0, 0, 280, 120);
   pop();
+
+
+
 
   //Death Detection (probably temporary)
   if (alive == false) {
@@ -77,7 +86,24 @@ void draw() {
 
   //Object classes functions being called
 
+  for (Score s3 : scoreList) {
+    s3.display();
+    s3.updateScore();
+  }
 
+  for (Level l1 : levelList) {
+    if (l1.levelActive == true) {
+      l1.display();
+      currentLevel = l1.levelID;
+      //l1.nextLevel();
+      // for (Score s : scoreList) {
+      // if (s.score == 200) {
+      // currentLevel++;
+      //l1.levelActive = true;
+      //}
+      //}
+    }
+  }
 
   for (Star s1 : starList) {
     s1.display();
@@ -90,23 +116,13 @@ void draw() {
     s2.death();
   }
 
-  for (Score s3 : scoreList) {
-    s3.display();
-    s3.updateScore();
-  }
+
 
   for (Obstacle o2 : obstacleList) {
     o2.display();
     o2.move();
   }
 
-  for (Level l1 : levelList) {
-    if (l1.levelActive == true) {
-      l1.display();
-      currentLevel = l1.levelID;
-      //l1.nextLevel();
-    }
-  }
 
   for (Laser l2 : laserList) {
     if (l2.pos.x > width + 100) {
@@ -144,6 +160,9 @@ void controls() {
       }
     }
 
+    fill(0);
+    text (" Ammo remaining: " + ammoCount, 45, 100);
+
     if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
@@ -155,20 +174,38 @@ void controls() {
     }
   }
 }
-
+/*
 void nextLevel() {
+ for (Score s : scoreList) {
+ //for (Level l : levelList) {
+ // if (currentLevel == l.levelID) {
+ //currentLevel = l.levelID + 1;
+ //l.levelActive = false;
+ if (s.score == 100) {
+ 
+ //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active
+ levelList.add(new Level(currentLevel * 5, (currentLevel - 1), currentLevel *  1, currentLevel * 4, currentLevel, true));
+ s.score = 0;
+ currentScore = 0;
+ println("AAA");
+ }
+ }
+ }*/
+
+void levelUp() {
   for (Score s : scoreList) {
-    for (Level l : levelList) {
-      if (currentLevel == l.levelID) {
-        if (s.score == 200) {
-          currentLevel = l.levelID + 1;
-          l.levelActive = false;
-          s.score = 0;
-        }
-      }
+    if (s.score == 100) {
+      println("LEVELUP TESTER 1");
+      currentLevel++;
+      levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+    } else if (s.score == 200) {
+      println("LEVELUP TESTER 2");
+      currentLevel++;
+      levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
     }
   }
 }
+
 
 
 

@@ -6,13 +6,10 @@ class Score extends Object {
     score = score_;
   }
 
-  void display() {
+  void display() {   
     fill(0);
-    rect (160, 44, 90, 20);
-    push();
-    fill(255);
     text ("Score: " + score, 50, 50);
-    pop();
+    
   }
 
   void updateScore() {
@@ -24,6 +21,4 @@ class Score extends Object {
       }
     }
   }
-
-
-  }
+}
