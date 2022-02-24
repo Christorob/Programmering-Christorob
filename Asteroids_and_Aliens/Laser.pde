@@ -23,7 +23,7 @@ class Laser extends Object {
     for (int i = (laserList.size() - 1); i >= 0; i--) {
       if (pos.x > width + 100) {
         laserOnscreen = false;
-        laserList.remove(i); 
+        //laserList.remove(i); 
         println("Laser test: " + laserList.size());
         if ( i != laserList.size() - 1 ) {
           break;

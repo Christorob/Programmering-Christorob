@@ -102,9 +102,11 @@ void draw() {
   }
 
   for (Laser l2 : laserList) {
-    l2.move();
-    l2.display();
-    l2.collide();
+    if (l2.laserOnscreen == true) {
+      l2.move();
+      l2.display();
+      l2.collide();
+    }
   }
 }
 
@@ -128,7 +130,6 @@ void controls() {
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
       println("Lasers Shot: " + (laserCount));
-      
     }
   }
 }
