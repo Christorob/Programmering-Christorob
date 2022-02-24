@@ -102,11 +102,22 @@ void draw() {
   }
 
   for (Laser l2 : laserList) {
+    if (l2.pos.x > width + 100) {
+      l2.laserOnscreen = false;
+    }
     if (l2.laserOnscreen == true) {
       l2.move();
       l2.display();
       l2.collide();
     }
+    /*else if (l2.laserOnscreen == false) {
+      l2.deleteLaser();
+    }*/
+  }
+  for (int i = (laserList.size() - 1); i >= 0; i--) {
+   Laser l = laserList.get(i);
+   if(!l.laserOnscreen) laserList.remove(i);
+   println("Lasers onscreen: " +  laserList.size());
   }
 }
 

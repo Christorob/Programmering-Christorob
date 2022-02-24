@@ -20,16 +20,6 @@ class Laser extends Object {
   void move() {
     pos.add(speed);
 
-    for (int i = (laserList.size() - 1); i >= 0; i--) {
-      if (pos.x > width + 100) {
-        laserOnscreen = false;
-        //laserList.remove(i); 
-        println("Laser test: " + laserList.size());
-        if ( i != laserList.size() - 1 ) {
-          break;
-        }
-      }
-    }
 
     //for (Laser l : laserList) {
 
@@ -53,6 +43,17 @@ class Laser extends Object {
         if (laserOnscreen == false) {
           laserList.remove(o2);
         }
+      }
+    }
+  }
+
+  void deleteLaser() {
+    for (int i = (laserList.size() - 1); i >= 0; i--) {
+     // laserOnscreen = false;
+      laserList.remove(i); 
+      println("Laser test: " + laserList.size());
+      if ( i != laserList.size()) {
+        break;
       }
     }
   }
