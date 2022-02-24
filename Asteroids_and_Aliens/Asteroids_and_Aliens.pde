@@ -28,11 +28,11 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(5, 0, 1, 10, 1, true));
-  levelList.add(new Level(10, 0, 2, 12, 2, false)); 
-  levelList.add(new Level(15, 0, 3, 14, 3, false)); 
-  levelList.add(new Level(20, 0, 4, 16, 4, false));
-  levelList.add(new Level(25, 0, 5, 18, 5, false));
+  /* levelList.add(new Level(5, 0, 1, 10, 1, true));
+   levelList.add(new Level(10, 0, 2, 12, 2, false)); 
+   levelList.add(new Level(15, 0, 3, 14, 3, false)); 
+   levelList.add(new Level(20, 0, 4, 16, 4, false));
+   levelList.add(new Level(25, 0, 5, 18, 5, false));*/
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -69,12 +69,7 @@ void draw() {
   fill(0, 0, 0, 100);
   rect(width/2, height/2, width, height);
 
-  push();
-  fill(255);
-  rectMode(CORNER);
-  //rect (160, 44, 90, 20);
-  rect (0, 0, 280, 120);
-  pop();
+  clearBox();
 
   //Object classes functions being called
 
@@ -150,59 +145,71 @@ void controls() {
   }
 }
 
+void clearBox() {
+  push();
+  fill(255);
+  rectMode(CORNER);
+  //rect (160, 44, 90, 20);
+  rect (0, 0, 280, 120);
+  pop();
+}
+
+
 void levelUp() {
   for (Score s : scoreList) {
     switch(s.score) {
 
+
+
+
+
+
+
+
     case 0:
       println("LEVELUP TESTER 0 (INIT)");
+      clearBox();
       currentLevel = 1;
-      levelList.add(new Level(5, 0, 1, 1, 0, false));
+      levelList.add(new Level(5, 0, 1, 10, 1, true));
       levelList.get(0).levelActive = true;
       //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
       break;
 
     case 1000:
       println("LEVELUP TESTER 1");
-      currentLevel++;
-      levelList.get(1).levelActive = true;
+      clearBox();
+      currentLevel += 1;
+      levelList.add(new Level(10, 0, 2, 12, 2, true)); 
+      levelList.remove(0);
+      levelList.get(0).levelActive = true;
       //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
       break;
 
     case 2000:
       println("LEVELUP TESTER 2");
-      currentLevel++;
-      levelList.get(2).levelActive = true;     
+      clearBox();
+      currentLevel += 1;
+      levelList.add(new Level(15, 0, 3, 14, 3, true)); 
+      levelList.remove(0);
+      levelList.get(0).levelActive = true;     
       break;
 
     case 4000:
       println("LEVELUP TESTER 3");
-      currentLevel++;
-      levelList.get(3).levelActive = true;      
+      clearBox();
+      currentLevel += 1;
+      levelList.add(new Level(20, 0, 4, 16, 4, true));
+      levelList.remove(0);
+      levelList.get(0).levelActive = true;      
       break;
 
     case 8000:
       println("LEVELUP TESTER 4");
-      currentLevel++;
-      levelList.get(4).levelActive = true;       
-      break;
-
-    case 16000:
-      println("LEVELUP TESTER 5");
-      currentLevel++;
-      levelList.get(5).levelActive = true;
-      break;
-
-    case 32000:
-      println("LEVELUP TESTER 6");
-      currentLevel++;
-      levelList.get(6).levelActive = true;
-      break;
-
-    case 64000:
-      println("LEVELUP TESTER 7");
-      currentLevel++;
-      levelList.get(7).levelActive = true;
+      clearBox();
+      //currentLevel += 1;
+      levelList.add(new Level(25, 0, 5, 18, 5, true));
+      levelList.remove(0);
+      levelList.get(0).levelActive = true;       
       break;
     }
   }
