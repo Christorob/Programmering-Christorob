@@ -17,7 +17,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel, laserCount, currentScore;
+int collisionCount, currentLevel, laserCount, currentScore, ammoCount = 500;
 
 void setup() {
   alive = true;
@@ -36,7 +36,6 @@ void setup() {
   levelList.add(new Level(15, 0, 3, 14, 3, false)); 
   levelList.add(new Level(20, 0, 4, 16, 4, false));
   levelList.add(new Level(25, 0, 5, 18, 5, false));
-  levelList.add(new Level(300, 0, 100, 10, 100, false));
 
 
   //Star generation
@@ -56,6 +55,11 @@ void setup() {
 void draw() {
   //clear();
   //println(laserList.size());
+
+  push();
+  fill(255);
+  text (" Ammo remaining: " + ammoCount, 45, 100);
+  pop();
 
   //Death Detection (probably temporary)
   if (alive == false) {
@@ -113,13 +117,13 @@ void draw() {
       l2.collide();
     }
     /*else if (l2.laserOnscreen == false) {
-      l2.deleteLaser();
-    }*/
+     l2.deleteLaser();
+     }*/
   }
   for (int i = (laserList.size() - 1); i >= 0; i--) {
-   Laser l = laserList.get(i);
-   if(!l.laserOnscreen) laserList.remove(i);
-   //println("Lasers onscreen: " +  laserList.size());
+    Laser l = laserList.get(i);
+    if (!l.laserOnscreen) laserList.remove(i);
+    //println("Lasers onscreen: " +  laserList.size());
   }
 }
 
@@ -142,7 +146,11 @@ void controls() {
     if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
-      println("Lasers Shot: " + (laserCount));
+      //println("Lasers Shot: " + (laserCount));
+      ammoCount--;
+      if ( ammoCount == 0) {
+        hasAmmo = false;
+      }
     }
   }
 }
