@@ -24,4 +24,6 @@ class Score extends Object {
       }
     }
   }
-}
+
+
+  }

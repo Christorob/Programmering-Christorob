@@ -17,7 +17,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel, laserCount, currentScore, ammoCount = 500;
+int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500;
 
 void setup() {
   alive = true;
@@ -32,7 +32,7 @@ void setup() {
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
   levelList.add(new Level(5, 0, 1, 10, 1, false));
-  levelList.add(new Level(10, 0, 2, 12, 2, true)); 
+  levelList.add(new Level(10, 0, 2, 12, 2, false)); 
   levelList.add(new Level(15, 0, 3, 14, 3, false)); 
   levelList.add(new Level(20, 0, 4, 16, 4, false));
   levelList.add(new Level(25, 0, 5, 18, 5, false));
@@ -104,6 +104,7 @@ void draw() {
     if (l1.levelActive == true) {
       l1.display();
       currentLevel = l1.levelID;
+      //l1.nextLevel();
     }
   }
 
@@ -154,6 +155,22 @@ void controls() {
     }
   }
 }
+
+void nextLevel() {
+  for (Score s : scoreList) {
+    for (Level l : levelList) {
+      if (currentLevel == l.levelID) {
+        if (s.score == 200) {
+          currentLevel = l.levelID + 1;
+          l.levelActive = false;
+          s.score = 0;
+        }
+      }
+    }
+  }
+}
+
+
 
 //Keycodes for controls
 

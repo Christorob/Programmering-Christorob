@@ -36,7 +36,9 @@ class Level extends Object {
 
   void spawnSpaceship() {
     if (levelActive == true) {
-      shipList.add(new Spaceship(100, 60, new PVector(100, 100), new PVector(18, 18), health));
+      shipList.add(new Spaceship(100, 60, new PVector(150, height/2), new PVector(18, 18), health));
     }
   }
+
+
 }
