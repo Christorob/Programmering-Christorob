@@ -4,7 +4,7 @@
 // Multiple Levels WIP -- get outta the way bitchehss wip on the wayy
 // Unlocks using upgrades (not sure if i can pull this off) -- pull this off u can do it woooo 
 // Score calculator and display WIP -- wip again bitch get outta maaa wayyy
-// Highscore saver -- hell yeah brauhh
+// Highscore saver -- hell yeah brauhh uwu
 
 ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
@@ -54,7 +54,7 @@ void draw() {
 
   //nextLevel();
 
-  
+
   for (Level l : levelList) {
     l.levelActive = false;
   }
@@ -119,7 +119,9 @@ void draw() {
   }
   for (int i = (laserList.size() - 1); i >= 0; i--) {
     Laser l = laserList.get(i);
-    if (!l.laserOnscreen) laserList.remove(i);
+    if (!l.laserOnscreen) {
+      laserList.remove(i);
+    }
     //println("Lasers onscreen: " +  laserList.size());
   }
 }
