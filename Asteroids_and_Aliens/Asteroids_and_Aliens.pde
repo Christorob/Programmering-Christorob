@@ -15,7 +15,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500;
+int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500, ammoCheck = currentLevel;
 
 void setup() {
   alive = true;
@@ -29,11 +29,11 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(5, 0, 1, 10, 1, true));
-  levelList.add(new Level(100, 0, 2, 12, 2, false)); 
-  levelList.add(new Level(150, 0, 3, 14, 3, false)); 
-  levelList.add(new Level(200, 0, 4, 16, 4, false));
-  levelList.add(new Level(250, 0, 5, 18, 5, false));
+  levelList.add(new Level(15, 0, 1, 10, 1, true));
+  levelList.add(new Level(25, 0, 2, 12, 2, false)); 
+  levelList.add(new Level(40, 0, 3, 14, 3, false)); 
+  levelList.add(new Level(60, 0, 4, 16, 4, false));
+  levelList.add(new Level(85, 0, 5, 18, 5, false));
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -72,6 +72,11 @@ void draw() {
   controls();
 
 
+  for (Spaceship s2 : shipList) {
+    s2.display();
+    s2.collide();
+    s2.death();
+  }
   //Streaking effect creation, used instead of clear()
   fill(0, 0, 0, 100);
   rect(width/2, height/2, width, height);
@@ -96,11 +101,6 @@ void draw() {
     s1.move();
   }
 
-  for (Spaceship s2 : shipList) {
-    s2.display();
-    s2.collide();
-    s2.death();
-  }
 
   for (Obstacle o2 : obstacleList) {
     o2.display();
@@ -148,6 +148,8 @@ void controls() {
       ammoCount--;
       if ( ammoCount == 0) {
         hasAmmo = false;
+      } else {
+        hasAmmo = true;
       }
     }
   }
@@ -162,6 +164,15 @@ void clearBox() {
   pop();
 }
 
+void ammoCheck() {
+  if (currentLevel != ammoCheck) {
+    ammoCount += 100;
+    hasAmmo = true;
+    ammoCheck = currentLevel;
+  }
+}
+
+
 void levelUp() {
 
   switch(currentLevel) {
@@ -171,31 +182,38 @@ void levelUp() {
     clearBox();
     levelList.get(0).levelActive = true;
     //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+    ammoCheck();
     break;
 
   case 2:
     println("LEVELUP TESTER 1");
     clearBox();
     levelList.get(1).levelActive = true;
-    //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+    levelList.get(0).levelActive = false;
+    ammoCheck();
     break;
 
   case 3:
     println("LEVELUP TESTER 2");
     clearBox();
-    levelList.get(2).levelActive = true;     
+    levelList.get(2).levelActive = true;   
+    levelList.get(1).levelActive = false;
+    ammoCheck();
     break;
 
   case 4:
     println("LEVELUP TESTER 3");
     clearBox();
-    levelList.get(3).levelActive = true;      
+    levelList.get(3).levelActive = true;
+    levelList.get(2).levelActive = false;
     break;
 
   case 5:
     // println("LEVELUP TESTER 4");
     clearBox();
-    levelList.get(4).levelActive = true;       
+    levelList.get(4).levelActive = true;  
+    levelList.get(3).levelActive = false;
+    ammoCheck();
     break;
   }
 }

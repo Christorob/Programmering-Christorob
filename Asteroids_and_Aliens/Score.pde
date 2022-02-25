@@ -18,7 +18,7 @@ class Score extends Object {
         if(frameCount%30==0){
           println("SCORE IS NOW: " + score);
           println("CURRENT LEVEL: " + currentLevel);
-          score = score + (100*l.scoreMultiplyer) ;
+          score = score + (50*l.scoreMultiplyer) ;
           //println("TEST2 " + l.scoreMultiplyer);
         }
       }
