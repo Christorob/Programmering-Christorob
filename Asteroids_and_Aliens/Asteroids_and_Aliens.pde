@@ -215,6 +215,14 @@ void levelUp() {
     levelList.get(3).levelActive = false;
     ammoCheck();
     break;
+
+  case 6:
+    // println("LEVELUP TESTER 5");
+    clearBox();
+    levelList.get(5).levelActive = true;  
+    levelList.get(4).levelActive = false;
+    ammoCheck();
+    break;
   }
 }
 
