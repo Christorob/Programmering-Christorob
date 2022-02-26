@@ -15,7 +15,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500, ammoCheckLevel = currentLevel;
+int collisionCount, currentLevel = 0, laserCount, currentScore, ammoCount = 500, ammoCheckLevel = currentLevel;
 
 void setup() {
   alive = true;
@@ -233,8 +233,8 @@ void levelUp() {
   case 1:
     println("LEVELUP TESTER 0 (INIT)");
     clearBox();
-    levelList.get(currentLevel).levelActive = true;
-    levelList.get(currentLevel - 1).levelActive = false;
+    //levelList.get(currentLevel).levelActive = true;
+    //levelList.get(currentLevel - 1).levelActive = false;
     levelList.add(new Level(25, 0, 2, 12, 1, true));
     //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
     ammoCheck();
@@ -298,7 +298,7 @@ void callObstacleGen() {
     if (currentLevel == l.levelID && l.levelActive == true) {
       l.spawnAsteroids();
       l.spawnSpaceship();
-      println("I AM WORKING" + l.levelID);
+      println("I AM WORKING " + l.levelID);
     }
   }
 }
