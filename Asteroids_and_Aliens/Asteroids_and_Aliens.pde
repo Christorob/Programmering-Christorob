@@ -29,7 +29,7 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(15, 0, 1, 10, 1, true));
+  levelList.add(new Level(5, 0, 1, 10, 1, true));
   levelList.add(new Level(25, 0, 2, 12, 2, false)); 
   levelList.add(new Level(40, 0, 3, 14, 3, false)); 
   levelList.add(new Level(60, 0, 4, 16, 4, false));
