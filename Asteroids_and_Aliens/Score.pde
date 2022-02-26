@@ -30,7 +30,7 @@ class Score extends Object {
     if (currentLevel <= 5) {
       println("----------------------------------");
       if (score == 0) callObstacleGen();
-      if (score >= (currentLevel * 1000) && score <= (currentLevel * 2000)) {
+      if (score >= (currentLevel * 1000)) {
         callObstacleGen();
         println("THE CURRENT LEVEL IS NOW ONE MORE");
         currentLevel++;

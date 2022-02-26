@@ -5,6 +5,7 @@
 // Unlocks using upgrades (not sure if i can pull this off) -- pull this off u can do it woooo 
 // Score calculator and display WIP -- wip again bitch get outta maaa wayyy
 // Highscore saver -- hell yeah brauhh uwu
+// YOU GOT TO LINE 206
 
 ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
@@ -43,35 +44,34 @@ void setup() {
   for (int i = 0; i < 300; i++) {
     // w, h, pos, speed
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
-    println("StarGen " + (i + 1) + " successful.");
+    //println("StarGen " + (i + 1) + " successful.");
   }
 }
 
 
-void spawnSpaceship() {
-  for (Level l : levelList) {
-    if (l.levelActive == true) {
-      shipList.add(new Spaceship(100, 60, new PVector(300, height/2), new PVector(18, 18), l.health));
-      println("ShipGen successful.");
-    }
-  }
-}
+
 
 
 
 void draw() {
   //clear();
-  println("------------------------ship no: " + shipList.size());
+  //println("------------------------ship no: " + shipList.size());
 
-  //nextLevel();
-
-
-  for (Level l : levelList) {
-    l.levelActive = false;
-  }
 
   //Level Up function
   levelUp();
+  //nextLevel();
+
+  for (Level l : levelList) {
+    if (l.levelID != currentLevel) {
+      l.levelActive = false;
+      if (shipList.size() != 1) {
+        l.spawnSpaceship();
+      }
+    }
+  }
+
+
 
   //Death Detection (probably temporary)
   if (alive == false) {
@@ -203,6 +203,7 @@ void levelUp() {
   case 2:
     println("LEVELUP TESTER 1");
     clearBox();
+    //if (levelList.size()
     levelList.get(1).levelActive = true;
     levelList.add(new Level(50, 0, 2, 12, 2, true));
     ammoCheck();

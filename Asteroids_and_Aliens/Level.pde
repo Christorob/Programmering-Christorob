@@ -36,5 +36,11 @@ class Level extends Object {
     }
   }
 
-
+  void spawnSpaceship() {
+    println("ShipGen init.");
+    //if (levelActive == true) {
+      shipList.add(new Spaceship(100, 60, new PVector(300, height/2), new PVector(18, 18), health));
+      println("ShipGen successful.");
+  //  }
+  }
 }
