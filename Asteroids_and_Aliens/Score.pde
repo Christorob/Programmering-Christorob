@@ -16,11 +16,11 @@ class Score extends Object {
     //println("TEST1");
     for (Level l : levelList) {
       if (l.levelID == currentLevel) {
-        if (frameCount % 30 == 0) {
+        if (frameCount % 10 == 0) {
           println("SCORE IS NOW: " + score);
           println("CURRENT LEVEL: " + currentLevel);
-          score = score + (50 * l.scoreMultiplyer) ;
-          println(l.levelID);
+          score = score + (10 * l.scoreMultiplyer) ;
+          println("Level ID: " + l.levelID);
           //println("TEST2 " + l.scoreMultiplyer);
         }
       }
@@ -29,7 +29,8 @@ class Score extends Object {
 
   void changeLevel() {
     if (currentLevel <= 5) {
-      if (score > currentLevel * 1000) {
+      if (score == currentLevel * 1000 || score == 0) {
+        callObstacleGen();
         println("THE CURRENT LEVEL IS NOW ONE MORE");
         currentLevel++;
       }

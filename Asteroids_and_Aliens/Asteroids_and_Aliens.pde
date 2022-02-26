@@ -15,7 +15,7 @@ ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500, ammoCheck = currentLevel;
+int collisionCount, currentLevel = 1, laserCount, currentScore, ammoCount = 500, ammoCheckLevel = currentLevel;
 
 void setup() {
   alive = true;
@@ -29,6 +29,7 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
+  
   levelList.add(new Level(5, 0, 1, 10, 1, true));
   levelList.add(new Level(25, 0, 2, 12, 2, false)); 
   levelList.add(new Level(40, 0, 3, 14, 3, false)); 
@@ -37,14 +38,9 @@ void setup() {
 
   //Star generation
   for (int i = 0; i < 300; i++) {
+    // w, h, pos, speed
     starList.add(new Star(10, 10, new PVector(random(0, 2000), random(0, 800)), new PVector(random(0, 15), 0)));
     println("StarGen " + (i + 1) + " successful.");
-  }
-
-  // Level spawning spaceship and asteroids
-  for (Level l : levelList) {
-    l.spawnAsteroids();
-    l.spawnSpaceship();
   }
 }
 
@@ -58,6 +54,8 @@ void draw() {
   for (Level l : levelList) {
     l.levelActive = false;
   }
+
+  //Level Up function
   levelUp();
 
   //Death Detection (probably temporary)
@@ -165,10 +163,10 @@ void clearBox() {
 }
 
 void ammoCheck() {
-  if (currentLevel != ammoCheck) {
+  if (currentLevel != ammoCheckLevel) {
     ammoCount += 100;
     hasAmmo = true;
-    ammoCheck = currentLevel;
+    ammoCheckLevel = currentLevel;
   }
 }
 
@@ -190,6 +188,7 @@ void levelUp() {
     clearBox();
     levelList.get(1).levelActive = true;
     levelList.get(0).levelActive = false;
+    if (levelList.get(0).levelActive == true) println("WACK?!");
     ammoCheck();
     break;
 
@@ -206,6 +205,7 @@ void levelUp() {
     clearBox();
     levelList.get(3).levelActive = true;
     levelList.get(2).levelActive = false;
+    ammoCheck();
     break;
 
   case 5:
@@ -219,12 +219,28 @@ void levelUp() {
   case 6:
     // println("LEVELUP TESTER 5");
     clearBox();
-    levelList.get(5).levelActive = true;  
+    //levelList.get(5).levelActive = true;  
     levelList.get(4).levelActive = false;
     ammoCheck();
     break;
   }
 }
+
+
+
+void callObstacleGen() {
+  // Level spawning spaceship and asteroids
+  for (Level l : levelList) {
+    if (currentLevel == l.levelID && l.levelActive == true) {
+      l.spawnAsteroids();
+      l.spawnSpaceship();
+      println("I AM WORKING" + l.levelID);
+    }
+  }
+}
+
+
+
 
 //Keycodes for controls
 void keyPressed() {
