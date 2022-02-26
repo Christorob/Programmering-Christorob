@@ -25,12 +25,12 @@ class Level extends Object {
 
   void spawnAsteroids() {
 
-    if (levelActive == true) {
+    if (levelActive == true && levelID == currentLevel) {
       w = random(20, 40);
       h = random(20, 40);
       for (int i = 0; i < asteroidNumber; i++) {
-        // println(asteroidNumber);
-        println("AsteroidGen " + (i + 1) + " successful.");
+        //println(asteroidNumber);
+        //println("AsteroidGen " + (i + 1) + " successful.");
         obstacleList.add(new Asteroid(w, h, new PVector(random(1600, 3200), random(0, 800)), new PVector(random(5, 15), random(6, 10)), random (-0.1, 0.1)));
       }
     }

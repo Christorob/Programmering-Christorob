@@ -9,7 +9,6 @@ class Score extends Object {
   void display() {   
     fill(0);
     text ("Score: " + score, 50, 50);  
-    ;
   }
 
   void updateScore() {
@@ -29,7 +28,7 @@ class Score extends Object {
 
   void changeLevel() {
     if (currentLevel <= 5) {
-      if (score == currentLevel * 1000 || score == 0) {
+      if (score == currentLevel * 1000 || score == 1000) {
         callObstacleGen();
         println("THE CURRENT LEVEL IS NOW ONE MORE");
         currentLevel++;

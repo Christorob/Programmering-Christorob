@@ -29,12 +29,12 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  
+
   levelList.add(new Level(5, 0, 1, 10, 1, true));
-  levelList.add(new Level(25, 0, 2, 12, 2, false)); 
-  levelList.add(new Level(40, 0, 3, 14, 3, false)); 
-  levelList.add(new Level(60, 0, 4, 16, 4, false));
-  levelList.add(new Level(85, 0, 5, 18, 5, false));
+  /*levelList.add(new Level(25, 0, 2, 12, 2, false)); 
+   levelList.add(new Level(40, 0, 3, 14, 3, false)); 
+   levelList.add(new Level(60, 0, 4, 16, 4, false));
+   levelList.add(new Level(85, 0, 5, 18, 5, false));*/
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -171,6 +171,61 @@ void ammoCheck() {
 }
 
 
+/*void levelUp() {
+ 
+ switch(currentLevel) {
+ 
+ case 1:
+ println("LEVELUP TESTER 0 (INIT)");
+ clearBox();
+ levelList.get(0).levelActive = true;
+ //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+ ammoCheck();
+ break;
+ 
+ case 2:
+ println("LEVELUP TESTER 1");
+ clearBox();
+ levelList.get(1).levelActive = true;
+ levelList.get(0).levelActive = false;
+ if (levelList.get(0).levelActive == true) println("WACK?!");
+ ammoCheck();
+ break;
+ 
+ case 3:
+ println("LEVELUP TESTER 2");
+ clearBox();
+ levelList.get(2).levelActive = true;   
+ levelList.get(1).levelActive = false;
+ ammoCheck();
+ break;
+ 
+ case 4:
+ println("LEVELUP TESTER 3");
+ clearBox();
+ levelList.get(3).levelActive = true;
+ levelList.get(2).levelActive = false;
+ ammoCheck();
+ break;
+ 
+ case 5:
+ // println("LEVELUP TESTER 4");
+ clearBox();
+ levelList.get(4).levelActive = true;  
+ levelList.get(3).levelActive = false;
+ ammoCheck();
+ break;
+ 
+ case 6:
+ // println("LEVELUP TESTER 5");
+ clearBox();
+ //levelList.get(5).levelActive = true;  
+ levelList.get(4).levelActive = false;
+ ammoCheck();
+ break;
+ }
+ }*/
+
 void levelUp() {
 
   switch(currentLevel) {
@@ -178,7 +233,9 @@ void levelUp() {
   case 1:
     println("LEVELUP TESTER 0 (INIT)");
     clearBox();
-    levelList.get(0).levelActive = true;
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    levelList.add(new Level(25, 0, 2, 12, 1, true));
     //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
     ammoCheck();
     break;
@@ -187,44 +244,51 @@ void levelUp() {
     println("LEVELUP TESTER 1");
     clearBox();
     levelList.get(1).levelActive = true;
-    levelList.get(0).levelActive = false;
-    if (levelList.get(0).levelActive == true) println("WACK?!");
+    levelList.add(new Level(50, 0, 2, 12, 2, true));
     ammoCheck();
     break;
 
   case 3:
     println("LEVELUP TESTER 2");
     clearBox();
-    levelList.get(2).levelActive = true;   
-    levelList.get(1).levelActive = false;
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    levelList.add(new Level(75, 0, 2, 12, 3, true));
     ammoCheck();
     break;
 
   case 4:
     println("LEVELUP TESTER 3");
     clearBox();
-    levelList.get(3).levelActive = true;
-    levelList.get(2).levelActive = false;
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    levelList.add(new Level(100, 0, 2, 12, 4, true));
     ammoCheck();
     break;
 
   case 5:
     // println("LEVELUP TESTER 4");
     clearBox();
-    levelList.get(4).levelActive = true;  
-    levelList.get(3).levelActive = false;
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    levelList.add(new Level(125, 0, 2, 12, 5, true));
     ammoCheck();
     break;
 
   case 6:
     // println("LEVELUP TESTER 5");
     clearBox();
-    //levelList.get(5).levelActive = true;  
-    levelList.get(4).levelActive = false;
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    levelList.add(new Level(150, 0, 2, 12, 6, true));
     ammoCheck();
     break;
   }
 }
+
+
+
+
 
 
 
