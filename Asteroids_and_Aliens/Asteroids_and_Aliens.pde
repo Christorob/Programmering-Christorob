@@ -28,6 +28,9 @@ void setup() {
 
   scoreList.add(new Score(currentScore));
 
+
+
+
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
 
   levelList.add(new Level(5, 0, 1, 10, 1, true));
@@ -44,9 +47,21 @@ void setup() {
   }
 }
 
+
+void spawnSpaceship() {
+  for (Level l : levelList) {
+    if (l.levelActive == true) {
+      shipList.add(new Spaceship(100, 60, new PVector(300, height/2), new PVector(18, 18), l.health));
+      println("ShipGen successful.");
+    }
+  }
+}
+
+
+
 void draw() {
   //clear();
-  //println(laserList.size());
+  println("------------------------ship no: " + shipList.size());
 
   //nextLevel();
 
@@ -75,6 +90,9 @@ void draw() {
     s2.collide();
     s2.death();
   }
+
+
+
   //Streaking effect creation, used instead of clear()
   fill(0, 0, 0, 100);
   rect(width/2, height/2, width, height);
@@ -98,7 +116,6 @@ void draw() {
     s1.display();
     s1.move();
   }
-
 
   for (Obstacle o2 : obstacleList) {
     o2.display();
@@ -170,64 +187,7 @@ void ammoCheck() {
   }
 }
 
-
-/*void levelUp() {
- 
- switch(currentLevel) {
- 
- case 1:
- println("LEVELUP TESTER 0 (INIT)");
- clearBox();
- levelList.get(0).levelActive = true;
- //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
- ammoCheck();
- break;
- 
- case 2:
- println("LEVELUP TESTER 1");
- clearBox();
- levelList.get(1).levelActive = true;
- levelList.get(0).levelActive = false;
- if (levelList.get(0).levelActive == true) println("WACK?!");
- ammoCheck();
- break;
- 
- case 3:
- println("LEVELUP TESTER 2");
- clearBox();
- levelList.get(2).levelActive = true;   
- levelList.get(1).levelActive = false;
- ammoCheck();
- break;
- 
- case 4:
- println("LEVELUP TESTER 3");
- clearBox();
- levelList.get(3).levelActive = true;
- levelList.get(2).levelActive = false;
- ammoCheck();
- break;
- 
- case 5:
- // println("LEVELUP TESTER 4");
- clearBox();
- levelList.get(4).levelActive = true;  
- levelList.get(3).levelActive = false;
- ammoCheck();
- break;
- 
- case 6:
- // println("LEVELUP TESTER 5");
- clearBox();
- //levelList.get(5).levelActive = true;  
- levelList.get(4).levelActive = false;
- ammoCheck();
- break;
- }
- }*/
-
 void levelUp() {
-
   switch(currentLevel) {
 
   case 1:
@@ -286,25 +246,15 @@ void levelUp() {
   }
 }
 
-
-
-
-
-
-
 void callObstacleGen() {
   // Level spawning spaceship and asteroids
   for (Level l : levelList) {
     if (currentLevel == l.levelID && l.levelActive == true) {
       l.spawnAsteroids();
-      l.spawnSpaceship();
       println("I AM WORKING " + l.levelID);
     }
   }
 }
-
-
-
 
 //Keycodes for controls
 void keyPressed() {
@@ -332,3 +282,60 @@ void keyReleased() {
     println("Shooting ending...");
   }
 }
+
+
+
+/*void levelUp() {
+ 
+ switch(currentLevel) {
+ 
+ case 1:
+ println("LEVELUP TESTER 0 (INIT)");
+ clearBox();
+ levelList.get(0).levelActive = true;
+ //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
+ ammoCheck();
+ break;
+ 
+ case 2:
+ println("LEVELUP TESTER 1");
+ clearBox();
+ levelList.get(1).levelActive = true;
+ levelList.get(0).levelActive = false;
+ if (levelList.get(0).levelActive == true) println("WACK?!");
+ ammoCheck();
+ break;
+ 
+ case 3:
+ println("LEVELUP TESTER 2");
+ clearBox();
+ levelList.get(2).levelActive = true;   
+ levelList.get(1).levelActive = false;
+ ammoCheck();
+ break;
+ 
+ case 4:
+ println("LEVELUP TESTER 3");
+ clearBox();
+ levelList.get(3).levelActive = true;
+ levelList.get(2).levelActive = false;
+ ammoCheck();
+ break;
+ 
+ case 5:
+ // println("LEVELUP TESTER 4");
+ clearBox();
+ levelList.get(4).levelActive = true;  
+ levelList.get(3).levelActive = false;
+ ammoCheck();
+ break;
+ 
+ case 6:
+ // println("LEVELUP TESTER 5");
+ clearBox();
+ //levelList.get(5).levelActive = true;  
+ levelList.get(4).levelActive = false;
+ ammoCheck();
+ break;
+ }
+ }*/
