@@ -34,7 +34,7 @@ class Alien extends Obstacle {
     fill(c2, 10);
     translate(pos.x, pos.y);
     rotate(i);
-    ellipse(0, 0, w, h);
+    rect(0, 0, w, h);
     i += sin(rotation);
     pop();
   }

@@ -60,6 +60,9 @@ void draw() {
   //Death Detection (probably temporary)
   if (alive == false) {
     println("DEAD LOL");
+    for (Score s : scoreList) {
+    println("FINAL SCORE: " + s.score);
+    }
     exit();
     return;
   }
