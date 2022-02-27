@@ -1,11 +1,5 @@
 // TO DO!!!!!!!!!!!!!!: //<>//
-// WHY IS LEVELUP TESTER 3 FAILING?? also the levels are not being displayed or run? hmm -- robbindabankrobbinrobbindabank
-// Alien movement, laser aiming, collison- pew pew collision go pRPFPAfAWwyuuu
-// Multiple Levels WIP -- get outta the way bitchehss wip on the wayy
-// Unlocks using upgrades (not sure if i can pull this off) -- pull this off u can do it woooo 
-// Score calculator and display WIP -- wip again bitch get outta maaa wayyy
-// Highscore saver -- hell yeah brauhh uwu
-// YOU GOT TO LINE 206
+// ALL DONE
 
 ArrayList<Object> objectList = new ArrayList<Object>();
 ArrayList<Star> starList = new ArrayList<Star>();
@@ -18,7 +12,7 @@ ArrayList<Alien> alienList = new ArrayList<Alien>();
 ArrayList<AlienLaser> alienLaserList = new ArrayList<AlienLaser>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel = 0, laserCount, currentScore, ammoCount = 250, ammoCheckLevel = currentLevel;
+int collisionCount, currentLevel = 0, laserCount, currentScore, ammoCount = 100, ammoCheckLevel = currentLevel;
 
 void setup() {
   alive = true;
@@ -221,7 +215,7 @@ void clearBox() {
 
 void ammoCheck() {
   if (currentLevel != ammoCheckLevel) {
-    ammoCount += currentLevel * 50;
+    ammoCount += currentLevel % 3 * 50 + 50;
     hasAmmo = true;
     ammoCheckLevel = currentLevel;
   }
@@ -243,7 +237,7 @@ void levelUp() {
   case 2:
     println("LEVELUP TESTER 1");
     clearBox();
-    levelList.add(new Level(4, 0, 3, 25, 2, true));
+    levelList.add(new Level(4, 1, 3, 25, 2, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
 

@@ -1,7 +1,5 @@
 class Alien extends Obstacle {
 
-  color c1 = color(random(50, 250));
-  color c2 = color(random(50, 200), random(50, 200), random(50, 200));
   float i;
   float rotation;
   int shootCycle = int(random(20, 200)), health = int(random(3, 6));
@@ -29,20 +27,10 @@ class Alien extends Obstacle {
 
   void display() {
     if (health > 0) {
-      //Reason for there being 2: second one adds tint of colour.
       push();
-      //fill(c1);
-      fill(255);
+      fill(random(255), random(255), random(255));
       translate(pos.x, pos.y);
       rotate(i / 3);
-      rect(0, 0, w, h);
-      i += sin(rotation);
-      pop();
-
-      push();
-      fill(c2, 10);
-      translate(pos.x, pos.y);
-      rotate(i);
       rect(0, 0, w, h);
       i += sin(rotation);
       pop();
