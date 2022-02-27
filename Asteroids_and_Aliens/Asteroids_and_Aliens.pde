@@ -32,7 +32,7 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(1, 0, 1, 20, 0, true));
+  levelList.add(new Level(1, 0, 1, 10, 0, true));
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -44,6 +44,7 @@ void setup() {
 
 
 void draw() {
+  gameOver();
   //clear();
   //println("------------------------asteroid no: " + obstacleList.size());
   //println("Aliens Present: " + alienList.size());
@@ -68,8 +69,8 @@ void draw() {
     for (Score s : scoreList) {
       println("FINAL SCORE: " + s.score);
     }
-    exit();
-    return;
+    //exit();
+    //return;
   }
 
   //Calling control function
@@ -161,6 +162,21 @@ void deleteLasers() {
     if (!a.alienLaserOnscreen) {
       alienLaserList.remove(i);
     }
+  }
+}
+
+
+void gameOver() {
+  if (alive != true) {
+    push();
+    fill(100, 210, 255);
+    textSize(50);
+    textMode(CORNER);
+    text("GAME OVER", height/2, height/2);
+    int tempScore = scoreList.get(0).score;
+    text("FINAL SCORE: " + tempScore, height/2, height/2 + 50);
+    text("HIGHEST LEVEL: " + currentLevel, height/2, height/2 + 100);
+    pop();
   }
 }
 

@@ -18,9 +18,11 @@ class Score extends Object {
         if (frameCount % 10 == 0) {
           //println("SCORE IS NOW: " + score);
           //println("CURRENT LEVEL: " + currentLevel);
-          score = score + (9 * l.scoreMultiplyer) ;
-          //println("Level ID: " + l.levelID);
-          //println("TEST2 " + l.scoreMultiplyer);
+          if (alive == true) {
+            score = score + (9 * l.scoreMultiplyer) ;
+            //println("Level ID: " + l.levelID);
+            //println("TEST2 " + l.scoreMultiplyer);
+          }
         }
       }
     }
