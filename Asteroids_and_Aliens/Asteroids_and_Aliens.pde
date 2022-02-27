@@ -17,7 +17,7 @@ ArrayList<Score> scoreList = new ArrayList<Score>();
 ArrayList<Alien> alienList = new ArrayList<Alien>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
-int collisionCount, currentLevel = 0, laserCount, currentScore, ammoCount = 500, ammoCheckLevel = currentLevel;
+int collisionCount, currentLevel = 0, laserCount, currentScore, ammoCount = 250, ammoCheckLevel = currentLevel;
 
 void setup() {
   alive = true;
@@ -172,7 +172,7 @@ void clearBox() {
 
 void ammoCheck() {
   if (currentLevel != ammoCheckLevel) {
-    ammoCount += 100;
+    ammoCount += currentLevel * 50;
     hasAmmo = true;
     ammoCheckLevel = currentLevel;
   }
@@ -185,7 +185,7 @@ void levelUp() {
   case 1:
     //println("LEVELUP TESTER 0 (INIT)");
     clearBox();
-    levelList.add(new Level(2, 1, 2, 20, 1, true));
+    levelList.add(new Level(2, 10, 2, 20, 1, true));
     //levelList.get(currentLevel).levelActive = true;
     //levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();

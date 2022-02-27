@@ -23,9 +23,10 @@ class Alien extends Obstacle {
   void display() {
     //Reason for there being 2: second one adds tint of colour.
     push();
-    fill(c1);
+    //fill(c1);
+    fill(255);
     translate(pos.x, pos.y);
-    rotate(i);
+    rotate(i / 3);
     rect(0, 0, w, h);
     i += sin(rotation);
     pop();
@@ -40,12 +41,17 @@ class Alien extends Obstacle {
   }
 
   void move() {
-    pos.sub(new PVector(random(-1, 1), random(-1, 1)));
-    pos.y -= sin(speed.x);
+    pos.sub(new PVector (random(1, 3), random(-2, 2)));
+    pos.y -= sin(speed.y)*10;
+    pos.x -= 1;
 
-    if (pos.y <= -w || pos.y >= height + h || pos.x <= 0 - w) {
+    if (pos.x <= 0 - w) {
       pos.y = random(-100, height + 100);
       pos.x = random(width + 100, 4000);
+    }
+
+    if (pos.y <= -w * 2 || pos.y >= height + (h * 2) ) {
+      speed.mult(-1);
     }
   }
 }
