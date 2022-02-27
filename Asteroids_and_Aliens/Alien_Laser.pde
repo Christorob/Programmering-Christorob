@@ -13,10 +13,9 @@ class AlienLaser extends Laser {
       ellipse(pos.x, pos.y, random(10, 40), random(1, 10));
       //println("Test Laser Display");
     }
-    //println(laserList.size());
   }
+  
   void collide() {
-
     for (Spaceship s : shipList) {
       if ( dist(s.pos.x, s.pos.y, pos.x, pos.y) <= s.h) {
         alienLaserOnscreen = false;
