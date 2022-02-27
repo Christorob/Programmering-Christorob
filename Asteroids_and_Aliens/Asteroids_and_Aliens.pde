@@ -32,7 +32,7 @@ void setup() {
   scoreList.add(new Score(currentScore));
 
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(1, 0, 1, 10, 0, true));
+  levelList.add(new Level(1, 0, 1, 20, 0, true));
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -119,6 +119,8 @@ void draw() {
   }
 }
 
+
+
 void deleteLasers() {
 
   //For Player lasers
@@ -142,9 +144,11 @@ void deleteLasers() {
 
   //For Alien Lasers
   for (AlienLaser a2 : alienLaserList) {
-    if (a2.pos.x < -100) {
-      a2.alienLaserOnscreen = false;
-    } 
+    for (Spaceship s : shipList) {
+      if (a2.pos.x < -100 || dist(s.pos.x, s.pos.y, a2.pos.x, a2.pos.y) <= s.h) {
+        a2.alienLaserOnscreen = false;
+      }
+    }
     if (a2.alienLaserOnscreen == true) {
       a2.move();
       a2.display();
