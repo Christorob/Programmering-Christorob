@@ -32,10 +32,25 @@ class Level extends Object {
         //println("Printing for Level: " + levelID);
         //println(asteroidNumber);
         //println("AsteroidGen " + (i + 1) + " successful.");
-        obstacleList.add(new Asteroid(w, h, new PVector(random(1600, 3200), random(0, 800)), new PVector(random(5, 15), random(6, 10)), random (-0.1, 0.1)));
+        obstacleList.add(new Asteroid(w, h, new PVector(random(1600, 3200), random(0, 800)), new PVector(random(5, 15), random(3, 10)), random (-0.01, 0.01)));
       }
     }
   }
+  
+    void spawnAliens() {
+
+    if (levelActive == true && levelID == currentLevel) {
+      w = random(20, 40);
+      h = random(20, 40);
+      for (int i = 0; i < alienNumber; i++) {
+        //println("Printing for Level: " + levelID);
+        //println(asteroidNumber);
+        //println("AsteroidGen " + (i + 1) + " successful.");
+        alienList.add(new Alien(w, h, new PVector(random(1600, 3200), random(0, 800)), new PVector(random(5, 15), random(6, 10)), random (-0.1, 0.1)));
+      }
+    }
+  }
+  
 
   void spawnSpaceship() {
     println("ShipGen init.");

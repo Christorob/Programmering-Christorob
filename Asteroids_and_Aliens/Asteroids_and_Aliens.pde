@@ -14,6 +14,7 @@ ArrayList<Spaceship> shipList = new ArrayList<Spaceship>();
 ArrayList<Level> levelList = new ArrayList<Level>();
 ArrayList<Laser> laserList = new ArrayList<Laser>();
 ArrayList<Score> scoreList = new ArrayList<Score>();
+ArrayList<Alien> alienList = new ArrayList<Alien>();
 
 boolean up, down, shoot, alive, hasAmmo = true;
 int collisionCount, currentLevel = 0, laserCount, currentScore, ammoCount = 500, ammoCheckLevel = currentLevel;
@@ -29,12 +30,8 @@ void setup() {
 
   scoreList.add(new Score(currentScore));
 
-
-
-
   //LEVELS: Asteroid no, Alien no, Score Mult, Spaceship hp, level ID, level active?
-  levelList.add(new Level(5, 0, 1, 10, 1, true));
-
+  levelList.add(new Level(1, 0, 1, 10, 0, true));
 
   //Star generation
   for (int i = 0; i < 300; i++) {
@@ -47,8 +44,8 @@ void setup() {
 
 void draw() {
   //clear();
-  //println("------------------------ship no: " + shipList.size());
-
+  //println("------------------------asteroid no: " + obstacleList.size());
+  println("Aliens Present: " + alienList.size());
 
   for (Level l : levelList) {
     if (l.levelID != currentLevel) {
@@ -105,6 +102,12 @@ void draw() {
   for (Obstacle o2 : obstacleList) {
     o2.display();
     o2.move();
+  }
+
+  for (Alien a : alienList) {
+    a.display();
+    a.move();
+    a.shoot();
   }
 
   for (Laser l2 : laserList) {
@@ -172,13 +175,14 @@ void ammoCheck() {
   }
 }
 
+//LEVEL GENERATOR
 void levelUp() {
   switch(currentLevel) {
 
   case 1:
     //println("LEVELUP TESTER 0 (INIT)");
     clearBox();
-    levelList.add(new Level(2, 0, 2, 20, 1, true));
+    levelList.add(new Level(2, 1, 2, 20, 1, true));
     //levelList.get(currentLevel).levelActive = true;
     //levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -198,7 +202,7 @@ void levelUp() {
   case 3:
     println("LEVELUP TESTER 2");
     clearBox();
-    levelList.add(new Level(6, 0, 2, 30, 3, true));
+    levelList.add(new Level(8, 0, 2, 30, 3, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -207,7 +211,7 @@ void levelUp() {
   case 4:
     println("LEVELUP TESTER 3");
     clearBox();
-    levelList.add(new Level(8, 0, 2, 35, 4, true));
+    levelList.add(new Level(12, 0, 2, 35, 4, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -216,7 +220,7 @@ void levelUp() {
   case 5:
     println("LEVELUP TESTER 4");
     clearBox();
-    levelList.add(new Level(10, 0, 2, 40, 5, true));
+    levelList.add(new Level(32, 0, 2, 40, 5, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -225,7 +229,43 @@ void levelUp() {
   case 6:
     println("LEVELUP TESTER 5");
     clearBox();
-    levelList.add(new Level(12, 0, 2, 45, 6, true));
+    levelList.add(new Level(48, 0, 2, 45, 6, true));
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    ammoCheck();
+    break;
+
+  case 7:
+    println("LEVELUP TESTER 6");
+    clearBox();
+    levelList.add(new Level(64, 0, 2, 45, 6, true));
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    ammoCheck();
+    break;
+
+  case 8:
+    println("LEVELUP TESTER 7");
+    clearBox();
+    levelList.add(new Level(100, 0, 2, 45, 6, true));
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    ammoCheck();
+    break;
+
+  case 9:
+    println("LEVELUP TESTER 8");
+    clearBox();
+    levelList.add(new Level(120, 0, 2, 45, 6, true));
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    ammoCheck();
+    break;
+
+  case 10:
+    println("LEVELUP TESTER 9");
+    clearBox();
+    levelList.add(new Level(150, 0, 2, 45, 6, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -238,7 +278,8 @@ void callObstacleGen() {
   for (Level l : levelList) {
     if (currentLevel == l.levelID && l.levelActive == true) {
       l.spawnAsteroids();
-      println("I AM WORKING " + l.levelID);
+      l.spawnAliens();
+      //println("I AM WORKING " + l.levelID);
     }
   }
 }
@@ -269,60 +310,3 @@ void keyReleased() {
     //println("Shooting ending...");
   }
 }
-
-
-
-/*void levelUp() {
- 
- switch(currentLevel) {
- 
- case 1:
- println("LEVELUP TESTER 0 (INIT)");
- clearBox();
- levelList.get(0).levelActive = true;
- //levelList.add(new Level(10 * currentLevel, (currentLevel - 5), currentLevel, 4 * currentLevel, currentLevel, true));
- ammoCheck();
- break;
- 
- case 2:
- println("LEVELUP TESTER 1");
- clearBox();
- levelList.get(1).levelActive = true;
- levelList.get(0).levelActive = false;
- if (levelList.get(0).levelActive == true) println("WACK?!");
- ammoCheck();
- break;
- 
- case 3:
- println("LEVELUP TESTER 2");
- clearBox();
- levelList.get(2).levelActive = true;   
- levelList.get(1).levelActive = false;
- ammoCheck();
- break;
- 
- case 4:
- println("LEVELUP TESTER 3");
- clearBox();
- levelList.get(3).levelActive = true;
- levelList.get(2).levelActive = false;
- ammoCheck();
- break;
- 
- case 5:
- // println("LEVELUP TESTER 4");
- clearBox();
- levelList.get(4).levelActive = true;  
- levelList.get(3).levelActive = false;
- ammoCheck();
- break;
- 
- case 6:
- // println("LEVELUP TESTER 5");
- clearBox();
- //levelList.get(5).levelActive = true;  
- levelList.get(4).levelActive = false;
- ammoCheck();
- break;
- }
- }*/

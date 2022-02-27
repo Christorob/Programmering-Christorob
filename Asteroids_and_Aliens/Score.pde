@@ -27,7 +27,7 @@ class Score extends Object {
   }
 
   void changeLevel() {
-    if (currentLevel <= 5) {
+    if (currentLevel <= 10) {
 
       if (score == 0) callObstacleGen();
       if (score >= (currentLevel * currentLevel * 1000)) {
