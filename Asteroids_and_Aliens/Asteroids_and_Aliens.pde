@@ -48,6 +48,8 @@ void draw() {
   //println("------------------------asteroid no: " + obstacleList.size());
   //println("Aliens Present: " + alienList.size());
 
+
+
   for (Level l : levelList) {
     if (l.levelID != currentLevel) {
       l.levelActive = false;
@@ -71,6 +73,8 @@ void draw() {
   //Calling control function
   clearBox();
   controls();
+
+  deleteLasers();
 
   for (Spaceship s2 : shipList) {
     s2.display();
@@ -113,25 +117,11 @@ void draw() {
     a1.move();
     a1.shoot();
   }
+}
 
+void deleteLasers() {
 
-  for (AlienLaser a2 : alienLaserList) {
-    if (a2.pos.x < -100) {
-      a2.alienLaserOnscreen = false;
-    } 
-    if (a2.alienLaserOnscreen == true) {
-      a2.move();
-      a2.display();
-      a2.collide();
-    }
-  }
-  for (int i = (alienLaserList.size() - 1); i >= 0; i--) {
-    AlienLaser a = alienLaserList.get(i);
-    if (!a.alienLaserOnscreen) {
-      alienLaserList.remove(i);
-    }
-  }
-
+  //For Player lasers
   for (Laser l2 : laserList) {
     if (l2.pos.x > width + 100) {
       l2.laserOnscreen = false;
@@ -142,10 +132,30 @@ void draw() {
       l2.collide();
     }
   }
+
   for (int i = (laserList.size() - 1); i >= 0; i--) {
     Laser l = laserList.get(i);
     if (!l.laserOnscreen) {
       laserList.remove(i);
+    }
+  }
+
+  //For Alien Lasers
+  for (AlienLaser a2 : alienLaserList) {
+    if (a2.pos.x < -100) {
+      a2.alienLaserOnscreen = false;
+    } 
+    if (a2.alienLaserOnscreen == true) {
+      a2.move();
+      a2.display();
+      a2.collide();
+    }
+  }
+
+  for (int i = (alienLaserList.size() - 1); i >= 0; i--) {
+    AlienLaser a = alienLaserList.get(i);
+    if (!a.alienLaserOnscreen) {
+      alienLaserList.remove(i);
     }
   }
 }
@@ -203,7 +213,7 @@ void levelUp() {
   case 1:
     println("LEVELUP TESTER 0 (INIT)");
     clearBox();
-    levelList.add(new Level(2, 10, 2, 20, 1, true));
+    levelList.add(new Level(2, 4, 2, 20, 1, true));
     //levelList.get(currentLevel).levelActive = true;
     //levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();

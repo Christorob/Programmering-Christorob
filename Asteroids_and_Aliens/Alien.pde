@@ -4,7 +4,7 @@ class Alien extends Obstacle {
   color c2 = color(random(50, 200), random(50, 200), random(50, 200));
   float i;
   float rotation;
-  int shootCycle = int(random(10, 500));
+  int shootCycle = int(random(20, 200));
 
   Alien(float w_, float h_, PVector pos_, PVector speed_, float rotation_) {
     w = w_;

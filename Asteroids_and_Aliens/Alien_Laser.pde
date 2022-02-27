@@ -18,12 +18,17 @@ class AlienLaser extends Laser {
 
   void collide() {
     for (AlienLaser a : alienLaserList) { 
-      for (Spaceship s1 : shipList) {
-        if ( dist(s1.pos.x, s1.pos.y, a.pos.x, a.pos.y) <= s1.h) {
-          s1.health -= 1;
-          if (alienLaserOnscreen == false) {
-            alienLaserList.remove(a);
-          }
+      for (Spaceship s : shipList) {
+        if ( dist(s.pos.x, s.pos.y, a.pos.x, a.pos.y) <= s.h) {
+          alienLaserOnscreen = false;
+          println("Current health: " + s.health);
+          //if (frameCount % 100 == 0) {
+            s.health--;
+          //}
+          break;
+          //if (alienLaserOnscreen == false) {
+          //alienLaserList.remove(a);
+          //}
         }
       }
     }
