@@ -53,6 +53,7 @@ void draw() {
   fill(0, 0, 0, 100);
   rect(width/2, height/2, width, height);
 
+
   for (Level l : levelList) {
     if (l.levelID != currentLevel) {
       l.levelActive = false;
@@ -73,21 +74,21 @@ void draw() {
     //return;
   }
 
-  //Calling control function
+  //Calling clearing box, controls, and delete laser functions
   clearBox();
   controls();
-
   deleteLasers();
+
+  //Instructions
+  fill(#34A541);
+  text("Use arrow keys to move!", 10, 125);
+  text("Use spacebar to shoot!", 10, 150);
 
   for (Spaceship s2 : shipList) {
     s2.display();
     s2.collide();
     s2.death();
   }
-
-
-
-
 
   //Object classes functions being called
 
@@ -194,7 +195,7 @@ void controls() {
       }
     }
     fill(0);
-    text (" Ammo remaining: " + ammoCount, 45, 100);
+    text (" Ammo remaining: " + ammoCount, 5, 100);
     if (shoot == true && hasAmmo == true) { 
       laserList.add(new Laser(new PVector(s.pos.x, s.pos.y), new PVector (30, 0)));
       laserCount++;
@@ -211,10 +212,10 @@ void controls() {
 
 void clearBox() {
   push();
-  fill(255);
+  fill(255, 200);
   rectMode(CORNER);
   //rect (160, 44, 90, 20);
-  rect (0, 0, 280, 120);
+  rect (0, 0, 260, 160);
   pop();
 }
 
@@ -242,7 +243,7 @@ void levelUp() {
   case 2:
     println("LEVELUP TESTER 1");
     clearBox();
-    levelList.add(new Level(4, 0, 2, 25, 2, true));
+    levelList.add(new Level(4, 0, 3, 25, 2, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
 
@@ -253,7 +254,7 @@ void levelUp() {
   case 3:
     println("LEVELUP TESTER 2");
     clearBox();
-    levelList.add(new Level(8, 1, 2, 30, 3, true));
+    levelList.add(new Level(8, 1, 4, 30, 3, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -262,7 +263,7 @@ void levelUp() {
   case 4:
     println("LEVELUP TESTER 3");
     clearBox();
-    levelList.add(new Level(12, 2, 2, 35, 4, true));
+    levelList.add(new Level(12, 2, 5, 35, 4, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -271,7 +272,7 @@ void levelUp() {
   case 5:
     println("LEVELUP TESTER 4");
     clearBox();
-    levelList.add(new Level(32, 4, 2, 40, 5, true));
+    levelList.add(new Level(32, 4, 6, 40, 5, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -280,7 +281,7 @@ void levelUp() {
   case 6:
     println("LEVELUP TESTER 5");
     clearBox();
-    levelList.add(new Level(48, 6, 2, 45, 6, true));
+    levelList.add(new Level(48, 6, 7, 45, 6, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -289,7 +290,7 @@ void levelUp() {
   case 7:
     println("LEVELUP TESTER 6");
     clearBox();
-    levelList.add(new Level(64, 8, 2, 45, 6, true));
+    levelList.add(new Level(64, 8, 8, 50, 6, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -298,7 +299,7 @@ void levelUp() {
   case 8:
     println("LEVELUP TESTER 7");
     clearBox();
-    levelList.add(new Level(100, 12, 2, 45, 6, true));
+    levelList.add(new Level(100, 12, 9, 55, 6, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -307,7 +308,7 @@ void levelUp() {
   case 9:
     println("LEVELUP TESTER 8");
     clearBox();
-    levelList.add(new Level(120, 16, 2, 45, 6, true));
+    levelList.add(new Level(120, 16, 10, 60, 6, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
@@ -316,7 +317,16 @@ void levelUp() {
   case 10:
     println("LEVELUP TESTER 9");
     clearBox();
-    levelList.add(new Level(150, 20, 2, 45, 6, true));
+    levelList.add(new Level(150, 20, 11, 65, 6, true));
+    levelList.get(currentLevel).levelActive = true;
+    levelList.get(currentLevel - 1).levelActive = false;
+    ammoCheck();
+    break;
+
+  case 11:
+    println("LEVELUP TESTER 10");
+    clearBox();
+    levelList.add(new Level(200, 30, 12, 70, 6, true));
     levelList.get(currentLevel).levelActive = true;
     levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();
