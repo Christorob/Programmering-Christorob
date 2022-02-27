@@ -46,7 +46,7 @@ class Level extends Object {
         //println("Printing for Level: " + levelID);
         //println(asteroidNumber);
         //println("AsteroidGen " + (i + 1) + " successful.");
-        alienList.add(new Alien(w, h, new PVector(random(1600, 3200), random(0, 800)), new PVector(random(5, 15), random(6, 10)), random (-0.1, 0.1)));
+        alienList.add(new Alien(w, h, new PVector(random(1600, 3200), random(0, 800)), new PVector(random(5, 15), random(6, 10)), random (-0.1, 0.1), int(random(3, 6))));
       }
     }
   }

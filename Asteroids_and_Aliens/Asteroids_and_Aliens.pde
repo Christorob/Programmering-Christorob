@@ -48,7 +48,9 @@ void draw() {
   //println("------------------------asteroid no: " + obstacleList.size());
   //println("Aliens Present: " + alienList.size());
 
-
+  //Streaking effect creation, used instead of clear()
+  fill(0, 0, 0, 100);
+  rect(width/2, height/2, width, height);
 
   for (Level l : levelList) {
     if (l.levelID != currentLevel) {
@@ -83,9 +85,7 @@ void draw() {
   }
 
 
-  //Streaking effect creation, used instead of clear()
-  fill(0, 0, 0, 100);
-  rect(width/2, height/2, width, height);
+
 
 
   //Object classes functions being called
@@ -217,7 +217,7 @@ void levelUp() {
   case 1:
     println("LEVELUP TESTER 0 (INIT)");
     clearBox();
-    levelList.add(new Level(2, 4, 2, 20, 1, true));
+    levelList.add(new Level(2, 0, 2, 20, 1, true));
     //levelList.get(currentLevel).levelActive = true;
     //levelList.get(currentLevel - 1).levelActive = false;
     ammoCheck();

@@ -23,6 +23,7 @@ class Laser extends Object {
 
   void collide() {
     for (Laser l : laserList) { 
+
       for (Obstacle o2 : obstacleList) {
         for (Score s : scoreList) {
           if ( dist(o2.pos.x, o2.pos.y, l.pos.x, l.pos.y) <= o2.w) {
@@ -32,9 +33,13 @@ class Laser extends Object {
             //println("Score is: " + s.score);
             //println("Laser hit!");
           }
-
-          if (laserOnscreen == false) {
-            laserList.remove(o2);
+          for (Alien a : alienList) {
+            if ( dist(a.pos.x, a.pos.y, l.pos.x, l.pos.y) <= a.w) {
+              a.health--;
+            }
+            if (laserOnscreen == false) {
+              laserList.remove(o2);
+            }
           }
         }
       }
