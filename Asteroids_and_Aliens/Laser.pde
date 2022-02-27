@@ -28,10 +28,11 @@ class Laser extends Object {
           if ( dist(o2.pos.x, o2.pos.y, l.pos.x, l.pos.y) <= o2.w) {
             o2.pos.x = random(2000, 3000);
             //println("Score is: " + s.score);
-            s.score += random(20 , 80);
+            s.score += random(50, 100);
             //println("Score is: " + s.score);
             //println("Laser hit!");
           }
+
           if (laserOnscreen == false) {
             laserList.remove(o2);
           }

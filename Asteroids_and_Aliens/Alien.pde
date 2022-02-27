@@ -4,6 +4,7 @@ class Alien extends Obstacle {
   color c2 = color(random(50, 200), random(50, 200), random(50, 200));
   float i;
   float rotation;
+  int shootCycle = int(random(10, 500));
 
   Alien(float w_, float h_, PVector pos_, PVector speed_, float rotation_) {
     w = w_;
@@ -17,6 +18,9 @@ class Alien extends Obstacle {
   }
 
   void shoot() {
+    if (frameCount % shootCycle == 0) {
+      alienLaserList.add(new AlienLaser(new PVector(pos.x, pos.y), new PVector (-30, 0)));
+    }
   }
 
 
