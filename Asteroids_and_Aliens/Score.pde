@@ -18,7 +18,7 @@ class Score extends Object {
         if (frameCount % 10 == 0) {
           //println("SCORE IS NOW: " + score);
           //println("CURRENT LEVEL: " + currentLevel);
-          score = score + (1 * l.scoreMultiplyer) ;
+          score = score + (9 * l.scoreMultiplyer) ;
           //println("Level ID: " + l.levelID);
           //println("TEST2 " + l.scoreMultiplyer);
         }
@@ -28,12 +28,20 @@ class Score extends Object {
 
   void changeLevel() {
     if (currentLevel <= 5) {
-      println("----------------------------------");
+
       if (score == 0) callObstacleGen();
-      if (score >= (currentLevel * 1000)) {
+      if (score >= (currentLevel * currentLevel * 1000)) {
         callObstacleGen();
-        println("THE CURRENT LEVEL IS NOW ONE MORE");
+        println(" - - - - - - - - THE CURRENT LEVEL IS NOW ONE MORE");
         currentLevel++;
+        //Level Up function
+        levelUp();
+
+        for (Spaceship s : shipList) {
+          if (currentLevel % 3 == 0) {
+            s.health += 5;
+          }
+        }
       }
     }
   }

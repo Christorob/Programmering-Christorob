@@ -24,12 +24,17 @@ class Laser extends Object {
   void collide() {
     for (Laser l : laserList) { 
       for (Obstacle o2 : obstacleList) {
-        if ( dist(o2.pos.x, o2.pos.y, l.pos.x, l.pos.y) <= o2.w) {
-          o2.pos.x = random(2000, 3000);
-          //println("Laser hit!");
-        }
-        if (laserOnscreen == false) {
-          laserList.remove(o2);
+        for (Score s : scoreList) {
+          if ( dist(o2.pos.x, o2.pos.y, l.pos.x, l.pos.y) <= o2.w) {
+            o2.pos.x = random(2000, 3000);
+            //println("Score is: " + s.score);
+            s.score += random(20 , 80);
+            //println("Score is: " + s.score);
+            //println("Laser hit!");
+          }
+          if (laserOnscreen == false) {
+            laserList.remove(o2);
+          }
         }
       }
     }

@@ -12,8 +12,8 @@ class Asteroid extends Obstacle {
     speed = speed_;
     rotation = rotation_;
 
-    w *= random(0.5, 2);
-    h *= random(0.5, 2);
+    w *= random(0.5, 2.5);
+    h *= random(0.5, 2.5);
   }
 
   void display() {
@@ -38,12 +38,12 @@ class Asteroid extends Obstacle {
   void move() {
     //pos.add(new PVector(0, sin(100)*random(-3, 3))) ;
     pos.x -= speed.x;
-    pos.sub(new PVector(0, noise(millis()/100)*2-1));
-    pos.sub(new PVector(0, 10*(random(-0.25, 0.25))));
+    pos.sub(new PVector(0, noise(millis()/10) * random(-2, 2)));
+    pos.sub(new PVector(0, 10 * (random(-0.25, 0.25))));
 
     if (pos.y <= -w || pos.y >= height + h || pos.x <= 0 - w) {
-      pos.y = random(-200, 1000);
-      pos.x = random(1650, 4000);
+      pos.y = random(-100, height + 100);
+      pos.x = random(width + 100, 4000);
     }
   }
 }
